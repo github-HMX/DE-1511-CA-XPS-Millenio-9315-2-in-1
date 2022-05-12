@@ -4,6 +4,7 @@ import MenuProductView from './MenuProductView';
 import MenuPositions from './MenuPosition';
 import AnimationBtn from './AnimationBtn';
 import MenuFeatures from './MenuFeatures';
+import MenuSubFeatures from './MenuSubFeatures';
 import MenuColors from './MenuColors';
 import Howtousenew from './Howtousenew';
 import HowToUse from './HowToUse';
@@ -345,9 +346,9 @@ const MainMenu = (props) => {
       document.getElementById("hotspot12").setAttribute("tabindex","-1");
       document.getElementById("hotspot13").setAttribute("tabindex","-1");
 
-      document.getElementById("tentBtn").setAttribute("tabindex","-1");
-      document.getElementById("theaterBtn").setAttribute("tabindex","-1");
-      document.getElementById("tabletBtn").setAttribute("tabindex","-1");
+      // document.getElementById("tentBtn").setAttribute("tabindex","-1");
+      // document.getElementById("theaterBtn").setAttribute("tabindex","-1");
+      // document.getElementById("tabletBtn").setAttribute("tabindex","-1");
 
       //  document.getElementById('laptop2in1').classList.remove('select');
       document.getElementById('laptop').classList.add('active');
@@ -368,16 +369,16 @@ const MainMenu = (props) => {
       // document.querySelector('#menucolor').setAttribute = ("onBlackBtnClick");
 
 
-      document.querySelector('#tentBtn').classList.add('Mui-disabled');
-      document.querySelector('#tentBtn').style.pointerEvents = 'none';
+      // document.querySelector('#tentBtn').classList.add('Mui-disabled');
+      // document.querySelector('#tentBtn').style.pointerEvents = 'none';
       // document.querySelector('#tentBtn').setAttribute("tabindex", "-1");
 
-      document.querySelector('#theaterBtn').classList.add('Mui-disabled');
-      document.querySelector('#theaterBtn').style.pointerEvents = 'none';
+      // document.querySelector('#theaterBtn').classList.add('Mui-disabled');
+      // document.querySelector('#theaterBtn').style.pointerEvents = 'none';
       // document.querySelector('#theaterBtn').setAttribute("tabindex", "-1");
 
-      document.querySelector('#tabletBtn').classList.add('Mui-disabled');
-      document.querySelector('#tabletBtn').style.pointerEvents = 'none';
+      // document.querySelector('#tabletBtn').classList.add('Mui-disabled');
+      // document.querySelector('#tabletBtn').style.pointerEvents = 'none';
       // document.querySelector('#tabletBtn').setAttribute("tabindex", "-1");
       document.getElementById("blackBtn").setAttribute("tabindex","1");
 
@@ -437,9 +438,9 @@ const MainMenu = (props) => {
       document.getElementById('whiteBtn').classList.add('active');
       document.getElementById('laptop').classList.remove('active');
       document.getElementById('laptop').classList.remove('select');
-      document.getElementById("tentBtn").setAttribute("tabindex","1");
-      document.getElementById("theaterBtn").setAttribute("tabindex","1");
-      document.getElementById("tabletBtn").setAttribute("tabindex","1");
+      // document.getElementById("tentBtn").setAttribute("tabindex","1");
+      // document.getElementById("theaterBtn").setAttribute("tabindex","1");
+      // document.getElementById("tabletBtn").setAttribute("tabindex","1");
 
       // document.getElementById("blackBtn").setAttribute("tabindex", "-1");
 
@@ -508,16 +509,16 @@ const MainMenu = (props) => {
       // document.querySelector('#menucolor').removeAttribute = ("onBlackBtnClick");
 
 
-      document.querySelector('#tentBtn').classList.remove('Mui-disabled');
-      document.querySelector('#tentBtn').style.pointerEvents = 'auto';
+      // document.querySelector('#tentBtn').classList.remove('Mui-disabled');
+      // document.querySelector('#tentBtn').style.pointerEvents = 'auto';
       // document.querySelector('#tentBtn').setAttribute("tabindex", "1");
 
-      document.querySelector('#theaterBtn').classList.remove('Mui-disabled');
-      document.querySelector('#theaterBtn').style.pointerEvents = 'auto';
+      // document.querySelector('#theaterBtn').classList.remove('Mui-disabled');
+      // document.querySelector('#theaterBtn').style.pointerEvents = 'auto';
       // document.querySelector('#theaterBtn').setAttribute("tabindex", "1");
 
-      document.querySelector('#tabletBtn').classList.remove('Mui-disabled');
-      document.querySelector('#tabletBtn').style.pointerEvents = 'auto';
+      // document.querySelector('#tabletBtn').classList.remove('Mui-disabled');
+      // document.querySelector('#tabletBtn').style.pointerEvents = 'auto';
       // document.querySelector('#tabletBtn').setAttribute("tabindex", "1");
       document.getElementById("blackBtn").setAttribute("tabindex","1");
 
@@ -1078,6 +1079,270 @@ const MainMenu = (props) => {
       window.scene.clearRefine();
    }
 
+   const onangleOneClick = (isNextPrevious) => {
+
+      //Update ZoomBar
+      var slider = document.getElementById("sliderRange");
+
+      if (slider != null) {
+         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+      }
+      console.log(position.nintyDegree,position.currentPos)
+
+      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+      if (alreadySelected != null) {
+         alreadySelected.classList.remove('active');
+      }
+      document.getElementById('angleOneBtn').classList.add('active');
+      window.localStorage.setItem("position","reset");
+
+      var currentPosName = position.currentPos;
+
+      selectedButton = '';
+      if (!(mob || isipad)) {
+         document.getElementById('previousView').setAttribute('aria-label','Front view');
+
+         document.getElementById('nextView').setAttribute('aria-label','Front view');
+      }
+
+      // if (laptop180) {
+      //    window.scene.groupApplyState("screenfill_180");
+      // } else {
+      //    window.scene.groupApplyState("screenfill_360");
+      // }
+
+      window.localStorage.removeItem('hotspot');
+
+      reversAll();
+      resetBacklitCloseImg();
+
+      GotoPosInTimeNamedValue('Render_Cam_F20_L',function () {
+         window.localStorage.setItem('hotspot','front')
+
+         if (isNextPrevious != true) {
+            window.document.getElementById("hotspot1demo").focus();
+         }
+      })
+      if (!(window.isipad || window.mob)) {
+         document.getElementById("hotspot1").setAttribute("tabindex","-1");
+         document.getElementById("hotspot2").setAttribute("tabindex","-1");
+         document.getElementById("hotspot3").setAttribute("tabindex","-1");
+         document.getElementById("hotspot4").setAttribute("tabindex","-1");
+         document.getElementById("hotspot5").setAttribute("tabindex","-1");
+         document.getElementById("hotspot6").setAttribute("tabindex","-1");
+         document.getElementById("hotspot7").setAttribute("tabindex","-1");
+         document.getElementById("hotspot8").setAttribute("tabindex","-1");
+         document.getElementById("hotspot9").setAttribute("tabindex","-1");
+         document.getElementById("hotspot10").setAttribute("tabindex","-1");
+
+         document.getElementById("hotspot11").setAttribute("tabindex","1");
+         document.getElementById("hotspot12").setAttribute("tabindex","1");
+         document.getElementById("hotspot13").setAttribute("tabindex","1");
+         document.getElementById("rLeft").setAttribute("tabindex","0");
+         document.getElementById("rRight").setAttribute("tabindex","0");
+         document.getElementById("zoomOut").setAttribute("tabindex","0");
+         document.getElementById("sliderRange").setAttribute("tabindex","0");
+         document.getElementById("zoomIn").setAttribute("tabindex","0");
+         document.getElementById("previousView").setAttribute("tabindex","0");
+         document.getElementById("resetView").setAttribute("tabindex","0");
+         document.getElementById("nextView").setAttribute("tabindex","0");
+
+      }
+      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+      //    console.log("Theater")
+      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+      // }
+      // else {
+      //    console.log("else")
+      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      // }
+
+      window.RT_RecordEvent("Product Type","Front",window.config.name);
+      window.scene.clearRefine();
+      position.currentPos = 'nintyDegree';
+
+   }
+
+   const onangleTwoClick = (isNextPrevious) => {
+
+      //Update ZoomBar
+      var slider = document.getElementById("sliderRange");
+
+      if (slider != null) {
+         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+      }
+      console.log(position.nintyDegree,position.currentPos)
+
+      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+      if (alreadySelected != null) {
+         alreadySelected.classList.remove('active');
+      }
+      document.getElementById('frontBtn').classList.add('active');
+      window.localStorage.setItem("position","reset");
+
+      var currentPosName = position.currentPos;
+
+      selectedButton = '';
+      if (!(mob || isipad)) {
+         document.getElementById('previousView').setAttribute('aria-label','Front view');
+
+         document.getElementById('nextView').setAttribute('aria-label','Front view');
+      }
+
+      // if (laptop180) {
+      //    window.scene.groupApplyState("screenfill_180");
+      // } else {
+      //    window.scene.groupApplyState("screenfill_360");
+      // }
+
+      window.localStorage.removeItem('hotspot');
+
+      reversAll();
+      resetBacklitCloseImg();
+
+      GotoPosInTimeNamedValue('Render_Cam_F20_R',function () {
+         window.localStorage.setItem('hotspot','front')
+
+         if (isNextPrevious != true) {
+            window.document.getElementById("hotspot1demo").focus();
+         }
+      })
+      if (!(window.isipad || window.mob)) {
+         document.getElementById("hotspot1").setAttribute("tabindex","-1");
+         document.getElementById("hotspot2").setAttribute("tabindex","-1");
+         document.getElementById("hotspot3").setAttribute("tabindex","-1");
+         document.getElementById("hotspot4").setAttribute("tabindex","-1");
+         document.getElementById("hotspot5").setAttribute("tabindex","-1");
+         document.getElementById("hotspot6").setAttribute("tabindex","-1");
+         document.getElementById("hotspot7").setAttribute("tabindex","-1");
+         document.getElementById("hotspot8").setAttribute("tabindex","-1");
+         document.getElementById("hotspot9").setAttribute("tabindex","-1");
+         document.getElementById("hotspot10").setAttribute("tabindex","-1");
+
+         document.getElementById("hotspot11").setAttribute("tabindex","1");
+         document.getElementById("hotspot12").setAttribute("tabindex","1");
+         document.getElementById("hotspot13").setAttribute("tabindex","1");
+         document.getElementById("rLeft").setAttribute("tabindex","0");
+         document.getElementById("rRight").setAttribute("tabindex","0");
+         document.getElementById("zoomOut").setAttribute("tabindex","0");
+         document.getElementById("sliderRange").setAttribute("tabindex","0");
+         document.getElementById("zoomIn").setAttribute("tabindex","0");
+         document.getElementById("previousView").setAttribute("tabindex","0");
+         document.getElementById("resetView").setAttribute("tabindex","0");
+         document.getElementById("nextView").setAttribute("tabindex","0");
+
+      }
+      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+      //    console.log("Theater")
+      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+      // }
+      // else {
+      //    console.log("else")
+      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      // }
+
+      window.RT_RecordEvent("Product Type","Front",window.config.name);
+      window.scene.clearRefine();
+      position.currentPos = 'nintyDegree';
+
+   }
+
+   const onangleThreeClick = (isNextPrevious) => { 
+
+      //Update ZoomBar
+      var slider = document.getElementById("sliderRange");
+
+      if (slider != null) {
+         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+      }
+      console.log(position.nintyDegree,position.currentPos)
+
+      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+      if (alreadySelected != null) {
+         alreadySelected.classList.remove('active');
+      }
+      document.getElementById('frontBtn').classList.add('active');
+      window.localStorage.setItem("position","reset");
+
+      var currentPosName = position.currentPos;
+
+      selectedButton = '';
+      if (!(mob || isipad)) {
+         document.getElementById('previousView').setAttribute('aria-label','Front view');
+
+         document.getElementById('nextView').setAttribute('aria-label','Front view');
+      }
+
+      // if (laptop180) {
+      //    window.scene.groupApplyState("screenfill_180");
+      // } else {
+      //    window.scene.groupApplyState("screenfill_360");
+      // }
+
+      window.localStorage.removeItem('hotspot');
+
+      reversAll();
+      resetBacklitCloseImg();
+
+      GotoPosInTimeNamedValue('Render_Cam_F20_FL_With_Pen',function () {
+         window.localStorage.setItem('hotspot','front')
+
+         if (isNextPrevious != true) {
+            window.document.getElementById("hotspot1demo").focus();
+         }
+      })
+      if (!(window.isipad || window.mob)) {
+         document.getElementById("hotspot1").setAttribute("tabindex","-1");
+         document.getElementById("hotspot2").setAttribute("tabindex","-1");
+         document.getElementById("hotspot3").setAttribute("tabindex","-1");
+         document.getElementById("hotspot4").setAttribute("tabindex","-1");
+         document.getElementById("hotspot5").setAttribute("tabindex","-1");
+         document.getElementById("hotspot6").setAttribute("tabindex","-1");
+         document.getElementById("hotspot7").setAttribute("tabindex","-1");
+         document.getElementById("hotspot8").setAttribute("tabindex","-1");
+         document.getElementById("hotspot9").setAttribute("tabindex","-1");
+         document.getElementById("hotspot10").setAttribute("tabindex","-1");
+
+         document.getElementById("hotspot11").setAttribute("tabindex","1");
+         document.getElementById("hotspot12").setAttribute("tabindex","1");
+         document.getElementById("hotspot13").setAttribute("tabindex","1");
+         document.getElementById("rLeft").setAttribute("tabindex","0");
+         document.getElementById("rRight").setAttribute("tabindex","0");
+         document.getElementById("zoomOut").setAttribute("tabindex","0");
+         document.getElementById("sliderRange").setAttribute("tabindex","0");
+         document.getElementById("zoomIn").setAttribute("tabindex","0");
+         document.getElementById("previousView").setAttribute("tabindex","0");
+         document.getElementById("resetView").setAttribute("tabindex","0");
+         document.getElementById("nextView").setAttribute("tabindex","0");
+
+      }
+      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+      //    console.log("Theater")
+      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+      // }
+      // else {
+      //    console.log("else")
+      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      // }
+
+      window.RT_RecordEvent("Product Type","Front",window.config.name);
+      window.scene.clearRefine();
+      position.currentPos = 'nintyDegree';
+
+   }
+
    //MenuFeatureView
 
    const [openCloseOnOff,setOpenCloseOnOff] = useState(false);
@@ -1455,7 +1720,7 @@ const MainMenu = (props) => {
          alreadySelected.classList.remove('active');
       }
 
-      document.getElementById('tentBtn').classList.add('active');
+      // document.getElementById('tentBtn').classList.add('active');
       window.scene.groupApplyState("screen_360");
 
       selectedButton = 'TentModeClick';
@@ -2088,6 +2353,7 @@ const MainMenu = (props) => {
          <MenuProductView tabIndex="1" onFrontBtnClick={onFrontClick} onBackBtnClick={onBackClick} onTopBtnClick={onTopClick} onLeftBtnClick={onLeftClick} onRightBtnClick={onRightClick} onBottomBtnClick={onBottomClick} imgfront={laptop360FrontImg} imgtop={laptop360TopImg} imgleft={laptop360LeftImg} imgright={laptop360RightImg} name={window.finalLangues.productview} expanded={expandedPanel === 'panel1'} onChanged={handleAccordionChange('panel1')} />
 
          <MenuFeatures name={window.finalLangues.feature} tabIndex="1" tobechange={opneClose} tobeChanged={backlit} openClosedClicked={openCloseClick} onOffBackliteClicked={backliteClick} expanded={expandedPanel === 'panel3'} onChanged={handleAccordionChange('panel3')} />
+         <MenuSubFeatures name="XPS Folio on/off" tabIndex="1" tobechange={opneClose} tobeChanged={backlit} angleOneClicked={onangleOneClick} angleTwoClicked={onangleTwoClick} angleThreeClicked={onangleThreeClick} expanded={expandedPanel === 'panel6'} onChanged={handleAccordionChange('panel6')} />
 
          <AnimationBtn onchange={displayName} forKeypress={setAnimationSwitch} value={animValue} onchange1={displayName1} forKeypress1={setAnimationSwitch1} value1={animValue1} />
 

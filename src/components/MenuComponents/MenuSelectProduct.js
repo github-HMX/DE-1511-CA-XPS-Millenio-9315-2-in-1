@@ -43,8 +43,8 @@ const MenuSelectProductType = (props)=>{
 
         <AccordionDetails id="selectProduct" style={border}>
         <RadioGroup className="Radio" name="gender1" value={props.value} >
-        <FormControlLabel id="laptop2in1" style={{minwidth:"200px"}} aria-labelledby="" tabIndex="1" onKeyPress={props.onclickedtwo} onClick={props.onclickedtwo} value="2 in 1" control={<Radio  id='twoinoneRadio' color="primary"/>} label={window.finalLangues.laptop360} />
-        <FormControlLabel id="laptop" style={{minwidth:"200px"}} tabIndex="1" onKeyPress={props.onclicked} onClick={props.onclicked} value="laptop" control={<Radio id="laptopRadio" color="primary"/>} label={window.finalLangues.laptop}  />
+        <FormControlLabel id="laptop2in1" style={{minwidth:"200px"}} aria-labelledby="" tabIndex="1" onKeyPress={props.onclickedtwo} onClick={props.onclickedtwo} value="2 in 1" control={<Radio  id='twoinoneRadio' color="primary"/>} label="5G" />
+        <FormControlLabel id="laptop" style={{minwidth:"200px"}} tabIndex="1" onKeyPress={props.onclicked} onClick={props.onclicked} value="laptop" control={<Radio id="laptopRadio" color="primary"/>} label="Wifi"  />
         </RadioGroup>
         </AccordionDetails>
         </Accordion>
