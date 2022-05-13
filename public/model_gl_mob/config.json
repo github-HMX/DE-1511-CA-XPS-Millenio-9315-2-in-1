@@ -1,5 +1,5 @@
 {
-    "displaylayers": [ "Keyboard_button", "Millenio_5G", "Millenio_WIFI", "Millennio_WIFI_TR", "Pen_button", "Reflection_plane", "TO", "Tab_Reflection", "UntitledGroup25" ],
+    "displaylayers": [ "Keyboard_button", "Millenio_5G", "Millenio_WIFI", "Millennio_WIFI_TR", "Pen_button", "Reflection_plane", "TO", "Tab_Reflection", "UntitledGroup25", "UntitledGroup34" ],
     "positions": {
         "Camera": {
             "doffocusdist": 5.000000,
@@ -12,6 +12,13 @@
             "doffocusdist": 5.000000,
             "fovy": 13.685547,
             "pos": [ 0.000000, -0.000000, -0.010798, 6.714036, 145.742386 ],
+            "target": [ 0.0, 0.0, 0.0 ],
+            "time": 1000
+        },
+        "Render_Cam_F01_Front_Tabletold": {
+            "doffocusdist": 5.000000,
+            "fovy": 4.630074,
+            "pos": [ 0.785767, 0.000000, 6.568546, 6.568548, 6.568548 ],
             "target": [ 0.0, 0.0, 0.0 ],
             "time": 1000
         },
@@ -108,6 +115,6 @@
             "time": 0
         }
     },
-    "states": [ "Keyboard_OFF", "Keyboard_OFF11", "Keyboard_OFF22", "Keyboard_ON", "Keyboard_ON11", "Keyboard_ON22", "Keyboard_ON33", "Millenio_5G_OFF", "Millenio_5G_ON", "Millenio_5G_ON11", "Millenio_WIFI_OFF", "Millenio_WIFI_ON", "Millenio_WIFI_ON11", "Millenio_WIFI_ON22", "Millennio_WIFI_TR_OFF", "Millennio_WIFI_TR_ON", "Millennio_WIFI_TR_ON11", "Millennio_WIFI_TR_ON22", "Pen_OFF", "Pen_ON", "Pen_ON11", "Pen_ON22", "Reflection_plane_off", "Reflection_plane_on", "Reflection_plane_on11", "Tab_Reflection_OFF", "Tab_Reflection_ON" ],
+    "states": [ "Keyboard_OFF", "Keyboard_OFF11", "Keyboard_OFF2", "Keyboard_ON", "Keyboard_ON11", "Keyboard_ON22", "Millenio_5G_OFF", "Millenio_5G_ON", "Millenio_5G_ON11", "Millenio_5G_ON22", "Millenio_WIFI_OFF", "Millenio_WIFI_ON", "Millenio_WIFI_ON11", "Millenio_WIFI_ON22", "Millennio_WIFI_TR_OFF", "Millennio_WIFI_TR_ON", "Millennio_WIFI_TR_ON11", "Millennio_WIFI_TR_ON22", "Pen_OFF", "Pen_ON", "Pen_ON11", "Pen_ON22", "Reflection_plane_off", "Reflection_plane_on", "Reflection_plane_on11", "Tab_Reflection_OFF", "Tab_Reflection_ON" ],
     "ver": "v2.0.529"
 }

@@ -111,14 +111,14 @@ const MenuColors = (props) => {
                expandIcon={<ExpandMoreIcon />} style={ProductViewHeader}>
                <Typography id="colors1" className="accordion-headers AccordiansHeader" style={{ fontWeight: "700" }}>{props.name}</Typography>
             </AccordionSummary>
-            <AccordionDetails tabIndex="1" id="whiteBtn" onKeyPress={props.onWhiteBtnClick} onClick={props.onWhiteBtnClick} >
-               <MenuCircleBtn submenu={"Aluminium" || window.finalLangues.color1} source="./img/clr_1.png" />
+            <AccordionDetails tabIndex="1" id="blackBtn" onKeyPress={props.onWhiteBtnClick} onClick={props.onWhiteBtnClick} >
+               <MenuCircleBtn submenu="Sky" source="./img/clr_1.png" />
 
             </AccordionDetails>
-            <Tooltip open={open1} onOpen={handleOpen1} onClose={handleClose1} title="Not available in selected product type" placement="right" arrow>
+            {/* <Tooltip open={open1} onOpen={handleOpen1} onClose={handleClose1} title="Not available in selected product type" placement="right" arrow> */}
 
-               <AccordionDetails tabIndex="-1" id="blackBtn" onKeyPress={props.onBlackBtnClick} onClick={props.onBlackBtnClick}>
-                  <MenuCircleBtn id="blackBtns" submenu={"Carbon Fiber" || window.finalLangues.color2} source="./img/clr_2.png" />
+               <AccordionDetails tabIndex="-1" id="whiteBtn" onKeyPress={props.onBlackBtnClick} onClick={props.onBlackBtnClick}>
+                  <MenuCircleBtn id="blackBtns" submenu="Slate" source="./img/clr_2.png" />
                   {/* <div className="menubtn">
          <Button className="Btnsubmenu"
          style={Btn}
@@ -131,7 +131,7 @@ const MenuColors = (props) => {
         </div> */}
 
                </AccordionDetails>
-            </Tooltip>
+            {/* </Tooltip> */}
          </Accordion>
       </div>
    );

@@ -8,6 +8,7 @@
 	text-decoration: none;
 	margin-bottom: -15px;
 }
+#selectProductBtn{display:none;}
 .Menuheader {
 	cursor: pointer;
 	padding: 2px 0 0;

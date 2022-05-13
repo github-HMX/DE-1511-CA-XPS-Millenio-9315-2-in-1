@@ -36,9 +36,6 @@ const MenuProductView = (props) => {
             <AccordionDetails tabIndex="1" aria-label="Back" id="backBtn" onKeyPress={props.onFrontBtnClick} onClick={props.onBackBtnClick}>
                <MenuBtn aria-hidden="true" style={AccordianIcons} submenu="Back" subname={window.finalLangues.front} submenu="Back" source={props.imgfront} />
             </AccordionDetails>
-            <AccordionDetails tabIndex="1" aria-label="Top" id="topBtn" onKeyPress={props.onTopBtnClick} onClick={props.onTopBtnClick}>
-               <MenuBtn aria-hidden="true" style={AccordianIcons} submenu="Top" subname={window.finalLangues.top} submenu={window.finalLangues.top} source={props.imgtop} />
-            </AccordionDetails>
             <AccordionDetails tabIndex="1" aria-label="Left" id="rightBtn" onKeyPress={props.onRightBtnClick} onClick={props.onRightBtnClick}>
                <MenuBtn aria-hidden="true" style={AccordianIcons} submenu="Left" subname={window.finalLangues.left} submenu={window.finalLangues.left} source={props.imgright} />
 
@@ -46,7 +43,9 @@ const MenuProductView = (props) => {
             <AccordionDetails tabIndex="1" aria-label="Right" id="leftBtn" onKeyPress={props.onLeftBtnClick} onClick={props.onLeftBtnClick}>
                <MenuBtn aria-hidden="true" style={AccordianIcons} sunMenu="Right" subname={window.finalLangues.right} submenu={window.finalLangues.right} source={props.imgleft} />
             </AccordionDetails>
-
+            <AccordionDetails tabIndex="1" aria-label="Top" id="topBtn" onKeyPress={props.onTopBtnClick} onClick={props.onTopBtnClick}>
+               <MenuBtn aria-hidden="true" style={AccordianIcons} submenu="Top" subname={window.finalLangues.top} submenu={window.finalLangues.top} source={props.imgtop} />
+            </AccordionDetails>
             <AccordionDetails tabIndex="1" aria-label="Bottom" id="bottomBtn" onKeyPress={props.onBottomBtnClick} onClick={props.onBottomBtnClick}>
                <MenuBtn aria-hidden="true" style={AccordianIcons} sunMenu="Bottom" sunmenu="Bottom" subname="Bottom" submenu={window.finalLangues.bottom} source={props.imgleft} />
             </AccordionDetails>

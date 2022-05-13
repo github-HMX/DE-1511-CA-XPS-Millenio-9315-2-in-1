@@ -9,8 +9,11 @@ var infinityrt_navigation = function (scene, w, h) {
     this._zoomFactor = 0.0;
     this._navEnabled = true;
     this._navMode = 2;
+    // this._navMinDolly = 14.0; //50
+    // this._navMaxDolly = 28.0; //110
     this._navMinDolly = 14.0; //50
     this._navMaxDolly = 28.0; //110
+
     this._zoomMaxFactor = this._navMaxDolly + 1 * (this._navMinDolly-this._navMaxDolly); 
     this._zoomMinFactor = this._navMaxDolly + 0 * (this._navMinDolly-this._navMaxDolly); 
     
@@ -24,7 +27,7 @@ var infinityrt_navigation = function (scene, w, h) {
     //MOBILE NAVIGATION VALUES**************************
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
-            this._navRotationSpeed = 0.02;
+            this._navRotationSpeed = 0.002;
             this._navDollySpeed=0.002;
             this._navPanSpeed=0.04;
             this._navDecay = 0.75;

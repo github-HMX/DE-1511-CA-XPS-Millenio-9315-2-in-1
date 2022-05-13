@@ -41,12 +41,12 @@ const MenuSelectProductType = (props)=>{
         <Typography className="accordion-headers AccordiansHeader" style={{fontWeight:"700", margin:"0px 0px"}}>{props.name}</Typography>
         </AccordionSummary >
 
-        <AccordionDetails id="selectProduct" style={border}>
+        {/* <AccordionDetails id="selectProduct" style={border}>
         <RadioGroup className="Radio" name="gender1" value={props.value} >
         <FormControlLabel id="laptop2in1" style={{minwidth:"200px"}} aria-labelledby="" tabIndex="1" onKeyPress={props.onclickedtwo} onClick={props.onclickedtwo} value="2 in 1" control={<Radio  id='twoinoneRadio' color="primary"/>} label="5G" />
         <FormControlLabel id="laptop" style={{minwidth:"200px"}} tabIndex="1" onKeyPress={props.onclicked} onClick={props.onclicked} value="laptop" control={<Radio id="laptopRadio" color="primary"/>} label="Wifi"  />
         </RadioGroup>
-        </AccordionDetails>
+        </AccordionDetails> */}
         </Accordion>
     </>
     );
