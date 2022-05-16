@@ -51,8 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
    drawerPaper: {
       width: 'auto',
-      minWidth: '140px',
-      maxWidth: '35vw',
+      width: '285px',
       overflow: 'visible',
       top: '9%'
       //background: "#c7addd"

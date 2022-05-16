@@ -361,7 +361,7 @@
 
       }
 
-      #calloutcanvas {}
+   
    </style>
 
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" />
@@ -566,7 +566,8 @@
          back: "Render_Cam_F01_Rear_Tablet",
          left: "Render_Cam_F01_L_Tablet",
          right: "Render_Cam_F01_R_Tablet",
-         bottom: "Render_Cam_F01_Top_Front"
+         bottom: "Render_Cam_F01_Top_Front",
+         default: "Render_Cam_F20_FL_With_Pen"
 
       }
 
@@ -608,7 +609,7 @@
          console.log('End time: ' + (new Date().getTime() - timeStart));
          // window.localStorage.removeItem('Animation');
          window.localStorage.removeItem('hotspot');
-         GotoPosInTimeNamedValue('Render_Cam_F20_FL_With_Pen');
+         GotoPosInTimeNamedValue(config.default);
          window.localStorage.setItem('Animation','on');
          window.localStorage.setItem("laptop","laptop360");
          if (window.document.getElementById("animSwitchValue")) {
