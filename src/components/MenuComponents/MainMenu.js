@@ -24,8 +24,8 @@ export const userContext = React.createContext();
 var prevCounter = 0;
 var nextClicked = false;
 var prevClicked = false;
-var buttonSeq = ['onResetMode','onFrontClick','onBackClick','onRightClick','onLeftClick','onTopClick','onBottomClick','xpsStylusClick'];
-var buttonSeq180 = ['onResetMode','onFrontClick','onBackClick','onRightClick','onLeftClick','onTopClick','onBottomClick','xpsStylusClick'];
+var buttonSeq = ['onResetMode','onFrontClick','onBackClick','onRightClick','onLeftClick','onTopClick','onBottomClick','xpsFolioClick','xpsStylusClick'];
+var buttonSeq180 = ['onResetMode','onFrontClick','onBackClick','onRightClick','onLeftClick','onTopClick','onBottomClick','xpsFolioClick','xpsStylusClick'];
 var selectedButton = 'onResetMode';
 
 var position = {
@@ -43,10 +43,12 @@ const MainMenu = (props) => {
    const [expandedPanel,setExpandedPanel] = useState(false);
    const [displayed,setDisplayed] = useState(false);
    const [hidden,setHidden] = useState(true);
-   const [laptop360FrontImg,setLaptop360FrontImg] = useState("./img/front360.png");
+   const [laptop360FrontImg,setLaptop360FrontImg] = useState("./img/front360_black.png");
    const [laptop360TopImg,setLaptop360TopImg] = useState("./img/top360.png");
    const [laptop360LeftImg,setLaptop360LefttImg] = useState("./img/360_left.png");
    const [laptop360RightImg,setLaptop360RightImg] = useState("./img/360_right.png");
+   const [laptop360BackImg,setLaptop360BackImg] = useState("./img/360_back.png");
+   const [laptop360BottomImg,setLaptop360BottomImg] = useState("./img/360_Bottom.png");
    const [counter,setCounter] = useState(0);
 
    //   const [orientationPotrait, setOrientation] = useState(true);
@@ -160,9 +162,9 @@ const MainMenu = (props) => {
    const reversAll = () => {
       window.scene.groupApplyState("Pen_OFF");
       window.scene.groupApplyState("Keyboard_OFF");
-      if (window.scene.animIsPlaying("Tab")) {
-         window.scene.getAnim("Tab").stop();
-      }
+      // if (window.scene.animIsPlaying("Tab")) {
+      //    window.scene.getAnim("Tab").stop();
+      // }
       // if (window.scene.animIsPlaying("Tab.001")) {
       //    window.scene.getAnim("Tab.001").stop();
       // }
@@ -173,9 +175,9 @@ const MainMenu = (props) => {
 
    const resetBacklitCloseImg = () => {
       setOpenCloseOnOff(false);
-      setOpenClose("./img/Lid_open.svg");
+      setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/Backlite_Off.svg");
+      setBacklite("./img/stylus_B.png");
 
       // window.scene.materialReplace('LED_Backlit_ON_env', 'LED_Backlit_OFF_env');
       window.scene.clearRefine();
@@ -298,6 +300,9 @@ const MainMenu = (props) => {
       setLaptop360TopImg("./img/top180White.png");
       setLaptop360LefttImg("./img/180_white_left.png");
       setLaptop360RightImg("./img/180_white_right.png");
+      setLaptop360BackImg("./img/180_white_Back.png");
+      setLaptop360BottomImg("./img/180_white_Bottom.png");
+      
       resetBacklitCloseImg();
 
       window.localStorage.setItem("position","reset");
@@ -500,11 +505,12 @@ const MainMenu = (props) => {
       document.getElementById("hotspot13").setAttribute("tabindex","-1");
 
 
-      setLaptop360FrontImg("./img/front360.png");
+      setLaptop360FrontImg("./img/front360_black.png");
       setLaptop360TopImg("./img/top360.png");
       setLaptop360LefttImg("./img/360_left.png");
       setLaptop360RightImg("./img/360_right.png");
-
+      setLaptop360BackImg("./img/360_back.png");
+      setLaptop360BottomImg("./img/360_Bottom.png");
       resetBacklitCloseImg();
 
       GotoPosInTimeNamedValue(window.config.default,function () {
@@ -596,7 +602,7 @@ const MainMenu = (props) => {
 
       reversAll();
       resetBacklitCloseImg();
-      window.scene.animPlayAllChildrenInTime("Tab",0,0);
+      // window.scene.animPlayAllChildrenInTime("Tab",0,0);
       GotoPosInTimeNamedValue(window.config.front,function () {
          window.localStorage.setItem('hotspot','front')
 
@@ -629,7 +635,7 @@ const MainMenu = (props) => {
          document.getElementById("nextView").setAttribute("tabindex","0");
 
       }
-      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
       // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
       //    console.log("Theater")
       //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
@@ -640,10 +646,6 @@ const MainMenu = (props) => {
       //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       // }
-
-      window.RT_RecordEvent("Product Type","Front",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'nintyDegree';
 
    }
    const onBackClick = (isNextPrevious) => {
@@ -715,7 +717,7 @@ const MainMenu = (props) => {
          document.getElementById("nextView").setAttribute("tabindex","0");
 
       }
-      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
       // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
       //    console.log("Theater")
       //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
@@ -729,7 +731,7 @@ const MainMenu = (props) => {
 
       window.RT_RecordEvent("Product Type","Back",window.config.name);
       window.scene.clearRefine();
-      position.currentPos = 'nintyDegree';
+      // position.currentPos = 'nintyDegree';
 
    }
 
@@ -802,20 +804,20 @@ const MainMenu = (props) => {
          document.getElementById("hotspot12").setAttribute("tabindex","-1");
          document.getElementById("hotspot13").setAttribute("tabindex","-1");
       }
-      var currentPosName = position.currentPos;
-      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-         console.log("Theater")
+      // var currentPosName = position.currentPos;
+      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+      //    console.log("Theater")
          // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
          // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      }
-      else {
-         console.log("else")
+      // }
+      // else {
+      //    console.log("else")
          // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
          // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      }
-      window.scene.clearRefine();
-      position.currentPos = 'nintyDegree';
+      // }
+      // window.scene.clearRefine();
+      // position.currentPos = 'nintyDegree';
 
       window.RT_RecordEvent("Product Type","Right",window.config.name);
       window.scene.clearRefine();
@@ -856,7 +858,7 @@ const MainMenu = (props) => {
       reversAll();
       resetBacklitCloseImg();
 
-      GotoPosInTimeNamedValue(window.config.front,function () {
+      GotoPosInTimeNamedValue(window.config.bottom,function () {
          window.localStorage.setItem('hotspot','right')
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
@@ -888,20 +890,20 @@ const MainMenu = (props) => {
          document.getElementById("hotspot12").setAttribute("tabindex","-1");
          document.getElementById("hotspot13").setAttribute("tabindex","-1");
       }
-      var currentPosName = position.currentPos;
-      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-         console.log("Theater")
+      // var currentPosName = position.currentPos;
+      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+      //    console.log("Theater")
          // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
          // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      }
-      else {
-         console.log("else")
+      // }
+      // else {
+      //    console.log("else")
          // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
          // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      }
-      window.scene.clearRefine();
-      position.currentPos = 'nintyDegree';
+      // }
+      // window.scene.clearRefine();
+      // position.currentPos = 'nintyDegree';
 
       window.RT_RecordEvent("Product Type","Right",window.config.name);
       window.scene.clearRefine();
@@ -978,19 +980,19 @@ const MainMenu = (props) => {
          document.getElementById("hotspot12").setAttribute("tabindex","-1");
          document.getElementById("hotspot13").setAttribute("tabindex","-1");
       }
-      var currentPosName = position.currentPos;
-      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-         console.log("Theater")
+      // var currentPosName = position.currentPos;
+      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+      //    console.log("Theater")
          // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
          // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      }
-      else {
-         console.log("else")
+      // }
+      // else {
+      //    console.log("else")
          // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
          // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      }
-      position.currentPos = 'nintyDegree';
+      // }
+      // position.currentPos = 'nintyDegree';
 
       window.RT_RecordEvent("Product Type","Left",window.config.name);
       window.scene.clearRefine();
@@ -1360,13 +1362,13 @@ const MainMenu = (props) => {
    //MenuFeatureView
 
    const [openCloseOnOff,setOpenCloseOnOff] = useState(false);
-   const [backlit,setBacklite] = useState("./img/Backlite_Off.svg");
-   const [opneClose,setOpenClose] = useState("./img/Lid_open.svg");
+   const [backlit,setBacklite] = useState("./img/stylus_B.png");
+   const [opneClose,setOpenClose] = useState("./img/Folio_B.png");
    const [backliteOnOff,setBackliteOnOff] = useState(false);
 
 
    const xpsFolioClick = () => {
-      reversAll();
+      // reversAll();
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
 
@@ -1384,7 +1386,7 @@ const MainMenu = (props) => {
       if (alreadySelected != null) {
          alreadySelected.classList.remove('active');
       }
-
+      window.scene.groupApplyState("Pen_OFF");
       document.getElementById('xpsFolioClick').classList.add('active');
 
       window.localStorage.setItem("position","reset");
@@ -1439,7 +1441,7 @@ const MainMenu = (props) => {
          }
          setOpenCloseOnOff(false);
          console.log("open");
-         setOpenClose("./img/Lid_open.svg");
+         setOpenClose("./img/Folio_B.png");
 
 
          window.scene.groupApplyState("dynamic_reset");
@@ -1459,7 +1461,7 @@ const MainMenu = (props) => {
          setOpenCloseOnOff(true);
          console.log("close");
          setBackliteOnOff(false);
-         setOpenClose("./img/Lid_close.svg");
+         setOpenClose("./img/Folio_B.png");
 
 
          window.scene.groupApplyState("dynamic_reset");
@@ -1558,11 +1560,11 @@ const MainMenu = (props) => {
          }
          GotoPosInTimeNamedValue(window.config.default,function () { })
 
-         window.scene.groupApplyState("Pen_OFF");
+         window.scene.groupApplyState("Pen_ON");
          // window.scene.clearRefine();
          // document.getElementById('backlitOff').style.display="none";
          // document.getElementById('backlitOn').style.display="block";
-         // window.document.getElementById('backlitOff').src="./img/Backlite_Off.svg";
+         // window.document.getElementById('backlitOff').src="./img/stylus_B.png";
          window.RT_RecordEvent("Features","Backlite Off",window.config.name);
          
 
@@ -1576,13 +1578,13 @@ const MainMenu = (props) => {
          }
          setBackliteOnOff(true);
          console.log("on");
-         setBacklite("./img/Backlite_On.svg");
+         setBacklite("./img/stylus_W.png");
          GotoPosInTimeNamedValue(window.config.default,function () {
          });
          window.scene.groupApplyState("Pen_ON");
          // document.getElementById('backlitOn').style.display="none";
          // document.getElementById('backlitOff').style.display="block";
-         // window.document.getElementById('backlitOn').src="./img/Backlite_On.svg";
+         // window.document.getElementById('backlitOn').src="./img/stylus_W.png";
          window.RT_RecordEvent("Features","Backlite On",window.config.name);
          window.scene.clearRefine();
          
@@ -1630,13 +1632,15 @@ const MainMenu = (props) => {
       window.localStorage.setItem("position","reset");
 
       setOpenCloseOnOff(false);
-      setOpenClose("./img/Lid_open.svg");
+      setOpenClose("./img/Folio_W.png");
       setBackliteOnOff(false);
-      setBacklite("./img/Backlite_Off.svg");
+      setBacklite("./img/stylus_B.png");
       setLaptop360FrontImg("./img/front180White.png");
       setLaptop360TopImg("./img/top180White.png");
       setLaptop360LefttImg("./img/180_white_left.png");
       setLaptop360RightImg("./img/180_white_right.png");
+      setLaptop360BackImg("./img/180_white_back.png");
+      setLaptop360BottomImg("./img/180_white_Bottom.png");
       window.scene.groupApplyState("screenfill_180");
       window.localStorage.setItem("color","laptopSilver");
       setPort4Click(false);
@@ -1670,13 +1674,16 @@ const MainMenu = (props) => {
       
 
       setOpenCloseOnOff(false);
-      setOpenClose("./img/Lid_open.svg");
+      setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/Backlite_Off.svg");
-      setLaptop360FrontImg("./img/front180Black.png");
-      setLaptop360TopImg("./img/top180Black.png");
+      setBacklite("./img/stylus_B.png"); 
+      setLaptop360FrontImg("./img/front360_black.png");
+      setLaptop360TopImg("./img/top360.png");
       setLaptop360LefttImg("./img/180_black_left.png");
-      setLaptop360RightImg("./img/180_black_right.png");
+      setLaptop360RightImg("./img/360_right.png");
+
+      setLaptop360BackImg("./img/360_back.png");
+      setLaptop360BottomImg("./img/360_Bottom.png");
       window.scene.groupApplyState("screenfill_180");
       setPort2Click(false);
       setPort1Click(false);
@@ -1765,9 +1772,9 @@ const MainMenu = (props) => {
          document.getElementById('nextView').setAttribute('aria-label','Tent Mode');
       }
       setOpenCloseOnOff(false);
-      setOpenClose("./img/Lid_open.svg");
+      setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/Backlite_Off.svg");
+      setBacklite("./img/stylus_B.png");
       window.localStorage.removeItem('hotspot');
       GotoPosInTimeNamedValue('Tent_Cam_F53_Tent',function () {
          window.scene.groupApplyState("GP_tent");
@@ -1813,9 +1820,9 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("Backlit_OFF");
       window.scene.groupApplyState("all_GP_off");
       setOpenCloseOnOff(false);
-      setOpenClose("./img/Lid_open.svg");
+      setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/Backlite_Off.svg");
+      setBacklite("./img/stylus_B.png");
 
       window.localStorage.removeItem('hotspot');
       GotoPosInTimeNamedValue('Render_Cam_F100_Stand');
@@ -1859,9 +1866,9 @@ const MainMenu = (props) => {
       }
       window.scene.groupApplyState("Backlit_OFF");
       setOpenCloseOnOff(false);
-      setOpenClose("./img/Lid_open.svg");
+      setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/Backlite_Off.svg");
+      setBacklite("./img/stylus_B.png");
 
       window.localStorage.removeItem('hotspot');
       GotoPosInTimeNamedValue('Close_Cam_F158_Close1');
@@ -1960,7 +1967,7 @@ const MainMenu = (props) => {
          window.scene.clearRefine();
 
       }
-      else if (selectedButton == 'keyboardClick') {
+      else if (selectedButton == 'xpsFolioClick') {
          GotoPosInTimeNamedValue(window.config.default,function () {
          })
          window.scene.clearRefine();
@@ -2026,7 +2033,7 @@ const MainMenu = (props) => {
          var prevButton;
          var selectedButtonIndex = buttonSeq180.findIndex(element => element === selectedButton)
          if (selectedButton == 'onFrontClick' || selectedButton == 'onResetMode') {
-            prevButton = 'xpsStylusClick';
+            prevButton = 'xpsFolioClick';
          } else {
             prevButton = buttonSeq180[selectedButtonIndex - 1];
          }
@@ -2054,7 +2061,7 @@ const MainMenu = (props) => {
          setExpandedPanel("panel1");
 
       }
-      // else if (prevButton == 'xpsStylusClick') xpsStylusClick(true);
+      else if (prevButton == 'xpsFolioClick') xpsFolioClick(true);
        else if (prevButton == 'xpsStylusClick') {
          setExpandedPanel("panel3");
 
@@ -2083,7 +2090,7 @@ const MainMenu = (props) => {
 
          var nextButton;
          var selectedButtonIndex = buttonSeq180.findIndex(element => element === selectedButton)
-         if (selectedButton == 'xpsStylusClick') {
+         if (selectedButton == 'xpsFolioClick') {
             nextButton = 'onFrontClick';
          } else {
             nextButton = buttonSeq180[selectedButtonIndex + 1];
@@ -2118,11 +2125,11 @@ const MainMenu = (props) => {
       //    openCloseClick(true);
       //    setExpandedPanel("panel3");
       // }
-      else if (nextButton == 'xpsStylusClick') {
-         xpsStylusClick(true);
+      else if (nextButton == 'xpsFolioClick') {
+         xpsFolioClick(true);
          setExpandedPanel("panel3");
       }
-      //  else if (nextButton == 'keyboardClick') keyboardClick(true);
+       else if (nextButton == 'xpsStylusClick') xpsStylusClick(true);
       
       return false;
 
@@ -2346,7 +2353,7 @@ const MainMenu = (props) => {
          {/* </userContext.Provider> */}
          {/* <MenuPositions name={window.finalLangues.position} tabIndex="1" onTentMode={TentModeClick} onTheaterMode={TheaterModeClick} onTabletMode={TabletModeClick} expanded={expandedPanel === 'panel2'} onChanged={handleAccordionChange('panel2')} /> */}
 
-         <MenuProductView tabIndex="1" onFrontBtnClick={onFrontClick} onBackBtnClick={onBackClick} onTopBtnClick={onTopClick} onLeftBtnClick={onLeftClick} onRightBtnClick={onRightClick} onBottomBtnClick={onBottomClick} imgfront={laptop360FrontImg} imgtop={laptop360TopImg} imgleft={laptop360LeftImg} imgright={laptop360RightImg} name={window.finalLangues.productview} expanded={expandedPanel === 'panel1'} onChanged={handleAccordionChange('panel1')} />
+         <MenuProductView tabIndex="1" onFrontBtnClick={onFrontClick} onBackBtnClick={onBackClick} onTopBtnClick={onTopClick} onLeftBtnClick={onLeftClick} onRightBtnClick={onRightClick} onBottomBtnClick={onBottomClick} imgfront={laptop360FrontImg} imgtop={laptop360TopImg} imgleft={laptop360LeftImg} imgright={laptop360RightImg} imgback={laptop360BackImg} imgbottom={laptop360BottomImg} name={window.finalLangues.productview} expanded={expandedPanel === 'panel1'} onChanged={handleAccordionChange('panel1')} />
 
          <MenuFeatures name={window.finalLangues.feature} tabIndex="1" tobechange={opneClose} tobeChanged={backlit} openClosedClicked={xpsFolioClick} onOffBackliteClicked={xpsStylusClick} expanded={expandedPanel === 'panel3'} onChanged={handleAccordionChange('panel3')} />
          {/* <MenuKeyboard name="Keyboard" tabIndex="1" tobechange={opneClose} tobeChanged={backlit} angleOneClicked={onangleOneClick} angleTwoClicked={onangleTwoClick} angleThreeClicked={onangleThreeClick} expanded={expandedPanel === 'panel6'} onChanged={handleAccordionChange('panel6')} /> */}

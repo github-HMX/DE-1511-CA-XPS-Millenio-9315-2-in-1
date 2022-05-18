@@ -19,7 +19,7 @@ const Btn={
 const BtnIcon={
   borderRadius:"0px", 
   background:'transparent',
-  width:'36px',
+  width:'52px',
   height:'36px'
 }
 const MenuCircleBtnBacklite =(props)=>{
