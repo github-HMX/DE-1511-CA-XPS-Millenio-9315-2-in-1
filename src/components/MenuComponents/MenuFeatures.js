@@ -50,12 +50,13 @@ const MenuFeatures =(props)=>{
           expandIcon={<ExpandMoreIcon /> } style={ProductViewHeader}>
         <Typography id="featuress" className="accordion-headers AccordiansHeader" style={{fontWeight:"700"}}>{props.name}</Typography>
         </AccordionSummary> 
-        {/* <Tooltip title="Comming soon" placement="right" arrow>  */}
-            <AccordionDetails tabIndex="1" id="xpsFolioClick" onKeyPress={props.openClosedClicked}  onClick={props.openClosedClicked}>
+        <Tooltip title="Comming soon" placement="right" arrow> 
+            <AccordionDetails tabIndex="1" id="xpsFolioClick" onKeyPress={props.openClosedClicked}  onClick={props.openClosedClicke}>
             <MenuCircleBtnOpenClose changeOpenCloseImg={props.tobechange}  className="openclose" submenu="XPS Folio" />
             </AccordionDetails> 
-          {/* </Tooltip>  */}
-            <AccordionDetails tabIndex="1"  id="backlitBtn" onKeyPress={props.onOffBackliteClicked} onClick={props.onOffBackliteClicked}>
+          </Tooltip> 
+          <Tooltip title="Comming soon" placement="right" arrow> 
+            <AccordionDetails tabIndex="1"  id="backlitBtn" onKeyPress={props.onOffBackliteClicked} onClick={props.onOffBackliteClicke}>
             <MenuCircleBtnBacklite changeBacklitImg={props.tobeChanged} submenu="XPS Stylus" />
    
         {/* <Button className="Btnsubmenu"
@@ -85,7 +86,7 @@ const MenuFeatures =(props)=>{
         {/* <AccordionDetails tabIndex="1" id="keyboardClick" onKeyPress={props.keyboardClicked}  onClick={props.keyboardClicked}>
             <MenuCircleBtnOpenClose changeOpenCloseImg={props.tobechange}  className="openclose" submenu="Keyboard" />
         </AccordionDetails>  */}
-       
+        </Tooltip> 
       </Accordion>
         </div>
     );

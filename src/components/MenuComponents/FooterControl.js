@@ -171,7 +171,7 @@ export default function FooterControl(props) {
       //window.localStorage.setItem('theater', false);
       //window.localStorage.setItem('close', false);
       window.localStorage.setItem("position","reset");
-      document.getElementById('whiteBtn').classList.add('active');
+      document.getElementById('blackBtn').classList.add('active');
       return () => {
          return false
       }
