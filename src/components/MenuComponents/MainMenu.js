@@ -165,8 +165,8 @@ const MainMenu = (props) => {
       return px / (px + px2);
    }
    const reversAll = () => {
-      window.scene.groupApplyState("Pen_OFF");
-      window.scene.groupApplyState("Keyboard_OFF");
+      // window.scene.groupApplyState("Pen_OFF");
+      // window.scene.groupApplyState("Keyboard_OFF");
       // if (window.scene.animIsPlaying("Tab")) {
       //    window.scene.getAnim("Tab").stop();
       // }
@@ -987,19 +987,19 @@ const MainMenu = (props) => {
          document.getElementById("hotspot12").setAttribute("tabindex","-1");
          document.getElementById("hotspot13").setAttribute("tabindex","-1");
       }
-      var currentPosName = position.currentPos;
-      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-         console.log("Theater")
-         // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-         // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      }
-      else {
-         console.log("else")
-         // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-         // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      }
-      position.currentPos = 'nintyDegree';
+      // var currentPosName = position.currentPos;
+      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+      //    console.log("Theater")
+      //    // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+      //    // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+      // }
+      // else {
+      //    console.log("else")
+      //    // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      //    // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      // }
+      // position.currentPos = 'nintyDegree';
 
       window.RT_RecordEvent("Product Type","Left",window.config.name);
       window.scene.clearRefine();
@@ -1633,9 +1633,14 @@ const MainMenu = (props) => {
       document.getElementById('blackBtn').classList.add('select');
       document.getElementById('blackBtn').classList.add('active');
       document.getElementById('whiteBtn').classList.remove('active');
+      
+      // window.scene.groupApplyState("Millenio_5G_OFF");
+      // window.scene.groupApplyState("Millenio_WIFI_ON");
 
       window.scene.groupApplyState("Millenio_5G_OFF");
       window.scene.groupApplyState("Millenio_WIFI_ON");
+
+      
      
 
       window.localStorage.setItem("position","reset");
@@ -1971,7 +1976,7 @@ const MainMenu = (props) => {
       }
       else if (selectedButton == 'onBottomClick') {
          onBottomClick();
-         GotoPosInTimeNamedValue(window.config.front,function () {
+         GotoPosInTimeNamedValue(window.config.bottom,function () {
 
          })
       }
