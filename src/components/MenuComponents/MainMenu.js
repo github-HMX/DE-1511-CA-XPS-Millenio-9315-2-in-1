@@ -100,8 +100,8 @@ const MainMenu = (props) => {
       //window.localStorage.setItem('theater', false);
       //window.localStorage.setItem('close', false);
       window.localStorage.setItem("position","reset");
-      document.querySelector('#xpsFolioClick').classList.add('Mui-disabled');
-      document.querySelector('#backlitBtn').classList.add('Mui-disabled');
+      // document.querySelector('#xpsFolioClick').classList.add('Mui-disabled');
+      // document.querySelector('#backlitBtn').classList.add('Mui-disabled');
       // document.querySelector('#backlitBtn').classList.add('Mui-disabled');
       // document.querySelector('#blackBtn').style.pointerEvents = 'none';
       document.getElementById('blackBtn').classList.add('select');
@@ -165,8 +165,8 @@ const MainMenu = (props) => {
       return px / (px + px2);
    }
    const reversAll = () => {
-      // window.scene.groupApplyState("Pen_OFF");
-      // window.scene.groupApplyState("Keyboard_OFF");
+      window.scene.groupApplyState("Pen_OFF");
+      window.scene.groupApplyState("Keyboard_OFF");
       // if (window.scene.animIsPlaying("Tab")) {
       //    window.scene.getAnim("Tab").stop();
       // }
@@ -176,6 +176,15 @@ const MainMenu = (props) => {
 
       // window.scene.animPlayAllChildrenInTime("Tab",0,0);
       // window.scene.animPlayAllChildrenInTime("Tab.001",0,0);
+
+      window.scene.animPlayAllChildrenInTime("Stylus",0,0);
+      window.scene.animPlayAllChildrenInTime("Tablet",0,0);
+      window.scene.animPlayAllChildrenInTime("joint3",0,0);
+      window.scene.animPlayAllChildrenInTime("joint4",0,0);
+      window.scene.animPlayAllChildrenInTime("SPINE",0,0);
+      window.scene.clearRefine();
+
+      
    }
 
    const resetBacklitCloseImg = () => {
@@ -1375,242 +1384,260 @@ const MainMenu = (props) => {
 
 
    const xpsFolioClick = () => {
-      // reversAll();
-      //Update ZoomBar
-      // var slider = document.getElementById("sliderRange");
+      reversAll();
+      // Update ZoomBar
+      var slider = document.getElementById("sliderRange");
 
-      // if (slider != null) {
-      //    document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-      //    setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      // }
+      if (slider != null) {
+         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+      }
 
-      // selectedButton = 'xpsFolioClick';
-      // window.scene.groupApplyState("Keyboard_ON");
+      selectedButton = 'xpsFolioClick';
+      window.scene.groupApplyState("Keyboard_ON");
 
 
-      // window.localStorage.removeItem('hotspot');
-      // var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      // if (alreadySelected != null) {
-      //    alreadySelected.classList.remove('active');
-      // }
-      // window.scene.groupApplyState("Pen_OFF");
-      // document.getElementById('xpsFolioClick').classList.add('active');
+      window.localStorage.removeItem('hotspot');
+      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+      if (alreadySelected != null) {
+         alreadySelected.classList.remove('active');
+      }
+      window.scene.groupApplyState("Pen_OFF");
+      document.getElementById('xpsFolioClick').classList.add('active');
 
-      // window.localStorage.setItem("position","reset");
-      // window.scene.groupApplyState("screen_180");
-      // window.scene.groupApplyState("dynamic_reset");
+      window.localStorage.setItem("position","reset");
+      window.scene.groupApplyState("screen_180");
+      window.scene.groupApplyState("dynamic_reset");
 
-      // if (laptop180) {
-      //    window.scene.groupApplyState("screenfill_180");
-      // } else {
-      //    window.scene.groupApplyState("screenfill_360");
-      // }
-      // window.scene.groupApplyState("GP_open");
-      // window.scene.groupApplyState("dynamic_reset");
+      if (laptop180) {
+         window.scene.groupApplyState("screenfill_180");
+      } else {
+         window.scene.groupApplyState("screenfill_360");
+      }
+      window.scene.groupApplyState("GP_open");
+      window.scene.groupApplyState("dynamic_reset");
 
-      // resetBacklitCloseImg();
+      resetBacklitCloseImg();
 
-      // GotoPosInTimeNamedValue(window.config.default,function () {
+      GotoPosInTimeNamedValue(window.config.folio,function () {
 
-      //    window.localStorage.setItem('hotspot','backlit');
+         // window.localStorage.setItem('hotspot','backlit');
+        
+         // window.scene.animPlayAllChildrenInTime("Tab",0.833300,1000);
 
-      //    window.scene.clearRefine();
-      // })
+         window.scene.clearRefine();
+      })
 
-      // //add for tab issues
-      // document.getElementById("hotspot1").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot2").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot3").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot4").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot5").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot6").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot7").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot8").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot9").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot10").setAttribute("tabindex","-1");
+      //add for tab issues
+      document.getElementById("hotspot1").setAttribute("tabindex","-1");
+      document.getElementById("hotspot2").setAttribute("tabindex","-1");
+      document.getElementById("hotspot3").setAttribute("tabindex","-1");
+      document.getElementById("hotspot4").setAttribute("tabindex","-1");
+      document.getElementById("hotspot5").setAttribute("tabindex","-1");
+      document.getElementById("hotspot6").setAttribute("tabindex","-1");
+      document.getElementById("hotspot7").setAttribute("tabindex","-1");
+      document.getElementById("hotspot8").setAttribute("tabindex","-1");
+      document.getElementById("hotspot9").setAttribute("tabindex","-1");
+      document.getElementById("hotspot10").setAttribute("tabindex","-1");
 
-      // document.getElementById("hotspot11").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot12").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot13").setAttribute("tabindex","-1");
+      document.getElementById("hotspot11").setAttribute("tabindex","-1");
+      document.getElementById("hotspot12").setAttribute("tabindex","-1");
+      document.getElementById("hotspot13").setAttribute("tabindex","-1");
 
      
-      // // window.scene.animPlayAllChildrenInTime("Tab",0.833300,1000);
-      // if (openCloseOnOff) {
+      // window.scene.animPlayAllChildrenInTime("Tab",0.833300,1000);
+      if (openCloseOnOff) {
 
-      //    document.getElementById('xpsFolioClick').setAttribute('aria-label','');
-      //    document.getElementById('openCloseLid').innerHTML = 'Open Lid';
-      //    if (!(mob || isipad)) {
-      //       document.getElementById('previousView').setAttribute('aria-label','Open Lid');
+         document.getElementById('xpsFolioClick').setAttribute('aria-label','');
+         document.getElementById('openCloseLid').innerHTML = 'Open Lid';
+         if (!(mob || isipad)) {
+            document.getElementById('previousView').setAttribute('aria-label','Open Lid');
 
-      //       document.getElementById('nextView').setAttribute('aria-label','Open Lid');
-
-
-      //    }
-      //    setOpenCloseOnOff(false);
-      //    console.log("open");
-      //    setOpenClose("./img/Folio_B.png");
+            document.getElementById('nextView').setAttribute('aria-label','Open Lid');
 
 
-      //    window.scene.groupApplyState("dynamic_reset");
-      //    GotoPosInTimeNamedValue(window.config.default,function () {
-
-      //    });
-
-      // } else {
-
-      //    document.getElementById('xpsFolioClick').setAttribute('aria-label','');
-      //    document.getElementById('openCloseLid').innerHTML = 'Close Lid';
-      //    if (!(mob || isipad)) {
-      //       document.getElementById('previousView').setAttribute('aria-label','Close Lid');
-
-      //       document.getElementById('nextView').setAttribute('aria-label','Close Lid');
-      //    }
-      //    setOpenCloseOnOff(true);
-      //    console.log("close");
-      //    setBackliteOnOff(false);
-      //    setOpenClose("./img/Folio_B.png");
+         }
+         setOpenCloseOnOff(false);
+         console.log("open");
+         setOpenClose("./img/Folio_B.png");
 
 
-      //    window.scene.groupApplyState("dynamic_reset");
-      //    GotoPosInTimeNamedValue(window.config.default,function () {
+         window.scene.groupApplyState("dynamic_reset");
+         GotoPosInTimeNamedValue(window.config.folio,function () {
+
+         });
+
+      } else {
+
+         document.getElementById('xpsFolioClick').setAttribute('aria-label','');
+         document.getElementById('openCloseLid').innerHTML = 'Close Lid';
+         if (!(mob || isipad)) {
+            document.getElementById('previousView').setAttribute('aria-label','Close Lid');
+
+            document.getElementById('nextView').setAttribute('aria-label','Close Lid');
+         }
+         setOpenCloseOnOff(true);
+         console.log("close");
+         setBackliteOnOff(false);
+         setOpenClose("./img/Folio_B.png");
 
 
-      //    });
+         window.scene.groupApplyState("dynamic_reset");
+         GotoPosInTimeNamedValue(window.config.folio,function () {
+
+        
+
+
+         });
          
+      }
+      // var currentPosName = position.currentPos;
+      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+      //    console.log("Theater")
+         // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+         // window.scene.animPlayAllChildrenInTime("Main_Group",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
       // }
-      // // var currentPosName = position.currentPos;
-      // // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      // // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      // //    console.log("Theater")
-      //    // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      //    // window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // // }
-      // // else {
-      // //    console.log("else")
-      //    // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      // else {
+      //    console.log("else")
+         // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
 
-      //    // window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // // }
-      // window.scene.clearRefine();
+         // window.scene.animPlayAllChildrenInTime("Main_Group",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      // }
+
+     
+
+      window.scene.animPlayAllChildrenInTime("joint3",4.1659,1000);
+      window.scene.animPlayAllChildrenInTime("joint4",4.1659,1000);
+      window.scene.animPlayAllChildrenInTime("SPINE",4.1659,1000);
+      window.scene.animPlayAllChildrenInTime("Tablet",4.1659,1000);
+      window.scene.clearRefine();
       // position.currentPos = 'top';
    }
    let backliteVar = document.getElementById('backlitBtn');
 
    const xpsStylusClick = () => {
-      // reversAll();
-      // //Update ZoomBar
-      // var slider = document.getElementById("sliderRange");
+      reversAll();
+      //Update ZoomBar
+      var slider = document.getElementById("sliderRange");
 
-      // if (slider != null) {
-      //    document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-      //    setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      // }
+      if (slider != null) {
+         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+      }
 
-      // selectedButton = 'xpsStylusClick';
-      // window.scene.groupApplyState("Keyboard_ON");
+      selectedButton = 'xpsStylusClick';
+      window.scene.groupApplyState("Keyboard_ON");
 
-      // window.localStorage.removeItem('hotspot');
-      // var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      // if (alreadySelected != null) {
-      //    alreadySelected.classList.remove('active');
-      // }
+      window.localStorage.removeItem('hotspot');
+      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+      if (alreadySelected != null) {
+         alreadySelected.classList.remove('active');
+      }
 
-      // document.getElementById('backlitBtn').classList.add('active');
+      document.getElementById('backlitBtn').classList.add('active');
 
-      // window.localStorage.setItem("position","reset");
-      // window.scene.groupApplyState("screen_180");
-      // window.scene.groupApplyState("dynamic_reset");
+      window.localStorage.setItem("position","reset");
+      window.scene.groupApplyState("screen_180");
+      window.scene.groupApplyState("dynamic_reset");
 
-      // if (laptop180) {
-      //    window.scene.groupApplyState("screenfill_180");
-      // } else {
-      //    window.scene.groupApplyState("screenfill_360");
-      // }
-      // window.scene.groupApplyState("GP_open");
-      // window.scene.groupApplyState("dynamic_reset");
+      if (laptop180) {
+         window.scene.groupApplyState("screenfill_180");
+      } else {
+         window.scene.groupApplyState("screenfill_360");
+      }
+      window.scene.groupApplyState("GP_open");
+      window.scene.groupApplyState("dynamic_reset");
 
-      // resetBacklitCloseImg();
+      resetBacklitCloseImg();
 
-      // GotoPosInTimeNamedValue(window.config.default,function () {
+      GotoPosInTimeNamedValue(window.config.folio,function () {
 
-      //    window.localStorage.setItem('hotspot','backlit');
+         // window.localStorage.setItem('hotspot','backlit');
+       
 
-      //    window.scene.clearRefine();
-      // })
+         window.scene.clearRefine();
+      })
 
-      // //add for tab issues
-      // document.getElementById("hotspot1").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot2").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot3").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot4").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot5").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot6").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot7").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot8").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot9").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot10").setAttribute("tabindex","-1");
+      //add for tab issues
+      document.getElementById("hotspot1").setAttribute("tabindex","-1");
+      document.getElementById("hotspot2").setAttribute("tabindex","-1");
+      document.getElementById("hotspot3").setAttribute("tabindex","-1");
+      document.getElementById("hotspot4").setAttribute("tabindex","-1");
+      document.getElementById("hotspot5").setAttribute("tabindex","-1");
+      document.getElementById("hotspot6").setAttribute("tabindex","-1");
+      document.getElementById("hotspot7").setAttribute("tabindex","-1");
+      document.getElementById("hotspot8").setAttribute("tabindex","-1");
+      document.getElementById("hotspot9").setAttribute("tabindex","-1");
+      document.getElementById("hotspot10").setAttribute("tabindex","-1");
 
-      // document.getElementById("hotspot11").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot12").setAttribute("tabindex","-1");
-      // document.getElementById("hotspot13").setAttribute("tabindex","-1");
+      document.getElementById("hotspot11").setAttribute("tabindex","-1");
+      document.getElementById("hotspot12").setAttribute("tabindex","-1");
+      document.getElementById("hotspot13").setAttribute("tabindex","-1");
 
-      // if (backliteOnOff) {
+      if (backliteOnOff) {
 
-      //    console.log("off");
-      //    setBackliteOnOff(false);
-      //    // backliteVar.setAttribute.ariaLabel = "Close dialog";
-      //    document.getElementById('backlitBtn').setAttribute('aria-label','');
-      //    document.getElementById('backlitOnnOff').innerHTML = 'Backlit off';
-      //    if (!(mob || isipad)) {
-      //       document.getElementById('previousView').setAttribute('aria-label','Backlit off');
-      //       document.getElementById('nextView').setAttribute('aria-label','Backlit off');
-      //    }
-      //    GotoPosInTimeNamedValue(window.config.default,function () { })
+         console.log("off");
+         setBackliteOnOff(false);
+         // backliteVar.setAttribute.ariaLabel = "Close dialog";
+         document.getElementById('backlitBtn').setAttribute('aria-label','');
+         document.getElementById('backlitOnnOff').innerHTML = 'Backlit off';
+         if (!(mob || isipad)) {
+            document.getElementById('previousView').setAttribute('aria-label','Backlit off');
+            document.getElementById('nextView').setAttribute('aria-label','Backlit off');
+         }
+         GotoPosInTimeNamedValue(window.config.folio,function () { })
 
-      //    window.scene.groupApplyState("Pen_ON");
-      //    // window.scene.clearRefine();
-      //    // document.getElementById('backlitOff').style.display="none";
-      //    // document.getElementById('backlitOn').style.display="block";
-      //    // window.document.getElementById('backlitOff').src="./img/stylus_B.png";
-      //    window.RT_RecordEvent("Features","Backlite Off",window.config.name);
+         window.scene.groupApplyState("Pen_ON");
+         // window.scene.clearRefine();
+         // document.getElementById('backlitOff').style.display="none";
+         // document.getElementById('backlitOn').style.display="block";
+         // window.document.getElementById('backlitOff').src="./img/stylus_B.png";
+         window.RT_RecordEvent("Features","Backlite Off",window.config.name);
          
 
-      // } else {
-      //    // backliteVar.setAttribute.ariaLabel = "Backlit on";
-      //    document.getElementById('backlitBtn').setAttribute('aria-label','');
-      //    document.getElementById('backlitOnnOff').innerHTML = 'Backlit on';
-      //    if (!(mob || isipad)) {
-      //       document.getElementById('previousView').setAttribute('aria-label','Backlit on');
-      //       document.getElementById('nextView').setAttribute('aria-label','Backlit on');
-      //    }
-      //    setBackliteOnOff(true);
-      //    console.log("on");
-      //    setBacklite("./img/stylus_W.png");
-      //    GotoPosInTimeNamedValue(window.config.default,function () {
-      //    });
-      //    window.scene.groupApplyState("Pen_ON");
-      //    // document.getElementById('backlitOn').style.display="none";
-      //    // document.getElementById('backlitOff').style.display="block";
-      //    // window.document.getElementById('backlitOn').src="./img/stylus_W.png";
-      //    window.RT_RecordEvent("Features","Backlite On",window.config.name);
-      //    window.scene.clearRefine();
+      } else {
+         // backliteVar.setAttribute.ariaLabel = "Backlit on";
+         document.getElementById('backlitBtn').setAttribute('aria-label','');
+         document.getElementById('backlitOnnOff').innerHTML = 'Backlit on';
+         if (!(mob || isipad)) {
+            document.getElementById('previousView').setAttribute('aria-label','Backlit on');
+            document.getElementById('nextView').setAttribute('aria-label','Backlit on');
+         }
+         setBackliteOnOff(true);
+         console.log("on");
+         setBacklite("./img/stylus_W.png");
+         GotoPosInTimeNamedValue(window.config.folio,function () {
+         });
+         window.scene.groupApplyState("Pen_ON");
+         // document.getElementById('backlitOn').style.display="none";
+         // document.getElementById('backlitOff').style.display="block";
+         // window.document.getElementById('backlitOn').src="./img/stylus_W.png";
+         window.RT_RecordEvent("Features","Backlite On",window.config.name);
+         window.scene.clearRefine();
          
 
-      // }
-      // // var currentPosName = position.currentPos;
-      // // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      // // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      // //    console.log("Theater")
-      //    // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      //    // window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // // }
-      // // else {
-      //    // console.log("else")
-      //    // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      }
 
-      //    // window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // // }
-      // window.scene.clearRefine();
+      window.scene.animPlayAllChildrenInTime("Stylus",1.66,1000);
+      window.scene.animPlayAllChildrenInTime("Tablet",2.083,1000);
+      window.scene.animPlayAllChildrenInTime("joint3",2.083,1000);
+      window.scene.animPlayAllChildrenInTime("joint4",2.083,1000);
+      window.scene.animPlayAllChildrenInTime("SPINE",2.083,1000);
+      // var currentPosName = position.currentPos;
+      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
+      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+      //    console.log("Theater")
+         // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+         // window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+      // }
+      // else {
+         // console.log("else")
+         // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+
+         // window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      // }
+      window.scene.clearRefine();
       // position.currentPos = 'top';
      
    }
@@ -2053,7 +2080,7 @@ const MainMenu = (props) => {
          var prevButton;
          var selectedButtonIndex = buttonSeq180.findIndex(element => element === selectedButton)
          if (selectedButton == 'onFrontClick' || selectedButton == 'onResetMode') {
-            prevButton = 'onBottomClick';
+            prevButton = 'xpsFolioClick';
          } else {
             prevButton = buttonSeq180[selectedButtonIndex - 1];
          }
@@ -2062,7 +2089,7 @@ const MainMenu = (props) => {
          var prevButton;
          var selectedButtonIndex = buttonSeq.findIndex(element => element === selectedButton)
          if (selectedButton == 'onFrontClick' || selectedButton == 'onResetMode') {
-            prevButton = 'onBottomClick';
+            prevButton = 'xpsStylusClick';
          } else {
             prevButton = buttonSeq[selectedButtonIndex - 1];
          }
@@ -2081,12 +2108,12 @@ const MainMenu = (props) => {
          setExpandedPanel("panel1");
 
       }
-      // else if (prevButton == 'xpsFolioClick') xpsFolioClick(true);
-      //  else if (prevButton == 'xpsStylusClick') {
-      //    setExpandedPanel("panel3");
+      else if (prevButton == 'xpsFolioClick') xpsFolioClick(true);
+       else if (prevButton == 'xpsStylusClick') {
+         setExpandedPanel("panel3");
 
-      //    xpsStylusClick(true);
-      // }
+         xpsStylusClick(true);
+      }
       
 
       return false;
@@ -2106,7 +2133,7 @@ const MainMenu = (props) => {
 
          var nextButton;
          var selectedButtonIndex = buttonSeq180.findIndex(element => element === selectedButton)
-         if (selectedButton == 'onBottomClick') {
+         if (selectedButton == 'xpsStylusClick') {
             nextButton = 'onFrontClick';
          } else {
             nextButton = buttonSeq180[selectedButtonIndex + 1];
@@ -2115,7 +2142,7 @@ const MainMenu = (props) => {
       else {
          var nextButton;
          var selectedButtonIndex = buttonSeq.findIndex(element => element === selectedButton)
-         if (selectedButton == 'onBottomClick') {
+         if (selectedButton == 'xpsStylusClick') {
             nextButton = 'onFrontClick';
          } else {
             nextButton = buttonSeq[selectedButtonIndex + 1];
@@ -2141,11 +2168,11 @@ const MainMenu = (props) => {
       //    openCloseClick(true);
       //    setExpandedPanel("panel3");
       // }
-      // else if (nextButton == 'xpsFolioClick') {
-      //    xpsFolioClick(true);
-      //    setExpandedPanel("panel3");
-      // }
-      //  else if (nextButton == 'xpsStylusClick') xpsStylusClick(true);
+      else if (nextButton == 'xpsFolioClick') {
+         xpsFolioClick(true);
+         setExpandedPanel("panel3");
+      }
+       else if (nextButton == 'xpsStylusClick') xpsStylusClick(true);
       
       return false;
 
