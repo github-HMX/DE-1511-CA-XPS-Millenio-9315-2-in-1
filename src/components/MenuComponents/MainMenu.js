@@ -158,7 +158,7 @@ const MainMenu = (props) => {
          window.scene.gotoPosInTime(gp.pos[0],1.5766252903320787,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
       }
       else if(gotoposname =="Render_Cam_F01_Top_Front"){
-         window.scene.gotoPosInTime(gp.pos[0],1.5666252903320787,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
+         window.scene.gotoPosInTime(gp.pos[0],-1.5606939305820804,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
       }
       else{
          window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
@@ -178,7 +178,7 @@ const MainMenu = (props) => {
    const reversAll = () => {
       window.scene.groupApplyState("Pen_OFF");
       window.scene.groupApplyState("Keyboard_OFF");
-
+      window.scene.groupApplyState("Tab_Reflection_ON");
       if( window.storeData.currentState == "sky"){
         
          window.scene.groupApplyState("Millenio_5G_OFF");
@@ -1450,7 +1450,7 @@ const MainMenu = (props) => {
 
       selectedButton = 'xpsFolioClick';
       window.scene.groupApplyState("Keyboard_ON");
-
+      window.scene.groupApplyState("Tab_Reflection_OFF");
       window.localStorage.removeItem('hotspot');
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
@@ -1476,10 +1476,7 @@ const MainMenu = (props) => {
 
       resetBacklitCloseImg();
 
-      GotoPosInTimeNamedValue(window.config.folio,function () {
-       
-         window.scene.clearRefine();
-      })
+   
       
       //add for tab issues
       document.getElementById("hotspot1").setAttribute("tabindex","-1");
@@ -1530,14 +1527,13 @@ const MainMenu = (props) => {
          });
          window.scene.groupApplyState("Pen_OFF");
          window.RT_RecordEvent("Features","Backlite On",window.config.name);
-         window.scene.clearRefine();
+      
          
 
       }
 
       // window.scene.animPlayAllChildrenInTime("Stylus",4.166,3000);
 
-      setTimeout(function () { 
       //    window.scene.animPlayAllChildrenInTime("Tablet",4.1659,3000);
       // window.scene.animPlayAllChildrenInTime("joint3",4.1659,3000);
       // window.scene.animPlayAllChildrenInTime("joint4",4.1659,3000);
@@ -1558,14 +1554,6 @@ const MainMenu = (props) => {
          }
          
       });
-
-      
-
-      },100);
-
-      
-     
-
       
 
       // window.scene.animPlayAllChildrenInTime("joint3",4.1659,3000);
@@ -1606,7 +1594,7 @@ const MainMenu = (props) => {
       window.localStorage.setItem("position","reset");
       window.scene.groupApplyState("screen_180");
       window.scene.groupApplyState("dynamic_reset");
-
+      window.scene.groupApplyState("Tab_Reflection_OFF");
 
       
 
@@ -1743,7 +1731,7 @@ const MainMenu = (props) => {
       document.getElementById('blackBtn').classList.add('select');
       document.getElementById('blackBtn').classList.add('active');
       document.getElementById('whiteBtn').classList.remove('active');
-      
+   
       // window.scene.groupApplyState("Millenio_5G_OFF");
       // window.scene.groupApplyState("Millenio_WIFI_ON");
 
@@ -1764,19 +1752,25 @@ const MainMenu = (props) => {
       setLaptop360RightImg("./img/180_white_right.png");
       setLaptop360BackImg("./img/180_white_back.png");
       setLaptop360BottomImg("./img/180_white_Bottom.png");
-      window.scene.groupApplyState("screenfill_180");
+      // window.scene.groupApplyState("screenfill_180");
       window.localStorage.setItem("color","laptopSilver");
       setPort4Click(false);
-      if (window.localStorage.getItem('laptop') == 'laptop360') {
-         console.log('a')
-         window.scene.groupApplyState("Silver");  
+      // if (window.localStorage.getItem('laptop') == 'laptop360') {
+      //    console.log('a')
+      //    window.scene.groupApplyState("Silver");  
 
+      // }
+      // else if (window.localStorage.getItem('laptop') == 'laptop180') {
+      //    console.log('b')
+      //    window.scene.groupApplyState("Silver_180");
+      //    window.scene.groupApplyState("screenfill_180");
+
+      // }
+      if(selectedButton == 'xpsFolioClick' || selectedButton == 'xpsStylusClick'){
+         window.scene.groupApplyState("Tab_Reflection_OFF");
       }
-      else if (window.localStorage.getItem('laptop') == 'laptop180') {
-         console.log('b')
-         window.scene.groupApplyState("Silver_180");
-         window.scene.groupApplyState("screenfill_180");
-
+      else{
+         window.scene.groupApplyState("Tab_Reflection_ON");
       }
       window.localStorage.setItem("silver",true);
       window.RT_RecordEvent("Color","Aluminium",window.config.name);
@@ -1811,7 +1805,7 @@ const MainMenu = (props) => {
 
       setLaptop360BackImg("./img/360_back.png");
       setLaptop360BottomImg("./img/360_Bottom.png");
-      window.scene.groupApplyState("screenfill_180");
+      // window.scene.groupApplyState("screenfill_180");
       setPort2Click(false);
       setPort1Click(false);
       setPort3Click(false);
@@ -1838,7 +1832,7 @@ const MainMenu = (props) => {
 
          document.getElementById('whiteBtn').classList.add('select');
          document.getElementById('whiteBtn').classList.add('active');
-         window.scene.groupApplyState("Silver");  
+         // window.scene.groupApplyState("Silver");  
 
       }
       else if (window.localStorage.getItem('laptop') == 'laptop180') {
@@ -1862,9 +1856,15 @@ const MainMenu = (props) => {
          document.getElementById('whiteBtn').classList.remove('active');
 
          
-         window.scene.groupApplyState("Carbon_Black");
-         window.scene.groupApplyState("screenfill_180");
+         // window.scene.groupApplyState("Carbon_Black");
+         // window.scene.groupApplyState("screenfill_180");
 
+      }
+      if(selectedButton == 'xpsFolioClick' || selectedButton == 'xpsStylusClick'){
+         window.scene.groupApplyState("Tab_Reflection_OFF");
+      }
+      else{
+         window.scene.groupApplyState("Tab_Reflection_ON");
       }
       window.RT_RecordEvent("Color","Carbon Fiber",window.config.name);
       window.scene.clearRefine();

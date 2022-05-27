@@ -13,7 +13,7 @@ var infinityrt_navigation = function (scene,w,h) {
    this._zoomFactor = 0.0;
    this._navEnabled = true;
    this._navMode = 2;
-   this._navMinDolly = 14.0; //50
+   this._navMinDolly = 10.0; //50
    this._navMaxDolly = 28.0; //110
    this._zoomMaxFactor = this._navMaxDolly + 1 * (this._navMinDolly - this._navMaxDolly);
    this._zoomMinFactor = this._navMaxDolly + 0 * (this._navMinDolly - this._navMaxDolly);
@@ -526,7 +526,7 @@ infinityrt_navigation.prototype.NavCreateViewMatrix = function (initialViewMatri
             this._navYAng += this._navDYAng;
             var fRotLimit = M_PI * 0.48;
             // var fRotMinLimit = -M_PI * this.tempfRotMinLimit;
-            var fRotMinLimit = -M_PI * 0.48;
+            var fRotMinLimit = -M_PI * 0.58;
             if (this._navXAng > fRotLimit)
                this._navXAng = fRotLimit;
             else if (this._navXAng < fRotMinLimit)

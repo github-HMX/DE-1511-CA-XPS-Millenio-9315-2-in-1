@@ -97,14 +97,15 @@
 
       @media screen and (min-width:1440px) {
          .loaderimg img {
-            width: 845px;
-            margin-left: 250px;
+            margin-top:-95px;
+            width: 1250px;
+            margin-left: 350px;
          }
       }
 
       @media screen and (min-width:992px) {
          .loaderimg img {
-            width: 845px;
+            width: 1250px;
          }
       }
 
@@ -476,7 +477,7 @@
                else {
                   scene = new infinityrt_scene({ rtgl: gl,useDraco: false },urlDataPath,canvas.width,canvas.height,undefined,undefined,undefined,function () { },function () { });
                   scene._nav = new infinityrt_navigation(scene,canvas.width,canvas.height);
-                  scene._jitRadius = 3;
+                  scene._jitRadius = 2;
                   scene.gotoPosInTime(0.996696,-0.039647,1.371178,10.144666,72.316101,1,undefined,undefined,{ fovy: 37.849300,zang: -0.003371 })
                   //scene.fovy = 37.849285;
                   resizeCanvas2();
@@ -687,7 +688,7 @@
          canvas.addEventListener('touchstart',touchStart,false);
          canvas.addEventListener('touchmove',touchMove,false);
          canvas.addEventListener('touchend',touchEnd,false);
-         canvas.addEventListener('mouseout',mouseOut);
+         // canvas.addEventListener('mouseout',mouseOut);
       }
 
       var sceneViewMatrix;
@@ -966,10 +967,10 @@
          setTimeout(function () { document.getElementById("sliderRange").value = s._nav.getZoomFactor(); },100);
       }
 
-      function mouseOut(ev) {
-         if (!mdown) return;
-         mdown = false;
-      }
+      // function mouseOut(ev) {
+      //    if (!mdown) return;
+      //    mdown = false;
+      // }
 
       // function mouseWheel(ev) {
 
