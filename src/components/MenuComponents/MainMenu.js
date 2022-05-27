@@ -921,6 +921,8 @@ const MainMenu = (props) => {
       resetBacklitCloseImg();
 
       GotoPosInTimeNamedValue(window.config.bottom,function () {
+         // window.scene._nav._revertPan = true;
+         // window.scene._nav._revertPanOriginal =  [-0.007566, 3.085124];
          window.localStorage.setItem('hotspot','right')
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
@@ -1107,8 +1109,8 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("Backlit_OFF");
 
          GotoPosInTimeNamedValue(window.config.top,function () {    
-            window.scene._nav._revertPan = true;
-            window.scene._nav._revertPanOriginal =  [-0.007566, 3.085124];
+            // window.scene._nav._revertPan = true;            
+            // window.scene._nav._revertPanOriginal =  [-0.007566, 3.085124];
 
 
 
@@ -1433,8 +1435,11 @@ const MainMenu = (props) => {
    const [backliteOnOff,setBackliteOnOff] = useState(false);
 
    const xpsFolioClick= () => {
-      reversAll();
-
+      // reversAll();
+      window.scene.groupApplyState("Pen_OFF");
+      window.scene.groupApplyState("Keyboard_OFF");
+      window.scene.groupApplyState("Tab_Reflection_ON");
+      window.scene.animPlayAllChildrenInTime("Stylus",0,0);
       window.scene.animPlayAllChildrenInTime("Tablet",0,0);
       window.scene.animPlayAllChildrenInTime("joint3",0,0);
       window.scene.animPlayAllChildrenInTime("joint4",0,0);
@@ -1447,7 +1452,7 @@ const MainMenu = (props) => {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
       }
-
+      
       selectedButton = 'xpsFolioClick';
       window.scene.groupApplyState("Keyboard_ON");
       window.scene.groupApplyState("Tab_Reflection_OFF");
@@ -1571,8 +1576,16 @@ const MainMenu = (props) => {
    let backliteVar = document.getElementById('backlitBtn');
 
    const xpsStylusClick = () => {
-      reversAll();
+      // reversAll();
       //Update ZoomBar
+      window.scene.groupApplyState("Pen_OFF");
+      window.scene.groupApplyState("Keyboard_OFF");
+      window.scene.groupApplyState("Tab_Reflection_ON");
+      window.scene.animPlayAllChildrenInTime("Stylus",0,0);
+      window.scene.animPlayAllChildrenInTime("Tablet",0,0);
+      window.scene.animPlayAllChildrenInTime("joint3",0,0);
+      window.scene.animPlayAllChildrenInTime("joint4",0,0);
+      window.scene.animPlayAllChildrenInTime("SPINE",0,0);
       var slider = document.getElementById("sliderRange");
 
       if (slider != null) {
@@ -1712,8 +1725,8 @@ const MainMenu = (props) => {
 
    const color1Click = () => {
 
-      window.scene.groupApplyState("Millenio_5G_OFF");
-      window.scene.groupApplyState("Millenio_WIFI_ON");
+      // window.scene.groupApplyState("Millenio_5G_OFF");
+      // window.scene.groupApplyState("Millenio_WIFI_ON");
 
 
       window.storeData.currentState = "sky";
@@ -1781,8 +1794,8 @@ const MainMenu = (props) => {
    }
 
    const color2Click = () => {
-      window.scene.groupApplyState("Millenio_WIFI_OFF");
-      window.scene.groupApplyState("Millenio_5G_ON");
+      // window.scene.groupApplyState("Millenio_WIFI_OFF");
+      // window.scene.groupApplyState("Millenio_5G_ON");
       
       window.storeData.currentState = "slate";
       console.log("click2");

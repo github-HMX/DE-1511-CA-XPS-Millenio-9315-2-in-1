@@ -75,7 +75,7 @@ var infinityrt_navigation = function (scene,w,h) {
    // this._navMode2Speed = 0.03;     // Navigation speed
 
    this._panMax = [16,10];    //[left, bottom];
-   this._panMin = [-16,-10];  //[right, top];
+   this._panMin = [-16,-6];  //[right, top];
 
    // slowinout easing
    this._curveSIO = {
@@ -524,9 +524,9 @@ infinityrt_navigation.prototype.NavCreateViewMatrix = function (initialViewMatri
             // Rotation
             this._navXAng += this._navDXAng;
             this._navYAng += this._navDYAng;
-            var fRotLimit = M_PI * 0.48;
+            var fRotLimit = M_PI * 0.50;
             // var fRotMinLimit = -M_PI * this.tempfRotMinLimit;
-            var fRotMinLimit = -M_PI * 0.58;
+            var fRotMinLimit = -M_PI * 0.50;
             if (this._navXAng > fRotLimit)
                this._navXAng = fRotLimit;
             else if (this._navXAng < fRotMinLimit)
@@ -985,9 +985,9 @@ infinityrt_navigation.prototype.NavRotation = function (mpos,mdelta) {
    else {
       this._navXAng -= mdelta[1] / 30.0;
       this._navYAng += mdelta[0] / 30.0;
-      var fRotLimit = M_PI * 0.48;
+      var fRotLimit = M_PI * 0.50;
       // var fRotMinLimit = -M_PI * this.tempfRotMinLimit;
-      var fRotMinLimit = -M_PI * 0.48;
+      var fRotMinLimit = -M_PI * 0.50;
       if (this._navXAng > fRotLimit)
          this._navXAng = fRotLimit;
       else if (this._navXAng < fRotMinLimit)

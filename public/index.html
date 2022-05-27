@@ -422,11 +422,11 @@
          touches = [new Vector3(),new Vector3(),new Vector3()];
          prevTouches = [new Vector3(),new Vector3(),new Vector3()];
          var loaderDiv = document.getElementById('loader');
-
+         
+         var mainLoad = document.getElementById('mainload');
          var loaderDivs = document.getElementById('loaders');
          var loadingDiv = document.getElementById('loading');
          var exploreBtn = document.getElementById('exploreButtton');
-         var mainLoad = document.getElementById('mainload');
          // loaderDiv.style.left = ((document.documentElement.clientWidth / 2) - (265 / 2)) + "px";
          // loaderDiv.style.top = ((document.documentElement.clientHeight / 2) - (12 / 2)) + "px";
          // loadingDiv.style.left = ((document.documentElement.clientWidth / 2) - (265 / 2)) + "px";
@@ -442,8 +442,8 @@
             // document.getElementById('mainload').style.transition = "visibility 0s, opacity 0.5s linear";
             document.getElementById('footerControlDesk').style.display = 'block';
             document.getElementById('footerControMob').style.display = 'block';
+         },800);
 
-         },1500);
          //mainLoad.style.visibility = 'visible';
          if (exploreBtn) {
             exploreBtn.style.backgroundColor = "#80808057";
@@ -462,7 +462,7 @@
             //console.log("animationLoading -- loaderbar " + loaderbarWidth + "px");
             document.getElementById('loaderbar').style.width = loaderbarWidth + "px"
             // $("#loaderbar", window.document).css("width", loaderbarWidth + "px");
-         },100);
+         },50);
 
          try {
             canvas = document.getElementById("infinityrt-canvas");
