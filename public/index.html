@@ -573,6 +573,10 @@
 
       }
 
+      var storeData = {
+         currentState: ""
+      }
+
       var hideIndexId = ["colorBtn","selectProductBtn","closeIcon","productViewBtn","feature","animswtich","positionBtn","rLeft","rRight","zoomOut","sliderRange","previousView","zoomIn","resetView","nextView","HowToUseHeader"];
 
       var time = (new Date().getTime() - timeStart);
@@ -580,7 +584,7 @@
       function onInfinityRTReady() {
          // scene._bDoF = true;
          // window.document.getElementById('howToUSE').style.animationName = "example";
-
+         storeData.currentState = "sky";
          if (time < 60000) {
             RT_RecordTiming("Load",time,config.name);
          }
@@ -833,6 +837,8 @@
             opt.zang = gp.pos[5];
          }
          scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
+
+         
       }
 
       var jsonobject;
@@ -878,6 +884,11 @@
       function mouseDown(ev) {
          //console.log(ev.path)
 
+         var hotspotContainer = document.getElementById('hotspot_container');
+         if(hotspotContainer.style.display == "block" || hotspotContainer.style.display == "" ) {
+            hotspotContainer.style.display = "none"
+         }
+
          for (i in ev.path) {
             if (ev.path[i].id == "leftPan" || ev.path[i].id == 'footerControls') return;
             // console.log(ev.path[i].id)
@@ -900,6 +911,11 @@
       }
 
       function mouseMove(ev) {
+
+         var hotspotContainer = document.getElementById('hotspot_container');
+         if(hotspotContainer.style.display == "none" ) {
+            hotspotContainer.style.display = "block"
+         }
 
          if (!mdown)
             return;
@@ -2050,6 +2066,7 @@
       #hotspot1demo {
          display: none !important;
       }
+      .maniHeader{display: none;}
    </style>
 </head>
 
