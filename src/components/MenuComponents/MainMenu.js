@@ -195,6 +195,7 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("Pen_OFF");
       window.scene.groupApplyState("Keyboard_OFF");
       window.scene.groupApplyState("Tab_Reflection_ON");
+      window.localStorage.removeItem('features');
       if (window.storeData.currentState == "sky") {
 
          window.scene.groupApplyState("Millenio_5G_OFF");
@@ -937,8 +938,8 @@ const MainMenu = (props) => {
       resetBacklitCloseImg();
 
       GotoPosInTimeNamedValue(window.config.bottom,function () {
-         // window.scene._nav._revertPan = true;
-         // window.scene._nav._revertPanOriginal =  [-0.007566, 3.085124];
+         window.scene._nav._revertPan = true;
+         window.scene._nav._revertPanOriginal = [-0.007566,3.085124];
          window.localStorage.setItem('hotspot','right')
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
@@ -1125,8 +1126,8 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("Backlit_OFF");
 
       GotoPosInTimeNamedValue(window.config.top,function () {
-         // window.scene._nav._revertPan = true;            
-         // window.scene._nav._revertPanOriginal =  [-0.007566, 3.085124];
+         window.scene._nav._revertPan = true;
+         window.scene._nav._revertPanOriginal = [-0.007566,3.085124];
 
 
 
@@ -1484,9 +1485,6 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("screen_180");
       window.scene.groupApplyState("dynamic_reset");
 
-
-
-
       if (laptop180) {
          window.scene.groupApplyState("screenfill_180");
       } else {
@@ -1514,6 +1512,8 @@ const MainMenu = (props) => {
       document.getElementById("hotspot11").setAttribute("tabindex","-1");
       document.getElementById("hotspot12").setAttribute("tabindex","-1");
       document.getElementById("hotspot13").setAttribute("tabindex","-1");
+
+      window.localStorage.setItem("features","folio");
 
       if (openCloseOnOff) {
 
@@ -1560,19 +1560,21 @@ const MainMenu = (props) => {
       // window.scene.animPlayAllChildrenInTime("joint4",4.1659,3000);
       // window.scene.animPlayAllChildrenInTime("SPINE",4.1659,3000);
 
+      if (window.storeData.currentState == "sky") {
+
+         window.scene.groupApplyState("Folio_Sky");
+         console.log("sky se folio ");
+      }
+      else if (window.storeData.currentState == "slate") {
+         window.scene.groupApplyState("Folio_Slate");
+
+         console.log("slate se folio ");
+
+      }
+
       window.scene.animPlayAllChildrenInTime("Main_Group",4.1659,3000,function () {
 
-         if (window.storeData.currentState == "sky") {
 
-            window.scene.groupApplyState("Folio_Sky");
-            console.log("sky se folio ");
-         }
-         else if (window.storeData.currentState == "slate") {
-            window.scene.groupApplyState("Folio_Slate");
-
-            console.log("slate se folio ");
-
-         }
 
       });
 
@@ -1626,7 +1628,7 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("dynamic_reset");
       window.scene.groupApplyState("Tab_Reflection_OFF");
 
-
+      window.localStorage.setItem("features","stylus");
 
       if (laptop180) {
          window.scene.groupApplyState("screenfill_180");
@@ -1637,6 +1639,19 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("dynamic_reset");
 
       resetBacklitCloseImg();
+
+      if (window.storeData.currentState == "sky") {
+
+         window.scene.groupApplyState("Stylus_Sky");
+         console.log("sky se styulus ");
+      }
+      else if (window.storeData.currentState == "slate") {
+
+         window.scene.groupApplyState("Stylus_Slate");
+         console.log("slate se stylus ");
+
+      }
+
 
       GotoPosInTimeNamedValue(window.config.folio,function () {
 
@@ -1703,17 +1718,7 @@ const MainMenu = (props) => {
       window.scene.animPlayAllChildrenInTime("joint4",2.083,3000);
       window.scene.animPlayAllChildrenInTime("SPINE",2.083,3000,function () {
 
-         if (window.storeData.currentState == "sky") {
 
-            window.scene.groupApplyState("Stylus_Sky");
-            console.log("sky se styulus ");
-         }
-         else if (window.storeData.currentState == "slate") {
-
-            window.scene.groupApplyState("Stylus_Slate");
-            console.log("slate se stylus ");
-
-         }
 
       });
 
@@ -1743,7 +1748,6 @@ const MainMenu = (props) => {
    const color1Click = () => {
 
       window.scene.groupApplyState("Millenio_5G_OFF");
-      window.scene.groupApplyState("Millenio_WIFI_ON");
 
 
       window.storeData.currentState = "sky";
@@ -1761,14 +1765,6 @@ const MainMenu = (props) => {
       document.getElementById('blackBtn').classList.add('select');
       document.getElementById('blackBtn').classList.add('active');
       document.getElementById('whiteBtn').classList.remove('active');
-
-      // window.scene.groupApplyState("Millenio_5G_OFF");
-      // window.scene.groupApplyState("Millenio_WIFI_ON");
-
-
-
-
-
 
       window.localStorage.setItem("position","reset");
 
@@ -1796,12 +1792,29 @@ const MainMenu = (props) => {
       //    window.scene.groupApplyState("screenfill_180");
 
       // }
+
+      if (window.localStorage.getItem('features') == "folio") {
+         window.scene.groupApplyState("Folio_Sky");
+         console.log("sky se folio ");
+      }
+      else if (window.localStorage.getItem('features') == "stylus") {
+         window.scene.groupApplyState("Stylus_Sky");
+         console.log("sky se Stylus_Sky ");
+      }
+      else {
+         window.scene.groupApplyState("Millenio_WIFI_ON");
+      }
+
       if (selectedButton == 'xpsFolioClick' || selectedButton == 'xpsStylusClick') {
          window.scene.groupApplyState("Tab_Reflection_OFF");
       }
       else {
+         console.log('reflection on');
          window.scene.groupApplyState("Tab_Reflection_ON");
       }
+
+
+
       window.localStorage.setItem("silver",true);
       window.RT_RecordEvent("Color","Aluminium",window.config.name);
       window.scene.clearRefine();
@@ -1812,7 +1825,6 @@ const MainMenu = (props) => {
 
    const color2Click = () => {
       window.scene.groupApplyState("Millenio_WIFI_OFF");
-      window.scene.groupApplyState("Millenio_5G_ON");
 
       window.storeData.currentState = "slate";
       console.log("click2");
@@ -1890,6 +1902,20 @@ const MainMenu = (props) => {
          // window.scene.groupApplyState("screenfill_180");
 
       }
+
+      if (window.localStorage.getItem('features') == "folio") {
+         window.scene.groupApplyState("Folio_Slate");
+         console.log("slate se folio ");
+      }
+      else if (window.localStorage.getItem('features') == "stylus") {
+         window.scene.groupApplyState("Stylus_Slate");
+         console.log("slate se Stylus_Sky ");
+      }
+      else {
+
+         window.scene.groupApplyState("Millenio_5G_ON");
+      }
+
       if (selectedButton == 'xpsFolioClick' || selectedButton == 'xpsStylusClick') {
          window.scene.groupApplyState("Tab_Reflection_OFF");
       }

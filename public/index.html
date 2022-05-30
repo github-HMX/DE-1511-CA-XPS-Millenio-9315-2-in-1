@@ -91,21 +91,26 @@
          height: 100%;
          object-fit: cover; */
 
-         margin-top: 70px;
+
          max-width: 100%;
+      }
+
+
+
+      @media screen and (min-width:992px) {
+         .loaderimg img {
+            width: 680px;
+            margin-top: -182px;
+            margin-right: -282px;
+         }
       }
 
       @media screen and (min-width:1440px) {
          .loaderimg img {
-            margin-top:-95px;
-            width: 1250px;
-            margin-left: 350px;
-         }
-      }
-
-      @media screen and (min-width:992px) {
-         .loaderimg img {
-            width: 1250px;
+            margin-top: -174px;
+            margin-right: 0;
+            margin-left: 281px;
+            width: initial;
          }
       }
 
@@ -361,8 +366,6 @@
          transition: margin 1s;
 
       }
-
-   
    </style>
 
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" />
@@ -422,7 +425,7 @@
          touches = [new Vector3(),new Vector3(),new Vector3()];
          prevTouches = [new Vector3(),new Vector3(),new Vector3()];
          var loaderDiv = document.getElementById('loader');
-         
+
          var mainLoad = document.getElementById('mainload');
          var loaderDivs = document.getElementById('loaders');
          var loadingDiv = document.getElementById('loading');
@@ -616,6 +619,7 @@
          console.log('End time: ' + (new Date().getTime() - timeStart));
          // window.localStorage.removeItem('Animation');
          window.localStorage.removeItem('hotspot');
+         window.localStorage.removeItem('features');
          GotoPosInTimeNamedValue(config.default);
          window.localStorage.setItem('Animation','on');
          window.localStorage.setItem("laptop","laptop360");
@@ -839,7 +843,7 @@
          }
          scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
 
-         
+
       }
 
       var jsonobject;
@@ -886,7 +890,7 @@
          //console.log(ev.path)
 
          var hotspotContainer = document.getElementById('hotspot_container');
-         if(hotspotContainer.style.display == "block" || hotspotContainer.style.display == "" ) {
+         if (hotspotContainer.style.display == "block" || hotspotContainer.style.display == "") {
             hotspotContainer.style.display = "none"
          }
 
@@ -914,7 +918,7 @@
       function mouseMove(ev) {
 
          var hotspotContainer = document.getElementById('hotspot_container');
-         if(hotspotContainer.style.display == "none" ) {
+         if (hotspotContainer.style.display == "none") {
             hotspotContainer.style.display = "block"
          }
 
@@ -2067,7 +2071,10 @@
       #hotspot1demo {
          display: none !important;
       }
-      .maniHeader{display: none;}
+
+      .maniHeader {
+         display: none;
+      }
    </style>
 </head>
 
@@ -2081,7 +2088,6 @@
          <div class="desktop">
             <div id="loading" tabindex="1">
 
-               <!-- <input type="text" style="border:none" id="setFocus" /> -->
                <div tabindex="1" id="move" aria-label="by swiping with two fingers on touchscreen or by clicking the right mouse button">
                   <span id="move_text"></span><br>
                   <img style="margin-top: 40px; height: 96px; width: 210px;" src="./img/move.svg" />
@@ -2122,7 +2128,7 @@
 
 
    <div id="hotspot_container">
-      <div class="hotspots" id="hotspot1demo" arial-hidden="true" tabindex="-1" style=""></div>
+      <div class="hotspots" id="hotspot1demo" arial-hidden="true" tabindex="-1"></div>
       <div class="hotspots" id="hotspot1" tabindex="-1"></div>
       <div class="hotspots" id="hotspot2" tabindex="-1"></div>
 
