@@ -155,10 +155,11 @@ const MainMenu = (props) => {
       console.log('animationSwitch',animationSwitch);
       console.log('gp.time',gp.time);
       if (gotoposname == "Render_Cam_F01_Top_Rear") {
-         window.scene.gotoPosInTime(gp.pos[0],1.5766252903320787,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
+         window.scene.gotoPosInTime(gp.pos[0],1.5732252903320788,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
+         
       }
       else if (gotoposname == "Render_Cam_F01_Top_Front") {
-         window.scene.gotoPosInTime(gp.pos[0],-1.5606939305820804,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
+         window.scene.gotoPosInTime(gp.pos[0],-1.5706939305820804,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
       }
       else {
          window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
@@ -940,6 +941,7 @@ const MainMenu = (props) => {
       GotoPosInTimeNamedValue(window.config.bottom,function () {
          window.scene._nav._revertPan = true;
          window.scene._nav._revertPanOriginal = [-0.007566,3.085124];
+         // window.scene._nav._revertPanOriginal = [1.007566,3.085124];
          window.localStorage.setItem('hotspot','right')
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
