@@ -228,6 +228,10 @@ border: 1px solid red;
 	height: 32px !important;
 	margin-left: 21px !important;
 }
+#leftBtn img.MuiAvatar-img,
+#rightBtn img.MuiAvatar-img {
+  object-fit: cover !important; 
+}
 img.MuiAvatar-img {
 	height: 100% !important;
 	width: 100% !important;

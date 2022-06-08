@@ -20,13 +20,15 @@ const Btn = {
 const BtnIcon = {
    borderRadius: "0px",
    background: 'transparent',
-   width: '52px',
-   height: '36px'
+   width: '52px'
 }
+//height: '36px'
 const MenuBtn = (props) => {
+
+   //console.log(props);
    return (
       <div className="menubtn">
-         <Button tabIndex="-1" className="Btnsubmenu" style={Btn} variant="contained" color="secondary" startIcon={<Avatar style={BtnIcon} src={props.source} />}>{props.submenu}</Button>
+         <Button tabIndex="-1" className="Btnsubmenu" style={Btn} variant="contained" color="secondary" startIcon={<Avatar style={{ ...BtnIcon,height: props.subname == 'Left' || props.subname == 'Right' ? '55px' : '36px' }} src={props.source} />}>{props.submenu}</Button>
       </div>
    )
 }
