@@ -57,13 +57,6 @@ const MainMenu = (props) => {
 
    const [counter,setCounter] = useState(0);
 
-   //   const [orientationPotrait, setOrientation] = useState(true);
-   //   window.checkOrientationStatus = (orientationStatus) => 
-   //   {
-   //   //  alert(window.screen.orientation.type);
-   //     setOrientation(orientationStatus);
-   //  }
-
    const handleAccordionChange = (panel) => (event,isExpanded) => {
       console.log({ event,isExpanded });
       //setExpandedPanel(isExpanded ? panel  : false );
@@ -92,6 +85,7 @@ const MainMenu = (props) => {
             setCamData(myJson.positions);
          });
    }
+
    useEffect(() => {
       getData();
       animationSwitch = window.localStorage.getItem('Animation');
@@ -156,7 +150,7 @@ const MainMenu = (props) => {
       console.log('gp.time',gp.time);
       if (gotoposname == "Render_Cam_F01_Top_Rear") {
          window.scene.gotoPosInTime(gp.pos[0],1.5732252903320788,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
-         
+
       }
       else if (gotoposname == "Render_Cam_F01_Top_Front") {
          window.scene.gotoPosInTime(gp.pos[0],-1.5706939305820804,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
@@ -193,6 +187,7 @@ const MainMenu = (props) => {
 
    }
    const reversAll = () => {
+      window.scene._nav.SetRotationCenter([0,0,0]);
       window.scene.groupApplyState("Pen_OFF");
       window.scene.groupApplyState("Keyboard_OFF");
       window.scene.groupApplyState("Tab_Reflection_ON");
@@ -240,7 +235,7 @@ const MainMenu = (props) => {
       setOpenCloseOnOff(false);
       setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/stylus_B.png");
+      setBacklite("./img/stylus_W.png");
 
       // window.scene.materialReplace('LED_Backlit_ON_env', 'LED_Backlit_OFF_env');
       window.scene.clearRefine();
@@ -939,14 +934,11 @@ const MainMenu = (props) => {
       resetBacklitCloseImg();
 
       GotoPosInTimeNamedValue(window.config.bottom,function () {
-         window.scene._nav._revertPan = true;
-         window.scene._nav._revertPanOriginal = [-0.007566,3.085124];
-         // window.scene._nav._revertPanOriginal = [1.007566,3.085124];
          window.localStorage.setItem('hotspot','right')
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
          }
-
+         window.scene._nav.SetRotationCenter([-0.0108,7.868,0]);
       });
 
       if (!(window.isipad || window.mob)) {
@@ -1036,7 +1028,6 @@ const MainMenu = (props) => {
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
          }
-
 
       });
       if (!(window.isipad || window.mob)) {
@@ -1128,16 +1119,11 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("Backlit_OFF");
 
       GotoPosInTimeNamedValue(window.config.top,function () {
-         window.scene._nav._revertPan = true;
-         window.scene._nav._revertPanOriginal = [-0.007566,3.085124];
-
-
-
          window.localStorage.setItem('hotspot','top')
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
          }
-
+         window.scene._nav.SetRotationCenter([-0.0108,7.868,0]);
       });
       if (!(window.isipad || window.mob)) {
          document.getElementById("hotspot1").setAttribute("tabindex","-1");
@@ -1449,8 +1435,8 @@ const MainMenu = (props) => {
    //MenuFeatureView
 
    const [openCloseOnOff,setOpenCloseOnOff] = useState(false);
-   const [backlit,setBacklite] = useState("./img/stylus_B.png");
-   const [opneClose,setOpenClose] = useState("./img/Folio_B.png");
+   const [backlit,setBacklite] = useState("./img/stylus_W.png");
+   const [opneClose,setOpenClose] = useState("./img/Folio_W.png");
    const [backliteOnOff,setBackliteOnOff] = useState(false);
 
    const xpsFolioClick = () => {
@@ -1545,7 +1531,7 @@ const MainMenu = (props) => {
          }
          setOpenCloseOnOff(true);
          console.log("on");
-         setOpenClose("./img/stylus_W.png");
+         //setOpenClose("./img/stylus_W.png");
          GotoPosInTimeNamedValue(window.config.folio,function () {
          });
          window.scene.groupApplyState("Pen_OFF");
@@ -1704,7 +1690,7 @@ const MainMenu = (props) => {
          }
          setBackliteOnOff(true);
          console.log("on");
-         setBacklite("./img/stylus_W.png");
+         //setBacklite("./img/stylus_W.png");
          GotoPosInTimeNamedValue(window.config.folio,function () {
          });
          window.scene.groupApplyState("Pen_ON");
@@ -1773,7 +1759,7 @@ const MainMenu = (props) => {
       setOpenCloseOnOff(false);
       setOpenClose("./img/Folio_W.png");
       setBackliteOnOff(false);
-      setBacklite("./img/stylus_B.png");
+      setBacklite("./img/stylus_W.png");
       setLaptop360FrontImg("./img/front180White.png");
       setLaptop360TopImg("./img/top180White.png");
       setLaptop360LefttImg("./img/180_white_left.png");
@@ -1841,10 +1827,10 @@ const MainMenu = (props) => {
       setOpenCloseOnOff(false);
       setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/stylus_B.png");
+      setBacklite("./img/stylus_W.png");
       setLaptop360FrontImg("./img/front360_black.png");
       setLaptop360TopImg("./img/top360.png");
-      setLaptop360LefttImg("./img/180_black_left.png");
+      setLaptop360LefttImg("./img/360_left.png");
       setLaptop360RightImg("./img/360_right.png");
 
       setLaptop360BackImg("./img/360_back.png");
@@ -1966,7 +1952,7 @@ const MainMenu = (props) => {
       setOpenCloseOnOff(false);
       setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/stylus_B.png");
+      setBacklite("./img/stylus_W.png");
       window.localStorage.removeItem('hotspot');
       GotoPosInTimeNamedValue('Tent_Cam_F53_Tent',function () {
          window.scene.groupApplyState("GP_tent");
@@ -2014,7 +2000,7 @@ const MainMenu = (props) => {
       setOpenCloseOnOff(false);
       setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/stylus_B.png");
+      setBacklite("./img/stylus_W.png");
 
       window.localStorage.removeItem('hotspot');
       GotoPosInTimeNamedValue('Render_Cam_F100_Stand');
@@ -2060,7 +2046,7 @@ const MainMenu = (props) => {
       setOpenCloseOnOff(false);
       setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/stylus_B.png");
+      setBacklite("./img/stylus_W.png");
 
       window.localStorage.removeItem('hotspot');
       GotoPosInTimeNamedValue('Close_Cam_F158_Close1');
@@ -2329,7 +2315,7 @@ const MainMenu = (props) => {
    const [animValue1,setAnimValue1] = useState("On");
 
    useEffect(() => {
-      console.log('useeffect working');
+      //console.log('useeffect working');
       window.localStorage.setItem('Animation','on');
       setAnimValue("On");
       document.getElementById("animSwitchValue").checked = true;
