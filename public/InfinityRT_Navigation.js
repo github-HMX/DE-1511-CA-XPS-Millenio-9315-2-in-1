@@ -556,9 +556,9 @@ infinityrt_navigation.prototype.NavCreateViewMatrix = function (initialViewMatri
             // Rotation
             this._navXAng += this._navDXAng;
             this._navYAng += this._navDYAng;
-            var fRotLimit = M_PI * 0.48;
+            var fRotLimit = M_PI * 0.58;
             // var fRotMinLimit = -M_PI * this.tempfRotMinLimit;
-            var fRotMinLimit = -M_PI * 0.48;
+            var fRotMinLimit = -M_PI * 0.58;
             if (this._navXAng > fRotLimit)
                this._navXAng = fRotLimit;
             else if (this._navXAng < fRotMinLimit)
@@ -1076,9 +1076,9 @@ infinityrt_navigation.prototype.NavRotation = function (mpos,mdelta) {
    else {
       this._navXAng -= mdelta[1] / 30.0;
       this._navYAng += mdelta[0] / 30.0;
-      var fRotLimit = M_PI * 0.48;
+      var fRotLimit = M_PI * 0.58;
       // var fRotMinLimit = -M_PI * this.tempfRotMinLimit;
-      var fRotMinLimit = -M_PI * 0.48;
+      var fRotMinLimit = -M_PI * 0.58;
       if (this._navXAng > fRotLimit)
          this._navXAng = fRotLimit;
       else if (this._navXAng < fRotMinLimit)
