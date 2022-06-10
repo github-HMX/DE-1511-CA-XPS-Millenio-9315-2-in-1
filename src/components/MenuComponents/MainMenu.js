@@ -977,9 +977,11 @@ const MainMenu = (props) => {
       window.RT_RecordEvent("Product Type","Left",window.config.name);
       window.scene.clearRefine();
    }
+   var topView = false;
    const onBottomClick = (isNextPrevious) => {
       //Update ZoomBar
-      window.scene.animPlayAllChildrenInTime("Tablet",5,0);
+      //alert();
+     // window.scene.animPlayAllChildrenInTime("Tablet",5,0);
       console.log(position.nintyDegree,position.currentPos)
       console.log('onBottomClick')
       if (slider != null) {
@@ -1012,7 +1014,16 @@ const MainMenu = (props) => {
       reversAll();
       resetBacklitCloseImg();
       window.scene.groupApplyState("Tab_Reflection_OFF");
-      window.scene.animPlayAllChildrenInTime("Tablet",5.829,1000);
+      if(topView){
+            window.scene.animPlayAllChildrenInTime("Tablet",5.829,1000);
+            topView = false;
+      }else {
+         setTimeout(() => {
+            window.scene.animPlayAllChildrenInTime("Tablet",5.829,1);
+         }, 700);
+      }
+      
+     
       GotoPosInTimeNamedValue(window.config.bottom,function () {
          window.localStorage.setItem('hotspot','right')
          if (isNextPrevious != true) {
@@ -1066,7 +1077,7 @@ const MainMenu = (props) => {
 
    const onTopClick = (isNextPrevious) => {
       //Update ZoomBar
-
+      topView = true;
       console.log(position.top,position.currentPos);
       console.log('onTopClick')
       var slider = document.getElementById("sliderRange");
