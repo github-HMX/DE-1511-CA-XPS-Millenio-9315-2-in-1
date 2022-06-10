@@ -114,7 +114,6 @@ const MainMenu = (props) => {
       }
    },[])
 
-
    //For Animation Switch 
    // console.log('animationSwitch anim', animationSwitch)
 
@@ -148,16 +147,16 @@ const MainMenu = (props) => {
       }
       console.log('animationSwitch',animationSwitch);
       console.log('gp.time',gp.time);
-      if (gotoposname == "Render_Cam_F120_Top_Rear") {
-         window.scene.gotoPosInTime(gp.pos[0],1.569380,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
+      // if (gotoposname == "Render_Cam_Top") {
+      //    window.scene.gotoPosInTime(gp.pos[0],1.569380,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
 
-      }
-      else if (gotoposname == "Render_Cam_F140_Top_Front") {
-         window.scene.gotoPosInTime(gp.pos[0],1.569380,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
-      }
-      else {
+      // }
+      // else if (gotoposname == "Render_Cam_Bottom") {
+      //    window.scene.gotoPosInTime(gp.pos[0],1.569380,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
+      // }
+      // else {
          window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
-      }
+      // }
 
       // console.log(gp.pos[0], gp.pos[1], gp.pos[2], gp.pos[3], gp.pos[4], gp.time, onComplete, onSample, opt);
    }
@@ -178,13 +177,6 @@ const MainMenu = (props) => {
       if (window.scene.animIsPlaying('SPINE')) window.scene.getAnim("SPINE").stop();
       window.scene.clearRefine();
 
-      // window.scene.animPlayAllChildrenInTime("Stylus",0,0);
-      // window.scene.animPlayAllChildrenInTime("Tablet",0,0);
-      // window.scene.animPlayAllChildrenInTime("joint3",0,0);
-      // window.scene.animPlayAllChildrenInTime("joint4",0,0);
-      // window.scene.animPlayAllChildrenInTime("SPINE",0,0);
-
-
    }
    const reversAll = () => {
       window.scene._nav.SetRotationCenter([0,0,0]);
@@ -193,33 +185,16 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("Tab_Reflection_ON");
       window.localStorage.removeItem('features');
       if (window.storeData.currentState == "sky") {
-
          window.scene.groupApplyState("Millenio_5G_OFF");
          window.scene.groupApplyState("Millenio_WIFI_ON");
-
       }
       else if (window.storeData.currentState == "slate") {
-
          window.scene.groupApplyState("Millenio_WIFI_OFF");
          window.scene.groupApplyState("Millenio_5G_ON");
-
-
       }
 
-      // window.scene.groupApplyState("Millenio_WIFI_OFF");
-      // window.scene.groupApplyState("Millenio_5G_ON");
-      // if (window.scene.animIsPlaying("Tab")) {
-      //    window.scene.getAnim("Tab").stop();
-      // }
-      // if (window.scene.animIsPlaying("Tab.001")) {
-      //    window.scene.getAnim("Tab.001").stop();
-      // }
-
-      // window.scene.animPlayAllChildrenInTime("Tab",0,0);
-      // window.scene.animPlayAllChildrenInTime("Tab.001",0,0);
-
       window.scene.animPlayAllChildrenInTime("Stylus",0,0);
-      // window.scene.animPlayAllChildrenInTime("Tablet",0,0);
+      window.scene.animPlayAllChildrenInTime("Tablet",0,0);
       window.scene.animPlayAllChildrenInTime("joint3",0,0);
       window.scene.animPlayAllChildrenInTime("joint4",0,0);
       window.scene.animPlayAllChildrenInTime("SPINE",0,0);
@@ -236,91 +211,7 @@ const MainMenu = (props) => {
       window.scene.clearRefine();
 
    }
-   const resetTimeline1 = (revers90Degree = true) => {
-      //window.scene.instanceSet("GP_Close_360", "visible", false);
-      //window.scene.instanceSet("GP_Stand", "visible", false);
-      //window.scene.instanceSet("GP_Tent", "visible", false);
-      //window.scene.instanceSet("GP_Tablet", "visible", false);
-      if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-      if (window.scene.animIsPlaying('Screen_grp_timeline_01_A')) window.scene.getAnim("Screen_grp_timeline_01_A").stop();
-      if (window.scene.animIsPlaying('Hinge_grp_timeline_01_A')) window.scene.getAnim("Hinge_grp_timeline_01_A").stop();
-      if (window.scene.animIsPlaying('Main_grp_timeline_01_A')) window.scene.getAnim("Main_grp_timeline_01_A").stop();
-
-      if (revers90Degree) {
-         // window.scene.animPlayInTime("Screen_90_degree", 0, 0);
-         // window.scene.animPlayInTime("Screen_90_to_close180", 0, 0);
-         // window.scene.animPlayInTime("Screen_90_to_close360", 0, 0);
-      }
-      window.scene.animPlayInTime("Screen_grp_timeline_01_A",0,0);
-      window.scene.animPlayInTime("Hinge_grp_timeline_01_A",0,0);
-      window.scene.animPlayInTime("Main_grp_timeline_01_A",0,0);
-      window.scene.clearRefine();
-   }
-   const resetTimeline2 = (revers90Degree = true) => {
-      //window.scene.instanceSet("GP_Close_360", "visible", false);
-      //window.scene.instanceSet("GP_Stand", "visible", false);
-      //window.scene.instanceSet("GP_Tent", "visible", false);
-      //window.scene.instanceSet("GP_Tablet", "visible", false);
-      if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-      if (window.scene.animIsPlaying('Screen_grp_timeline_02_A')) window.scene.getAnim("Screen_grp_timeline_02_A").stop();
-      if (window.scene.animIsPlaying('Hinge_grp_timeline_02_A')) window.scene.getAnim("Hinge_grp_timeline_02_A").stop();
-      if (window.scene.animIsPlaying('Main_grp_timeline_02_A')) window.scene.getAnim("Main_grp_timeline_02_A").stop();
-      if (revers90Degree) {
-         // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
-         // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
-
-      }
-      window.scene.animPlayInTime("Screen_grp_timeline_02_A",0,0);
-      window.scene.animPlayInTime("Hinge_grp_timeline_02_A",0,0);
-      window.scene.animPlayInTime("Main_grp_timeline_02_A",0,0);
-      window.scene.clearRefine();
-   }
-   const resetTimeline3 = (revers90Degree = true) => {
-      //window.scene.instanceSet("GP_Close_360", "visible", false);
-      //window.scene.instanceSet("GP_Stand", "visible", false);
-      //window.scene.instanceSet("GP_Tent", "visible", false);
-      //window.scene.instanceSet("GP_Tablet", "visible", false);
-      if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-      if (window.scene.animIsPlaying('Screen_grp_timeline_03_A')) window.scene.getAnim("Screen_grp_timeline_03_A").stop();
-      if (window.scene.animIsPlaying('Hinge_grp_timeline_03_A')) window.scene.getAnim("Hinge_grp_timeline_03_A").stop();
-      if (window.scene.animIsPlaying('Main_grp_timeline_03_A')) window.scene.getAnim("Main_grp_timeline_03_A").stop();
-      if (revers90Degree) {
-         // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
-         // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
-
-      }
-      window.scene.animPlayInTime("Screen_grp_timeline_03_A",0,0);
-      window.scene.animPlayInTime("Hinge_grp_timeline_03_A",0,0);
-      window.scene.animPlayInTime("Main_grp_timeline_03_A",0,0);
-      window.scene.clearRefine();
-   }
-   const resetTimeline4 = (revers90Degree = true) => {
-      //window.scene.instanceSet("GP_Close_360", "visible", false);
-      //window.scene.instanceSet("GP_Stand", "visible", false);
-      //window.scene.instanceSet("GP_Tent", "visible", false);
-      //window.scene.instanceSet("GP_Tablet", "visible", false);
-      if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-      if (window.scene.animIsPlaying('Main_grp_timeline_04_A')) window.scene.getAnim("Main_grp_timeline_04_A").stop();
-      if (window.scene.animIsPlaying('Hinge_grp_timeline_04_A')) window.scene.getAnim("Hinge_grp_timeline_04_A").stop();
-      if (window.scene.animIsPlaying('Screen_grp_timeline_04_A')) window.scene.getAnim("Screen_grp_timeline_04_A").stop();
-      if (revers90Degree) {
-         // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
-         // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
-
-      }
-      window.scene.animPlayInTime("Main_grp_timeline_04_A",0,0);
-      window.scene.animPlayInTime("Hinge_grp_timeline_04_A",0,0);
-      window.scene.animPlayInTime("Screen_grp_timeline_04_A",0,0);
-      window.scene.clearRefine();
-   }
-   const posClicked1 = () => {
-      window.localStorage.removeItem('hotspot');
-      window.localStorage.removeItem('color');
-      window.scene.animPlayInTime("Screen_grp_timeline_01",0,animTime);
-
-   }
-
-
+  
    //MenuSelectProduct
    const [laptop360,setlaptop360] = useState(true);
 
@@ -647,7 +538,6 @@ const MainMenu = (props) => {
          document.getElementById('nextView').setAttribute('aria-label','Front view');
       }
 
-
       // if (laptop180) {
       //    window.scene.groupApplyState("screenfill_180");
       // } else {
@@ -658,8 +548,7 @@ const MainMenu = (props) => {
 
       reversAll();
       resetBacklitCloseImg();
-      // window.scene.animPlayAllChildrenInTime("Tab",0,0);
-      window.scene.animPlayAllChildrenInTime("Tablet",5,0);
+
       GotoPosInTimeNamedValue(window.config.front,function () {
          window.localStorage.setItem('hotspot','front')
 
@@ -692,21 +581,9 @@ const MainMenu = (props) => {
          document.getElementById("nextView").setAttribute("tabindex","0");
 
       }
-      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      //    console.log("Theater")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // }
-      // else {
-      //    console.log("else")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // }
 
    }
    const onBackClick = (isNextPrevious) => {
-
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
 
@@ -755,7 +632,6 @@ const MainMenu = (props) => {
 
       reversAll();
       resetBacklitCloseImg();
-      window.scene.animPlayAllChildrenInTime("Tablet",5,0);
       GotoPosInTimeNamedValue(window.config.back,function () {
          window.localStorage.setItem('hotspot','back')
 
@@ -788,21 +664,8 @@ const MainMenu = (props) => {
          document.getElementById("nextView").setAttribute("tabindex","0");
 
       }
-      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      //    console.log("Theater")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // }
-      // else {
-      //    console.log("else")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // }
-
       window.RT_RecordEvent("Product Type","Back",window.config.name);
       window.scene.clearRefine();
-      // position.currentPos = 'nintyDegree';
 
    }
    const onRightClick = (isNextPrevious) => {
@@ -829,13 +692,12 @@ const MainMenu = (props) => {
       } else {
          window.scene.groupApplyState("screenfill_360");
       }
-
       window.localStorage.removeItem('hotspot');
       var slider = document.getElementById("sliderRange");
 
       reversAll();
       resetBacklitCloseImg();
-      window.scene.animPlayAllChildrenInTime("Tablet",5,0);
+
       GotoPosInTimeNamedValue(window.config.right,function () {
          if (slider != null) {
             document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
@@ -872,31 +734,15 @@ const MainMenu = (props) => {
          document.getElementById("hotspot12").setAttribute("tabindex","-1");
          document.getElementById("hotspot13").setAttribute("tabindex","-1");
       }
-      // var currentPosName = position.currentPos;
-      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      //    console.log("Theater")
-      // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // }
-      // else {
-      //    console.log("else")
-      // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // }
-      // window.scene.clearRefine();
-      // position.currentPos = 'nintyDegree';
-
       window.RT_RecordEvent("Product Type","Right",window.config.name);
       window.scene.clearRefine();
    }
+
    const onLeftClick = (isNextPrevious) => {
       //Update ZoomBar
-
       console.log(position.nintyDegree,position.currentPos)
       console.log('onLeftClick')
       var slider = document.getElementById("sliderRange");
-
       if (slider != null) {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
@@ -914,8 +760,6 @@ const MainMenu = (props) => {
       if (alreadySelected != null) {
          alreadySelected.classList.remove('active');
       }
-
-
       document.getElementById('leftBtn').classList.add('active');
       window.localStorage.setItem("position","reset");
       (window.localStorage.getItem("hotspot","right"))
@@ -925,10 +769,7 @@ const MainMenu = (props) => {
       } else {
          window.scene.groupApplyState("screenfill_360");
       }
-
-
       reversAll();
-      window.scene.animPlayAllChildrenInTime("Tablet",5,0);
       GotoPosInTimeNamedValue(window.config.left,function () {
          window.localStorage.setItem('hotspot','left')
          if (isNextPrevious != true) {
@@ -960,28 +801,12 @@ const MainMenu = (props) => {
          document.getElementById("hotspot12").setAttribute("tabindex","-1");
          document.getElementById("hotspot13").setAttribute("tabindex","-1");
       }
-      // var currentPosName = position.currentPos;
-      // if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      //    console.log("Theater")
-      //    // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      //    // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // }
-      // else {
-      //    console.log("else")
-      //    // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      //    // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // }
-      // position.currentPos = 'nintyDegree';
-
       window.RT_RecordEvent("Product Type","Left",window.config.name);
       window.scene.clearRefine();
    }
-   var topView = false;
+   
    const onBottomClick = (isNextPrevious) => {
       //Update ZoomBar
-      //alert();
-     // window.scene.animPlayAllChildrenInTime("Tablet",5,0);
       console.log(position.nintyDegree,position.currentPos)
       console.log('onBottomClick')
       if (slider != null) {
@@ -1008,22 +833,11 @@ const MainMenu = (props) => {
       } else {
          window.scene.groupApplyState("screenfill_360");
       }
-   
       window.localStorage.removeItem('hotspot');
       var slider = document.getElementById("sliderRange");
       reversAll();
       resetBacklitCloseImg();
       window.scene.groupApplyState("Tab_Reflection_OFF");
-      if(topView){
-            window.scene.animPlayAllChildrenInTime("Tablet",5.829,1000);
-            topView = false;
-      }else {
-         setTimeout(() => {
-            window.scene.animPlayAllChildrenInTime("Tablet",5.829,1);
-         }, 700);
-      }
-      
-     
       GotoPosInTimeNamedValue(window.config.bottom,function () {
          window.localStorage.setItem('hotspot','right')
          if (isNextPrevious != true) {
@@ -1056,32 +870,15 @@ const MainMenu = (props) => {
          document.getElementById("hotspot12").setAttribute("tabindex","-1");
          document.getElementById("hotspot13").setAttribute("tabindex","-1");
       }
-      // var currentPosName = position.currentPos;
-      // if (position.bottom == position[currentPosName]) { position.currentPos = 'bottom'; return; }
-      // // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      // //    console.log("Theater")
-      // // window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // // window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // // }
-      // else {
-      //    console.log("else")
-      // // window.scene.animPlayAllChildrenInTime("Tablet",position.bottom,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // // window.scene.animPlayAllChildrenInTime("Tab.001",position.bottom,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // }
-      
-      // position.currentPos = 'bottom';
-
       window.RT_RecordEvent("Product Type","Bottom",window.config.name);
       window.scene.clearRefine();
    }
 
    const onTopClick = (isNextPrevious) => {
       //Update ZoomBar
-      topView = true;
       console.log(position.top,position.currentPos);
       console.log('onTopClick')
       var slider = document.getElementById("sliderRange");
-
       if (slider != null) {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
@@ -1121,7 +918,6 @@ const MainMenu = (props) => {
       resetBacklitCloseImg();
       window.scene.groupApplyState("Tab_Reflection_OFF");
       window.scene.groupApplyState("Backlit_OFF");
-      window.scene.animPlayAllChildrenInTime("Tablet",5.000,1000);
       GotoPosInTimeNamedValue(window.config.top,function () {
          window.localStorage.setItem('hotspot','top')
          if (isNextPrevious != true) {
@@ -1153,285 +949,8 @@ const MainMenu = (props) => {
          document.getElementById("hotspot12").setAttribute("tabindex","-1");
          document.getElementById("hotspot13").setAttribute("tabindex","-1");
       }
-      // var currentPosName = position.currentPos;
-      // if (position.top == position[currentPosName]) { position.currentPos = 'top'; return; }
-      // // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      // //    console.log("Theater")
-      // // window.scene.animPlayAllChildrenInTime("Tab",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // // window.scene.animPlayAllChildrenInTime("Tab.001",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // // }
-      // else {
-      //    console.log("else")
-      // window.scene.animPlayAllChildrenInTime("Tablet",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // // window.scene.animPlayAllChildrenInTime("Tab.001",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // }
-      // position.currentPos = 'top';
       window.RT_RecordEvent("Product Type","Top",window.config.name);
       window.scene.clearRefine();
-   }
-
-   const onangleOneClick = (isNextPrevious) => {
-
-      //Update ZoomBar
-      var slider = document.getElementById("sliderRange");
-
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
-      console.log(position.nintyDegree,position.currentPos)
-
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
-      document.getElementById('angleOneBtn').classList.add('active');
-      window.localStorage.setItem("position","reset");
-
-      var currentPosName = position.currentPos;
-
-      selectedButton = '';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Front view');
-
-         document.getElementById('nextView').setAttribute('aria-label','Front view');
-      }
-
-      // if (laptop180) {
-      //    window.scene.groupApplyState("screenfill_180");
-      // } else {
-      //    window.scene.groupApplyState("screenfill_360");
-      // }
-
-      window.localStorage.removeItem('hotspot');
-
-      reversAll();
-      resetBacklitCloseImg();
-
-      GotoPosInTimeNamedValue('Render_Cam_F20_L',function () {
-         window.localStorage.setItem('hotspot','front')
-
-         if (isNextPrevious != true) {
-            window.document.getElementById("hotspot1demo").focus();
-         }
-      })
-      if (!(window.isipad || window.mob)) {
-         document.getElementById("hotspot1").setAttribute("tabindex","-1");
-         document.getElementById("hotspot2").setAttribute("tabindex","-1");
-         document.getElementById("hotspot3").setAttribute("tabindex","-1");
-         document.getElementById("hotspot4").setAttribute("tabindex","-1");
-         document.getElementById("hotspot5").setAttribute("tabindex","-1");
-         document.getElementById("hotspot6").setAttribute("tabindex","-1");
-         document.getElementById("hotspot7").setAttribute("tabindex","-1");
-         document.getElementById("hotspot8").setAttribute("tabindex","-1");
-         document.getElementById("hotspot9").setAttribute("tabindex","-1");
-         document.getElementById("hotspot10").setAttribute("tabindex","-1");
-
-         document.getElementById("hotspot11").setAttribute("tabindex","1");
-         document.getElementById("hotspot12").setAttribute("tabindex","1");
-         document.getElementById("hotspot13").setAttribute("tabindex","1");
-         document.getElementById("rLeft").setAttribute("tabindex","0");
-         document.getElementById("rRight").setAttribute("tabindex","0");
-         document.getElementById("zoomOut").setAttribute("tabindex","0");
-         document.getElementById("sliderRange").setAttribute("tabindex","0");
-         document.getElementById("zoomIn").setAttribute("tabindex","0");
-         document.getElementById("previousView").setAttribute("tabindex","0");
-         document.getElementById("resetView").setAttribute("tabindex","0");
-         document.getElementById("nextView").setAttribute("tabindex","0");
-
-      }
-      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      //    console.log("Theater")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // }
-      // else {
-      //    console.log("else")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // }
-
-      window.RT_RecordEvent("Product Type","Front",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'nintyDegree';
-
-   }
-
-   const onangleTwoClick = (isNextPrevious) => {
-
-      //Update ZoomBar
-      var slider = document.getElementById("sliderRange");
-
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
-      console.log(position.nintyDegree,position.currentPos)
-
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
-      document.getElementById('frontBtn').classList.add('active');
-      window.localStorage.setItem("position","reset");
-
-      var currentPosName = position.currentPos;
-
-      selectedButton = '';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Front view');
-
-         document.getElementById('nextView').setAttribute('aria-label','Front view');
-      }
-
-      // if (laptop180) {
-      //    window.scene.groupApplyState("screenfill_180");
-      // } else {
-      //    window.scene.groupApplyState("screenfill_360");
-      // }
-
-      window.localStorage.removeItem('hotspot');
-
-      reversAll();
-      resetBacklitCloseImg();
-
-      GotoPosInTimeNamedValue('Render_Cam_F20_R',function () {
-         window.localStorage.setItem('hotspot','front')
-
-         if (isNextPrevious != true) {
-            window.document.getElementById("hotspot1demo").focus();
-         }
-      })
-      if (!(window.isipad || window.mob)) {
-         document.getElementById("hotspot1").setAttribute("tabindex","-1");
-         document.getElementById("hotspot2").setAttribute("tabindex","-1");
-         document.getElementById("hotspot3").setAttribute("tabindex","-1");
-         document.getElementById("hotspot4").setAttribute("tabindex","-1");
-         document.getElementById("hotspot5").setAttribute("tabindex","-1");
-         document.getElementById("hotspot6").setAttribute("tabindex","-1");
-         document.getElementById("hotspot7").setAttribute("tabindex","-1");
-         document.getElementById("hotspot8").setAttribute("tabindex","-1");
-         document.getElementById("hotspot9").setAttribute("tabindex","-1");
-         document.getElementById("hotspot10").setAttribute("tabindex","-1");
-
-         document.getElementById("hotspot11").setAttribute("tabindex","1");
-         document.getElementById("hotspot12").setAttribute("tabindex","1");
-         document.getElementById("hotspot13").setAttribute("tabindex","1");
-         document.getElementById("rLeft").setAttribute("tabindex","0");
-         document.getElementById("rRight").setAttribute("tabindex","0");
-         document.getElementById("zoomOut").setAttribute("tabindex","0");
-         document.getElementById("sliderRange").setAttribute("tabindex","0");
-         document.getElementById("zoomIn").setAttribute("tabindex","0");
-         document.getElementById("previousView").setAttribute("tabindex","0");
-         document.getElementById("resetView").setAttribute("tabindex","0");
-         document.getElementById("nextView").setAttribute("tabindex","0");
-
-      }
-      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      //    console.log("Theater")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // }
-      // else {
-      //    console.log("else")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // }
-
-      window.RT_RecordEvent("Product Type","Front",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'nintyDegree';
-
-   }
-
-   const onangleThreeClick = (isNextPrevious) => {
-
-      //Update ZoomBar
-      var slider = document.getElementById("sliderRange");
-
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
-      console.log(position.nintyDegree,position.currentPos)
-
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
-      document.getElementById('frontBtn').classList.add('active');
-      window.localStorage.setItem("position","reset");
-
-      var currentPosName = position.currentPos;
-
-      selectedButton = '';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Front view');
-
-         document.getElementById('nextView').setAttribute('aria-label','Front view');
-      }
-
-      // if (laptop180) {
-      //    window.scene.groupApplyState("screenfill_180");
-      // } else {
-      //    window.scene.groupApplyState("screenfill_360");
-      // }
-
-      window.localStorage.removeItem('hotspot');
-
-      reversAll();
-      resetBacklitCloseImg();
-
-      GotoPosInTimeNamedValue(window.config.default,function () {
-         window.localStorage.setItem('hotspot','front')
-
-         if (isNextPrevious != true) {
-            window.document.getElementById("hotspot1demo").focus();
-         }
-      })
-      if (!(window.isipad || window.mob)) {
-         document.getElementById("hotspot1").setAttribute("tabindex","-1");
-         document.getElementById("hotspot2").setAttribute("tabindex","-1");
-         document.getElementById("hotspot3").setAttribute("tabindex","-1");
-         document.getElementById("hotspot4").setAttribute("tabindex","-1");
-         document.getElementById("hotspot5").setAttribute("tabindex","-1");
-         document.getElementById("hotspot6").setAttribute("tabindex","-1");
-         document.getElementById("hotspot7").setAttribute("tabindex","-1");
-         document.getElementById("hotspot8").setAttribute("tabindex","-1");
-         document.getElementById("hotspot9").setAttribute("tabindex","-1");
-         document.getElementById("hotspot10").setAttribute("tabindex","-1");
-
-         document.getElementById("hotspot11").setAttribute("tabindex","1");
-         document.getElementById("hotspot12").setAttribute("tabindex","1");
-         document.getElementById("hotspot13").setAttribute("tabindex","1");
-         document.getElementById("rLeft").setAttribute("tabindex","0");
-         document.getElementById("rRight").setAttribute("tabindex","0");
-         document.getElementById("zoomOut").setAttribute("tabindex","0");
-         document.getElementById("sliderRange").setAttribute("tabindex","0");
-         document.getElementById("zoomIn").setAttribute("tabindex","0");
-         document.getElementById("previousView").setAttribute("tabindex","0");
-         document.getElementById("resetView").setAttribute("tabindex","0");
-         document.getElementById("nextView").setAttribute("tabindex","0");
-
-      }
-      if (position.nintyDegree == position[currentPosName]) { position.currentPos = 'nintyDegree'; return; }
-      // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-      //    console.log("Theater")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // }
-      // else {
-      //    console.log("else")
-      //    window.scene.animPlayAllChildrenInTime("Tab",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      //    window.scene.animPlayAllChildrenInTime("Tab.001",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      // }
-
-      window.RT_RecordEvent("Product Type","Front",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'nintyDegree';
-
    }
 
    //MenuFeatureView
@@ -1577,8 +1096,6 @@ const MainMenu = (props) => {
 
 
    }
-
-
 
    let backliteVar = document.getElementById('backlitBtn');
 
@@ -1925,142 +1442,7 @@ const MainMenu = (props) => {
    const [nextClick,setNextClick] = useState(false);
    const [prevClick,setPrevClick] = useState(false);
 
-   const TentModeClick = () => {
-      console.log(position.tent,position.currentPos)
 
-      //Update ZoomBar
-      var slider = document.getElementById("sliderRange");
-
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
-
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
-
-      // document.getElementById('tentBtn').classList.add('active');
-      window.scene.groupApplyState("screen_360");
-
-      selectedButton = 'TentModeClick';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Tent Mode');
-
-         document.getElementById('nextView').setAttribute('aria-label','Tent Mode');
-      }
-      setOpenCloseOnOff(false);
-      setOpenClose("./img/Folio_B.png");
-      setBackliteOnOff(false);
-      setBacklite("./img/stylus_W.png");
-      window.localStorage.removeItem('hotspot');
-      GotoPosInTimeNamedValue('Tent_Cam_F53_Tent',function () {
-         window.scene.groupApplyState("GP_tent");
-      });
-
-      var currentPosName = position.currentPos;
-      if (position.tent == position[currentPosName]) { position.currentPos = 'tent'; return; }
-      // window.scene.animPlayAllChildrenInTime("Tab",position.tent,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
-      // window.scene.animPlayAllChildrenInTime("Tab.001",position.tent,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
-
-      window.RT_RecordEvent("Positions","Tent",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'tent';
-
-   }
-
-   const TheaterModeClick = () => {
-      console.log(position.theatre,position.currentPos)
-
-      //Update ZoomBar
-      var slider = document.getElementById("sliderRange");
-
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
-
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
-
-      document.getElementById('theaterBtn').classList.add('active');
-      window.scene.groupApplyState("screen_180");
-
-      window.localStorage.removeItem('closeMode')
-      selectedButton = 'TheaterModeClick';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Theater Mode');
-
-         document.getElementById('nextView').setAttribute('aria-label','Theater Mode');
-      }
-      window.scene.groupApplyState("Backlit_OFF");
-      window.scene.groupApplyState("all_GP_off");
-      setOpenCloseOnOff(false);
-      setOpenClose("./img/Folio_B.png");
-      setBackliteOnOff(false);
-      setBacklite("./img/stylus_W.png");
-
-      window.localStorage.removeItem('hotspot');
-      GotoPosInTimeNamedValue('Render_Cam_F100_Stand');
-
-      var currentPosName = position.currentPos;
-      if (position.theatre == position[currentPosName]) { position.currentPos = 'theatre'; return; }
-      // window.scene.animPlayAllChildrenInTime("Tab",position.theatre,animTime,undefined,undefined,undefined,true,position[currentPosName],9);
-      // window.scene.animPlayAllChildrenInTime("Tab.001",position.theatre,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
-
-      window.RT_RecordEvent("Positions","Theatre",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'theatre';
-
-   }
-   const TabletModeClick = () => {
-      console.log(position.tent,position.currentPos)
-
-      //Update ZoomBar
-      var slider = document.getElementById("sliderRange");
-
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
-
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
-
-
-      document.getElementById('tabletBtn').classList.add('active');
-      window.scene.groupApplyState("screen_180");
-      window.scene.groupApplyState("all_GP_off");
-
-      selectedButton = 'TabletModeClick';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Tablet Mode');
-
-         document.getElementById('nextView').setAttribute('aria-label','Tablet Mode');
-      }
-      window.scene.groupApplyState("Backlit_OFF");
-      setOpenCloseOnOff(false);
-      setOpenClose("./img/Folio_B.png");
-      setBackliteOnOff(false);
-      setBacklite("./img/stylus_W.png");
-
-      window.localStorage.removeItem('hotspot');
-      GotoPosInTimeNamedValue('Close_Cam_F158_Close1');
-
-      var currentPosName = position.currentPos;
-      if (position.tablet == position[currentPosName]) { position.currentPos = 'tablet'; return; }
-      // window.scene.animPlayAllChildrenInTime("Tab",position.tablet,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      // window.scene.animPlayAllChildrenInTime("Tab.001",position.tablet,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-
-      window.RT_RecordEvent("Positions","Tablet",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'tablet';
-   }
    const resetMode = () => {
       selectedButton = 'onResetMode';
       GotoPosInTimeNamedValue(window.config.default,function () { })
@@ -2080,23 +1462,13 @@ const MainMenu = (props) => {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
       }
-
-      // var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      //   alreadySelected.classList.remove('active');
-
-      // document.getElementById('whiteBtn').classList.add('active');
-
-
       window.scene.groupApplyState("screen_180");
-      // window.scene.groupApplyState("GP_open");
-      // window.scene.groupApplyState("dynamic_reset");
       window.localStorage.removeItem('color');
       if (laptop180) {
          window.scene.groupApplyState("screenfill_180");
       } else {
          window.scene.groupApplyState("screenfill_360");
       }
-      // selectedButton = 'onResetMode';
 
       if (selectedButton == 'onFrontClick') {
          console.log("front onreset")
@@ -2156,17 +1528,6 @@ const MainMenu = (props) => {
          GotoPosInTimeNamedValue(window.config.default,function () { })
       }
 
-      // selectedButton = 'onResetMode';
-      // setExpandedPanel(false);
-
-
-      // resetBacklitCloseImg();
-      // window.localStorage.removeItem('closeMode');
-      // window.scene.groupApplyState("Backlit_OFF");
-      // window.localStorage.removeItem('hotspot');
-      // GotoPosInTimeNamedValue('Render_Cam_F01_FL');
-
-      // GotoPosInTimeNamedValue('Render_Cam_F01_FL', function(){
       if (window.localStorage.getItem("Carbon_Fibre") == true) {
          window.scene.groupApplyState("Carbon_Fibre_180A");
          window.scene.groupApplyState("Screen_Fill_180_ON");
@@ -2176,33 +1537,12 @@ const MainMenu = (props) => {
          window.scene.groupApplyState("Millenio_5G_OFF");
          window.scene.groupApplyState("Screen_Fill_180_Silver_ON");
       }
-
       window.scene.clearRefine();
-      // });
-      // var currentPosName = position.currentPos;
-
-      //   if(position.reset == position[currentPosName]) {position.currentPos = 'reset';return;}
-
-      //   if(position.currentPos == 'theatre' || position.currentPos == 'tablet'){
-      //     console.log("Theater")
-      //     window.scene.animPlayAllChildrenInTime("Tab", position.reset, animTime, undefined, undefined, undefined, true,  position[currentPosName], 10);
-      //     window.scene.animPlayAllChildrenInTime("Tab.001", position.reset, animTime, undefined, undefined, undefined, true,  position[currentPosName], 10);
-      //   } else {
-
-      //   window.scene.animPlayAllChildrenInTime("Tab", position.reset, animTime, undefined, undefined, undefined, true,  position[currentPosName], 0);
-      //   window.scene.animPlayAllChildrenInTime("Tab.001", position.reset, animTime, undefined, undefined, undefined, true,  position[currentPosName], 0);
-      //   }
-      //   window.scene.clearRefine();
-      //   position.currentPos = 'reset';
-
-
    }
 
    const onPreviousMode = () => {
-
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
-
       if (slider != null) {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
@@ -2226,9 +1566,6 @@ const MainMenu = (props) => {
             prevButton = buttonSeq[selectedButtonIndex - 1];
          }
       }
-      // alert(buttonSeq[selectedButtonIndex+1])
-
-
 
       if (prevButton == 'onFrontClick') onFrontClick(true);
       else if (prevButton == 'onBackClick') onBackClick(true);
@@ -2246,15 +1583,10 @@ const MainMenu = (props) => {
 
          xpsStylusClick(true);
       }
-
-
       return false;
-
    }
 
-
    const onNextMode = () => {
-
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
       if (slider != null) {
@@ -2262,7 +1594,6 @@ const MainMenu = (props) => {
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
       }
       if (laptop180) {
-
          var nextButton;
          var selectedButtonIndex = buttonSeq180.findIndex(element => element === selectedButton)
          if (selectedButton == 'xpsStylusClick') {
@@ -2280,9 +1611,6 @@ const MainMenu = (props) => {
             nextButton = buttonSeq[selectedButtonIndex + 1];
          }
       }
-      // alert(laptop180)
-
-
       if (nextButton == 'onFrontClick') {
          onFrontClick(true);
          setExpandedPanel("panel1");
@@ -2296,19 +1624,12 @@ const MainMenu = (props) => {
          onLeftClick(true);
       }
       else if (nextButton == 'onBottomClick') onBottomClick(true);
-      // else if (nextButton == 'openCloseClick') {
-      //    openCloseClick(true);
-      //    setExpandedPanel("panel3");
-      // }
       else if (nextButton == 'xpsFolioClick') {
          xpsFolioClick(true);
          setExpandedPanel("panel3");
       }
       else if (nextButton == 'xpsStylusClick') xpsStylusClick(true);
-
       return false;
-
-
    }
 
    const [animValue,setAnimValue] = useState("On");
@@ -2329,7 +1650,6 @@ const MainMenu = (props) => {
       document.getElementsByClassName('onOff1')[0].style.left = "-17px";
 
    },[]);
-
 
    const setAnimationSwitch = (e) => {
       console.log(e)
@@ -2489,7 +1809,6 @@ const MainMenu = (props) => {
       }
 
    }
-
 
    return (
       <>

@@ -29,7 +29,7 @@ var infinityrt_navigation = function (scene,w,h) {
    //MOBILE NAVIGATION VALUES**************************
    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
    if (isMobile) {
-      this._navRotationSpeed = 0.004;
+      this._navRotationSpeed = 0.008;
       this._navDollySpeed = 0.002;
       this._navPanSpeed = 0.04;
       this._navDecay = 0.75;
@@ -77,7 +77,7 @@ var infinityrt_navigation = function (scene,w,h) {
    // this._navMode2Speed = 0.03;     // Navigation speed
 
    this._panMax = [16,10];    //[left, bottom];
-   this._panMin = [-16,-6];  //[right, top];
+   this._panMin = [-16,-10];  //[right, top];
 
    // slowinout easing
    this._curveSIO = {
