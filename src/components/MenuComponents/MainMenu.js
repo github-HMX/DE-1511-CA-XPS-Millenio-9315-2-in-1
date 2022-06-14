@@ -187,10 +187,12 @@ const MainMenu = (props) => {
       if (window.storeData.currentState == "sky") {
          window.scene.groupApplyState("Millenio_5G_OFF");
          window.scene.groupApplyState("Millenio_WIFI_ON");
+         setOpenClose("./img/Folio_W.png");
       }
       else if (window.storeData.currentState == "slate") {
          window.scene.groupApplyState("Millenio_WIFI_OFF");
          window.scene.groupApplyState("Millenio_5G_ON");
+         setOpenClose("./img/Folio_B.png");
       }
 
       window.scene.animPlayAllChildrenInTime("Stylus",0,0);
@@ -203,9 +205,20 @@ const MainMenu = (props) => {
 
    const resetBacklitCloseImg = () => {
       setOpenCloseOnOff(false);
-      setOpenClose("./img/Folio_B.png");
+     //// setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/stylus_W.png");
+    ///  setBacklite("./img/stylus_W.png");
+
+      if (window.storeData.currentState == "sky") {
+
+         setOpenClose("./img/Folio_W.png");
+         console.log("sky se folio ");
+      }
+      else if (window.storeData.currentState == "slate") {
+         setOpenClose("./img/Folio_B.png");
+         console.log("slate se folio ");
+
+      }
 
       // window.scene.materialReplace('LED_Backlit_ON_env', 'LED_Backlit_OFF_env');
       window.scene.clearRefine();
@@ -1071,11 +1084,12 @@ const MainMenu = (props) => {
       if (window.storeData.currentState == "sky") {
 
          window.scene.groupApplyState("Folio_Sky");
+         setOpenClose("./img/Folio_W.png");
          console.log("sky se folio ");
       }
       else if (window.storeData.currentState == "slate") {
          window.scene.groupApplyState("Folio_Slate");
-
+         setOpenClose("./img/Folio_B.png");
          console.log("slate se folio ");
 
       }
@@ -1149,11 +1163,13 @@ const MainMenu = (props) => {
       if (window.storeData.currentState == "sky") {
 
          window.scene.groupApplyState("Stylus_Sky");
+         setOpenClose("./img/Folio_W.png");
          console.log("sky se styulus ");
       }
       else if (window.storeData.currentState == "slate") {
 
          window.scene.groupApplyState("Stylus_Slate");
+         setOpenClose("./img/Folio_B.png");
          console.log("slate se stylus ");
 
       }
@@ -1301,10 +1317,12 @@ const MainMenu = (props) => {
 
       if (window.localStorage.getItem('features') == "folio") {
          window.scene.groupApplyState("Folio_Sky");
+         setOpenClose("./img/Folio_W.png");
          console.log("sky se folio ");
       }
       else if (window.localStorage.getItem('features') == "stylus") {
          window.scene.groupApplyState("Stylus_Sky");
+         setOpenClose("./img/Folio_B.png");
          console.log("sky se Stylus_Sky ");
       }
       else {
@@ -1411,10 +1429,12 @@ const MainMenu = (props) => {
 
       if (window.localStorage.getItem('features') == "folio") {
          window.scene.groupApplyState("Folio_Slate");
+         setOpenClose("./img/Folio_W.png");
          console.log("slate se folio ");
       }
       else if (window.localStorage.getItem('features') == "stylus") {
          window.scene.groupApplyState("Stylus_Slate");
+         setOpenClose("./img/Folio_B.png");
          console.log("slate se Stylus_Sky ");
       }
       else {

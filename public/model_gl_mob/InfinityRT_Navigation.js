@@ -13,8 +13,8 @@ var infinityrt_navigation = function (scene,w,h) {
    this._zoomFactor = 0.0;
    this._navEnabled = true;
    this._navMode = 2;
-   this._navMinDolly = 14.0; //50
-   this._navMaxDolly = 28.0; //110
+   this._navMinDolly = 1.0;//14.0; //50
+   this._navMaxDolly = 1000.0;//28.0; //110
    this._zoomMaxFactor = this._navMaxDolly + 1 * (this._navMinDolly - this._navMaxDolly);
    this._zoomMinFactor = this._navMaxDolly + 0 * (this._navMinDolly - this._navMaxDolly);
     this._ellipticalNav = false;
@@ -62,7 +62,8 @@ var infinityrt_navigation = function (scene,w,h) {
    this._navGotoFoV = null;
    this._navGotoFoVOnComplete = function () { };
    this.SetFoVRange(scene.fovy,scene.fovy);
-
+   this._fovadjust = 0.6;
+   this._fovRecoveryOnZoom = true;
    // Mode 2 Nav (Variables)
    this._navDXAng = 0;
    this._navDYAng = 0;
@@ -407,6 +408,8 @@ infinityrt_navigation.prototype.NavStartGotoPosInTime = function (yang,xang,xpan
       return; // Not Supported, use NavStartGotoPosQuatInTime
    this._fovRecoveryOffset = 0.0;
    this._revertPan = false;
+   this._revertPanOriginal[0] = this._navPan[0]; // Unnecessary?
+   this._revertPanOriginal[1] = this._navPan[1]; // Unnecessary?
    
    if (onComplete !== undefined)
       this._navGotoPosOnComplete = onComplete;
@@ -452,15 +455,21 @@ infinityrt_navigation.prototype.NavStartGotoPosInTime = function (yang,xang,xpan
 	  if (optional._revertPan !== undefined){
 		  this._revertPan = optional._revertPan;
 	  }
+	  if (optional._revertPanOriginal !== undefined){
+		  this._revertPanOriginal[0] = optional._revertPanOriginal[0];
+		  this._revertPanOriginal[1] = optional._revertPanOriginal[1];
+	  }
 	  if (optional._fovRecoveryOffset !== undefined){
 		  this._fovRecoveryOffset = optional._fovRecoveryOffset;
 	  }
       if (optional.target !== undefined) {
          if (this._navTarget == null)
             this._navTarget = [0,0,0];
-         this._navGotoPosDelta.navTarget = { t0: this._navTarget,td: (infinityrt_vertex_sub(optional.target,this._navTarget)) };
-      }
-      if (optional.fovy !== undefined) {
+		this._navGotoPosDelta.navTarget = { t0: this._navTarget,td: (infinityrt_vertex_sub(optional.target,this._navTarget)) };
+	} else {
+		this._navTarget = [0,0,0];
+	}
+	if (optional.fovy !== undefined){
          var s1 = Math.sin(this._scene.fovy * 0.5 * (3.141592658 / 180.0));
          var s2 = Math.sin(optional.fovy * 0.5 * (3.141592658 / 180.0));
          // console.log(this._navDolly+","+this._scene.fovy+","+optional.fovy+","+s1+","+s2);
@@ -471,7 +480,30 @@ infinityrt_navigation.prototype.NavStartGotoPosInTime = function (yang,xang,xpan
    }
 };
 
-infinityrt_navigation.prototype.NavStartGotoPosQuat = function (qw,qx,qy,qz,xpan,ypan,dolly,numFrames,onComplete,onSample) {
+//infinityrt_navigation.prototype.SetNavTarget = function (center){
+infinityrt_navigation.prototype.SetRotationCenter = function (center){
+	this._navTarget = center;
+	var delta = infinityrt_vertex_sub(this._scene.camPosGlobal, center);
+	scene._nav._navPan[0] = infinityrt_dp(delta, [this._navMatLastView[0], this._navMatLastView[1], this._navMatLastView[2]]);
+	scene._nav._navPan[1] = infinityrt_dp(delta, [this._navMatLastView[4], this._navMatLastView[5], this._navMatLastView[6]]);
+	scene._nav._navDolly = infinityrt_dp(delta, [this._navMatLastView[8], this._navMatLastView[9], this._navMatLastView[10]]);
+	//this.ApplyRestrictionAdjust(this._fovadjust);
+	if (scene._nav._navPan[0] > this._panMax[0]) {
+		this._panMax[0] = scene._nav._navPan[0];
+	}
+	if (scene._nav._navPan[1] > this._panMax[1]) {
+		this._panMax[1] = scene._nav._navPan[1];
+	}
+	if (scene._nav._navPan[0] < this._panMin[0]) {
+		this._panMin[0] = scene._nav._navPan[0];
+	}
+	if (scene._nav._navPan[1] < this._panMin[1]) {
+		this._panMin[1] = scene._nav._navPan[1];
+	}
+	this._scene.clearRefine();
+};
+
+infinityrt_navigation.prototype.NavStartGotoPosQuat = function (qw, qx, qy, qz, xpan, ypan, dolly, numFrames, onComplete, onSample) {
    if (this._navMode == 0)
       return; // Not Supported, use NavStartGotoPos
    if (onComplete !== undefined)
@@ -912,8 +944,28 @@ infinityrt_navigation.prototype.getZoomFactor = function () {
 
    this._zoomMaxFactor = this._navMaxDolly + 1 * (this._navMinDolly - this._navMaxDolly);
    this._zoomMinFactor = this._navMaxDolly + 0 * (this._navMinDolly - this._navMaxDolly);
+   
+   // Autoadjust this._zoomMaxFactor or this._zoomMinFactor if needed
+   var dir = this._fovMax - this._scene.fovy;
+   var adir = Math.abs(dir);
+   if (adir > this._fovadjust) {
+	   var fovTan = Math.tan(window.scene.fovy * 0.5 * (3.141592658 / 180.0))
+	   var maxLimit = this._zoomMaxFactor / fovTan;
+	   var minLimit = this._zoomMinFactor / fovTan;
+	   if (this._navDolly < maxLimit) {
+			//Autoadjust this._zoomMaxFactor so _navDolly doesn't change
+			this._zoomMaxFactor = this._navDolly * fovTan;
+	   }
+	   else if (this._navDolly  > minLimit) {
+			//Autoadjust this._zoomMinFactor so _navDolly doesn't change
+			this._zoomMinFactor = this._navDolly * fovTan;
+	   }
+   }
+   
    // return  ((this._navDolly * Math.tan(window.scene.fovy*0.5*(3.141592658/180.0))) - this._navMaxDolly) / (this._navMinDolly-this._navMaxDolly) ;
-   return 100 * (((this._navDolly * Math.tan(window.scene.fovy * 0.5 * (3.141592658 / 180.0))) - this._navMaxDolly) / (this._navMinDolly - this._navMaxDolly));
+   //return 100 * (((this._navDolly * Math.tan(window.scene.fovy * 0.5 * (3.141592658 / 180.0))) - this._navMaxDolly) / (this._navMinDolly - this._navMaxDolly));
+   // Use _zoomMinFactor/_zoomMaxFactor as they have been autoadjusted
+   return 100 * (((this._navDolly * Math.tan(window.scene.fovy * 0.5 * (3.141592658 / 180.0))) - this._zoomMinFactor) / (this._zoomMaxFactor - this._zoomMinFactor));
 
 }
 
@@ -921,31 +973,41 @@ infinityrt_navigation.prototype.NavChangeDolly = function (delta,sliderValue) {
    if (!this._navEnabled)
       return false;
 
-
-   //this.ApplyRestrictionAdjust(0.6);
+	this.getZoomFactor();
+	
+   //this.ApplyRestrictionAdjust(this._fovadjust);
 
    if (this._navMode == 2) {
 
       if (delta === undefined && sliderValue !== undefined) {
-
-         this._zoomFactor = this._navMaxDolly + parseFloat(sliderValue) * (this._navMinDolly - this._navMaxDolly);
+		 
+         //this._zoomFactor = this._navMaxDolly + parseFloat(sliderValue) * (this._navMinDolly - this._navMaxDolly);
+		 // We use _zoomMaxFactor & _zoomMinFactor, just in case this._zoomFactor is out of bounds due to fovy
+		 this._zoomFactor = this._zoomMinFactor + parseFloat(sliderValue) * (this._zoomMaxFactor - this._zoomMinFactor);
+		 
          this._navDolly = this._zoomFactor / Math.tan(window.scene.fovy * 0.5 * (3.141592658 / 180.0));
+		 
+		 if (this._fovRecoveryOnZoom){
+			this.ApplyRestrictionAdjust(this._fovadjust);
+		 }
+		 
          this._scene.clearRefine();
          // console.log(this._navDolly);
 
       }
       else {
-         console.log(delta);      
+         //console.log(delta);      
          if (sliderValue !== undefined)
-            this._navFDolly -= delta * this._navDollySpeed * (1.0 - this._navDecay) * (this._navMaxDolly - this._navMinDolly);
+            this._navFDolly -= delta * this._navDollySpeed * (this._fovMax / window.scene.fovy) * (1.0 - this._navDecay) * (this._zoomMinFactor - this._zoomMaxFactor);
 
          else
-            this._navDDolly -= delta * this._navDollySpeed * (1.0 - this._navDecay) * (this._navMaxDolly - this._navMinDolly);
+            this._navDDolly -= delta * this._navDollySpeed * (1.0 - this._navDecay) * (this._zoomMinFactor - this._zoomMaxFactor);
 		
 		if (this._navFDolly != 0.0) {
 		   var maxLimit = this._zoomMaxFactor / Math.tan(window.scene.fovy * 0.5 * (3.141592658 / 180.0));
 		   var minLimit = this._zoomMinFactor / Math.tan(window.scene.fovy * 0.5 * (3.141592658 / 180.0));
 		   
+		   this.skipDollyMinMax = false;
 		   if ((this._navDolly + this._navFDolly) < maxLimit) {
 			  this._navFDolly = this._navDolly - maxLimit;
 		   }
@@ -953,7 +1015,9 @@ infinityrt_navigation.prototype.NavChangeDolly = function (delta,sliderValue) {
 			  this._navFDolly = minLimit - this._navDolly;
 		   }
 		   else {
-			   this.ApplyRestrictionAdjust(0.6);
+			   if (this._fovRecoveryOnZoom){
+					this.ApplyRestrictionAdjust(this._fovadjust);
+			   }
 		   }
 		}
 		
@@ -973,7 +1037,7 @@ infinityrt_navigation.prototype.NavRotation = function (mpos,mdelta) {
    if (!this._navEnabled)
       return false;
 
-    this.ApplyRestrictionAdjust(0.6);
+    this.ApplyRestrictionAdjust(this._fovadjust);
 
     //If Elliptical Zoom is called
     if (this._ellipticalNav === true) {
@@ -1034,7 +1098,7 @@ infinityrt_navigation.prototype.NavPan = function (mdelta) {
 
    this._revertPan = false;
   
-   this.ApplyRestrictionAdjust(0.6);
+   this.ApplyRestrictionAdjust(this._fovadjust);
 
    if (!this._axisAllow[0])
       mdelta[0] = 0;

@@ -123,5 +123,5 @@
         }
     },
     "states": [ "Folio_Sky", "Folio_Slate", "Stylus_Sky", "Stylus_Slate", "Keyboard_OFF", "Keyboard_ON", "Millenio_5G_OFF", "Millenio_5G_ON", "Millenio_WIFI_OFF", "Millenio_WIFI_ON", "Pen_OFF", "Pen_ON", "Tab_Reflection_OFF", "Tab_Reflection_ON" ],
-    "ver": "v2.0.539"
+    "ver": "v2.0.542"
 }
