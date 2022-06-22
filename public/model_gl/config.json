@@ -1,5 +1,5 @@
 {
-    "displaylayers": [ "Folio", "Folio_Tabs", "GLASS_", "Keyboard_button", "Millenio_5G", "Millenio_WIFI", "Millennio13_WIFI_", "Open_UVs", "Pen_button", "Stylus_AO", "Tab_Reflection", "UntitledGroup20", "layer10", "layer11", "layer12", "layer2", "layer3", "layer4", "layer5", "layer6", "layer7" ],
+    "displaylayers": [ "Folio", "Folio_Tabs", "GLASS_", "Keyboard_button", "Millenio_5G", "Millenio_WIFI", "Millennio13_WIFI_", "Open_UVs", "Pen_button", "Stylus_AO", "TAB_REF_box", "Tab_Reflection", "UntitledGroup20", "layer10", "layer11", "layer12", "layer13", "layer14", "layer15", "layer16", "layer17", "layer2", "layer3", "layer4", "layer5", "layer6", "layer7" ],
     "positions": {
         "Render_Cam_Bottom": {
             "doffocusdist": 5.000000,
@@ -122,6 +122,6 @@
             "time": 0
         }
     },
-    "states": [ "Folio_Sky", "Folio_Slate", "Stylus_Sky", "Stylus_Slate", "Keyboard_OFF", "Keyboard_ON", "Millenio_5G_OFF", "Millenio_5G_ON", "Millenio_WIFI_OFF", "Millenio_WIFI_ON", "Pen_OFF", "Pen_ON", "Tab_Reflection_OFF", "Tab_Reflection_ON" ],
-    "ver": "v2.0.542"
+    "states": [ "Folio_Sky", "Folio_Slate", "Stylus_Sky", "Stylus_Slate", "Keyboard_OFF", "Keyboard_OFF_old", "Keyboard_ON", "Keyboard_ON_old", "Millenio_5G_OFF", "Millenio_5G_ON", "Millenio_WIFI_OFF", "Millenio_WIFI_ON", "Pen_OFF", "Pen_ON", "UntitledGroup41", "Tab_Reflection_OFF", "Tab_Reflection_OFF_old", "Tab_Reflection_ON", "Tab_Reflection_ON_old" ],
+    "ver": "v2.0.543"
 }

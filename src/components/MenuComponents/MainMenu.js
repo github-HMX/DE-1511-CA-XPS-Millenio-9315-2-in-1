@@ -975,14 +975,20 @@ const MainMenu = (props) => {
 
    const xpsFolioClick = () => {
       reversAnimAll();
+    
       window.scene.groupApplyState("Pen_OFF");
       window.scene.groupApplyState("Keyboard_OFF");
-      window.scene.groupApplyState("Tab_Reflection_ON");
+      // window.scene.groupApplyState("Tab_Reflection_ON");
       window.scene.animPlayAllChildrenInTime("Stylus",0,0);
       window.scene.animPlayAllChildrenInTime("Tablet",0,0);
       window.scene.animPlayAllChildrenInTime("joint3",0,0);
       window.scene.animPlayAllChildrenInTime("joint4",0,0);
       window.scene.animPlayAllChildrenInTime("SPINE",0,0);
+      window.scene.groupApplyState("Tab_Reflection_OFF");
+      
+
+
+
       
 
       //Update ZoomBar
@@ -1234,7 +1240,7 @@ const MainMenu = (props) => {
 
       }
 
-      window.scene.animPlayAllChildrenInTime("Stylus",4.166,4000);
+      window.scene.animPlayAllChildrenInTime("Stylus",2.0829999,4000);
       window.scene.animPlayAllChildrenInTime("Tablet",2.083,0);
       window.scene.animPlayAllChildrenInTime("joint3",2.083,3000);
       window.scene.animPlayAllChildrenInTime("joint4",2.083,3000);
