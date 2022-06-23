@@ -563,6 +563,7 @@ const MainMenu = (props) => {
       resetBacklitCloseImg();
 
       GotoPosInTimeNamedValue(window.config.front,function () {
+         
          window.localStorage.setItem('hotspot','front')
 
          if (isNextPrevious != true) {
@@ -1369,7 +1370,7 @@ const MainMenu = (props) => {
       setOpenCloseOnOff(false);
       setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-      setBacklite("./img/stylus_W.png");
+      setBacklite("./img/stylus_W.sec.png");
       setLaptop360FrontImg("./img/front360_black.png");
       setLaptop360TopImg("./img/top360.png");
       setLaptop360LefttImg("./img/360_left.png");
