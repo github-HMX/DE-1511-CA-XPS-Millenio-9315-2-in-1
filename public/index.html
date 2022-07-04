@@ -481,6 +481,9 @@
             calloutcanvas = document.getElementById("calloutcanvas");
 
             ui = document.getElementById("root");
+            uifooterControMob = document.getElementById("footerControMob");
+            uifooterControlDesk = document.getElementById("footerControlDesk");
+            uifooterControIpad = document.getElementById("footerControIpad");
             if (typeof (canvas) != 'undefined') {
                var gl = infinityrt_getwebglcontextHMX(canvas,{ xrCompatible: true,antialias: true,depth: true });
                if (!gl) {
@@ -497,6 +500,9 @@
                   _scenePollInterval = setInterval("isInfinityRTReady()",100);
                   addMouseListeners(canvas);
                   addMouseListeners(ui);
+                  uifooterControMob = document.getElementById("footerControMob");
+            uifooterControlDesk = document.getElementById("footerControlDesk");
+            uifooterControIpad = document.getElementById("footerControIpad");
                   window.addEventListener('keypress',keyPress,false);
                }
             }
@@ -980,10 +986,11 @@
          setTimeout(function () { document.getElementById("sliderRange").value = s._nav.getZoomFactor(); },100);
       }
 
-      // function mouseOut(ev) {
-      //    if (!mdown) return;
-      //    mdown = false;
-      // }
+      function mouseOut(ev) {
+         if (!mdown) return;
+         if (ev.relatedTarget.nodeName != 'HTML') return;
+         mdown = false;
+      }
 
       // function mouseWheel(ev) {
 

@@ -56,11 +56,11 @@ export default function FooterControlMob(props) {
 
       if (e) { //console.log(e.target.value);
 
-         window.scene._nav.NavChangeDolly(undefined,e.target.value);
+         window.scene._nav.NavChangeDolly(undefined,e.target.value / 100);
 
       } else {
 
-         window.scene._nav.NavChangeDolly(undefined,newValue);
+         window.scene._nav.NavChangeDolly(undefined,newValue / 100);
          document.getElementById("sliderRange").value = newValue;
 
       }
@@ -80,16 +80,11 @@ export default function FooterControlMob(props) {
       position: 'relative',
       float: 'left',
       marginLeft: '4px',
-      // left: '48%',
-      // bottom: '226px',
-
+      width: '175px'
    }
 
    const topbtns = {
       position: 'relative',
-      // bottom: '149px',
-      // marginLeft: '13.5%',
-      // marginBottom: '21px',
       border: '1px solid CCCCCC',
       float: 'left',
    }
@@ -115,7 +110,7 @@ export default function FooterControlMob(props) {
       letterSpacing: '0.005em',
       backgroundColor: '#FFFFFF',
       height: '48px',
-      width: '118px',
+      width: 'calc(100% / 3)',
       margin: '5px',
       border: '2px solid #CCCCCC'
    }
@@ -251,18 +246,19 @@ export default function FooterControlMob(props) {
 
    const onZoomIn = (e) => {
       if (window.scene._nav.getZoomFactor() > 0)
-         handleZoomChange(null,-0.1 + (parseFloat(document.getElementById("sliderRange").value)))
+         handleZoomChange(null,-1 + (parseFloat(document.getElementById("sliderRange").value)))
    }
 
    const onZoomOut = (e) => {
-      if (window.scene._nav.getZoomFactor() < 1)
-         handleZoomChange(null,0.1 + (parseFloat(document.getElementById("sliderRange").value)))
+      if (window.scene._nav.getZoomFactor() < 100)
+         handleZoomChange(null,1 + (parseFloat(document.getElementById("sliderRange").value)))
    }
 
    let count = 1;
    const onLeft = () => {
       // alert("Rotate product left");
-      window.scene._nav._navYAng += 0.5;
+      //window.scene._nav._navYAng += 0.5;
+      window.scene._nav.NavRotation([0,0],[6,0]);
       document.getElementById('calloutcanvas').style.display = "none";
       window.localStorage.removeItem('hotspot');
       // console.log(count);
@@ -273,11 +269,12 @@ export default function FooterControlMob(props) {
    }
    const onRight = () => {
       // alert("Rotate product right");
+      window.scene._nav.NavRotation([0,0],[-6,0]);
       document.getElementById('calloutcanvas').style.display = "none";
       window.localStorage.removeItem('hotspot');
       count -= 0.1;
       // console.log(count);
-      window.scene._nav._navYAng -= 0.5;;
+      //window.scene._nav._navYAng -= 0.5;;
       window.scene.clearRefine();
    }
    return (
@@ -302,12 +299,12 @@ export default function FooterControlMob(props) {
                         </div>
 
                         <div id="zoomSliderContainer" style={zoombar} >
-                           <img style={{ height: '100%' }} alt="zoombar" src="./img/ZOOMBAR.svg" />
+                           <img style={{ height: '100%',maxWidth: '100%' }} alt="zoombar" src="./img/ZOOMBAR.svg" />
 
                            <div id="zoomIn" onClick={onZoomIn}></div>
-                           <div id="zoomSlider" className="tabIndexStyle">
+                           <div id="zoomSlider" className="tabIndexStyle" style={{ top: '8px' }}>
                               <div className="rangeslider">
-                                 <label>  <input type="range" min="0" max="1" step="0.01" className="myslider" onChange={handleZoomChange} id="sliderRange" />
+                                 <label>  <input type="range" min="0" max="100" step="1" className="myslider" onChange={handleZoomChange} id="sliderRange" />
                                  </label>
                               </div>
                            </div>
