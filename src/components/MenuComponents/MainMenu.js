@@ -150,6 +150,7 @@ const MainMenu = (props) => {
       // if (gotoposname == "Render_Cam_Top") {
       //    window.scene.gotoPosInTime(gp.pos[0],1.569380,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
 
+
       // }
       // else if (gotoposname == "Render_Cam_Bottom") {
       //    window.scene.gotoPosInTime(gp.pos[0],1.569380,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
