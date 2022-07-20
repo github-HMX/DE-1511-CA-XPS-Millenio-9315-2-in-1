@@ -33,7 +33,7 @@ var position = {
    'currentPos': 'reset',
    'close': 0,
    'nintyDegree': 4.1659,
-   'reset':0,
+   'reset': 0,
    'top': 5.000,
    'bottom': 5.829,
    'theatre': 4.1667,
@@ -58,7 +58,7 @@ const MainMenu = (props) => {
    const [counter,setCounter] = useState(0);
 
    const handleAccordionChange = (panel) => (event,isExpanded) => {
-      console.log({ event,isExpanded });
+      // console.log({ event,isExpanded });
       //setExpandedPanel(isExpanded ? panel  : false );
       if (isExpanded) {
          setExpandedPanel(panel);
@@ -136,7 +136,7 @@ const MainMenu = (props) => {
             opt = {};
          opt.zang = gp.pos[5];
       }
-      console.log(gotoposname);
+      // console.log(gotoposname);
       if (animationSwitch == 'off') {
          gp.time = 1
          // console.log('animationSwitch iffff', gp.time)
@@ -155,7 +155,7 @@ const MainMenu = (props) => {
       //    window.scene.gotoPosInTime(gp.pos[0],1.569380,gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
       // }
       // else {
-         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
+      window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
       // }
 
       // console.log(gp.pos[0], gp.pos[1], gp.pos[2], gp.pos[3], gp.pos[4], gp.time, onComplete, onSample, opt);
@@ -175,6 +175,14 @@ const MainMenu = (props) => {
       if (window.scene.animIsPlaying('joint3')) window.scene.getAnim("joint3").stop();
       if (window.scene.animIsPlaying('joint4')) window.scene.getAnim("joint4").stop();
       if (window.scene.animIsPlaying('SPINE')) window.scene.getAnim("SPINE").stop();
+
+      window.scene.animPlayAllChildrenInTime("Stylus",0,0);
+      window.scene.animPlayAllChildrenInTime("Tablet",0,0);
+      window.scene.animPlayAllChildrenInTime("joint3",0,0);
+      window.scene.animPlayAllChildrenInTime("joint4",0,0);
+      window.scene.animPlayAllChildrenInTime("SPINE",0,0);
+
+
       window.scene.clearRefine();
 
    }
@@ -205,9 +213,9 @@ const MainMenu = (props) => {
 
    const resetBacklitCloseImg = () => {
       setOpenCloseOnOff(false);
-     //// setOpenClose("./img/Folio_B.png");
+      //// setOpenClose("./img/Folio_B.png");
       setBackliteOnOff(false);
-    ///  setBacklite("./img/stylus_W.png");
+      ///  setBacklite("./img/stylus_W.png");
 
       if (window.storeData.currentState == "sky") {
 
@@ -224,7 +232,7 @@ const MainMenu = (props) => {
       window.scene.clearRefine();
 
    }
-  
+
    //MenuSelectProduct
    const [laptop360,setlaptop360] = useState(true);
 
@@ -534,7 +542,7 @@ const MainMenu = (props) => {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
       }
-      
+
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
          alreadySelected.classList.remove('active');
@@ -563,8 +571,8 @@ const MainMenu = (props) => {
       resetBacklitCloseImg();
 
       GotoPosInTimeNamedValue(window.config.front,function () {
-        
-         
+
+
          window.localStorage.setItem('hotspot','front')
 
          if (isNextPrevious != true) {
@@ -601,7 +609,7 @@ const MainMenu = (props) => {
    const onBackClick = (isNextPrevious) => {
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
-   
+
 
       if (slider != null) {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
@@ -649,7 +657,7 @@ const MainMenu = (props) => {
       reversAll();
       resetBacklitCloseImg();
       GotoPosInTimeNamedValue(window.config.back,function () {
-         
+
          window.localStorage.setItem('hotspot','back')
 
          if (isNextPrevious != true) {
@@ -717,7 +725,7 @@ const MainMenu = (props) => {
 
       GotoPosInTimeNamedValue(window.config.right,function () {
 
-         
+
          if (slider != null) {
             document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
             setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
@@ -759,7 +767,7 @@ const MainMenu = (props) => {
 
    const onLeftClick = (isNextPrevious) => {
       //Update ZoomBar
-    
+
       console.log(position.nintyDegree,position.currentPos)
       console.log('onLeftClick')
       var slider = document.getElementById("sliderRange");
@@ -792,7 +800,7 @@ const MainMenu = (props) => {
       reversAll();
       GotoPosInTimeNamedValue(window.config.left,function () {
 
-         
+
          window.localStorage.setItem('hotspot','left')
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
@@ -826,7 +834,7 @@ const MainMenu = (props) => {
       window.RT_RecordEvent("Product Type","Left",window.config.name);
       window.scene.clearRefine();
    }
-   
+
    const onBottomClick = (isNextPrevious) => {
       //Update ZoomBar
       console.log(position.nintyDegree,position.currentPos)
@@ -861,7 +869,7 @@ const MainMenu = (props) => {
       resetBacklitCloseImg();
       window.scene.groupApplyState("Tab_Reflection_OFF");
       GotoPosInTimeNamedValue(window.config.bottom,function () {
-        
+
          window.localStorage.setItem('hotspot','right')
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
@@ -942,7 +950,7 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("Tab_Reflection_OFF");
       window.scene.groupApplyState("Backlit_OFF");
       GotoPosInTimeNamedValue(window.config.top,function () {
-        
+
          window.localStorage.setItem('hotspot','top')
          if (isNextPrevious != true) {
             window.document.getElementById("hotspot1demo").focus();
@@ -986,21 +994,11 @@ const MainMenu = (props) => {
 
    const xpsFolioClick = () => {
       reversAnimAll();
-    
+
       window.scene.groupApplyState("Pen_OFF");
       window.scene.groupApplyState("Keyboard_OFF");
       // window.scene.groupApplyState("Tab_Reflection_ON");
-      window.scene.animPlayAllChildrenInTime("Stylus",0,0);
-      window.scene.animPlayAllChildrenInTime("Tablet",0,0);
-      window.scene.animPlayAllChildrenInTime("joint3",0,0);
-      window.scene.animPlayAllChildrenInTime("joint4",0,0);
-      window.scene.animPlayAllChildrenInTime("SPINE",0,0);
       window.scene.groupApplyState("Tab_Reflection_OFF");
-      
-
-
-
-      
 
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
@@ -1091,12 +1089,12 @@ const MainMenu = (props) => {
 
       }
 
-      // window.scene.animPlayAllChildrenInTime("Stylus",4.166,3000);
+      window.scene.animPlayAllChildrenInTime("Stylus",4.166,3000);
 
-      //    window.scene.animPlayAllChildrenInTime("Tablet",4.1659,3000);
-      // window.scene.animPlayAllChildrenInTime("joint3",4.1659,3000);
-      // window.scene.animPlayAllChildrenInTime("joint4",4.1659,3000);
-      // window.scene.animPlayAllChildrenInTime("SPINE",4.1659,3000);
+      window.scene.animPlayAllChildrenInTime("Tablet",4.1659,3000);
+      window.scene.animPlayAllChildrenInTime("joint3",4.1659,3000);
+      window.scene.animPlayAllChildrenInTime("joint4",4.1659,3000);
+      window.scene.animPlayAllChildrenInTime("SPINE",4.1659,3000);
 
       if (window.storeData.currentState == "sky") {
 
@@ -1111,11 +1109,10 @@ const MainMenu = (props) => {
 
       }
 
-      window.scene.animPlayAllChildrenInTime("Main_Group",4.1659,3000,function () {
+      // window.scene.animPlayAllChildrenInTime("Main_Group",4.1659,3000,function () {
 
 
-
-      });
+      // });
 
 
       // window.scene.animPlayAllChildrenInTime("joint3",4.1659,3000);
@@ -1137,11 +1134,7 @@ const MainMenu = (props) => {
       window.scene.groupApplyState("Pen_OFF");
       window.scene.groupApplyState("Keyboard_OFF");
       window.scene.groupApplyState("Tab_Reflection_ON");
-      window.scene.animPlayAllChildrenInTime("Stylus",0,0);
-      window.scene.animPlayAllChildrenInTime("Tablet",0,0);
-      window.scene.animPlayAllChildrenInTime("joint3",0,0);
-      window.scene.animPlayAllChildrenInTime("joint4",0,0);
-      window.scene.animPlayAllChildrenInTime("SPINE",0,0);
+
       var slider = document.getElementById("sliderRange");
 
       if (slider != null) {
@@ -1256,7 +1249,6 @@ const MainMenu = (props) => {
       window.scene.animPlayAllChildrenInTime("joint3",2.083,3000);
       window.scene.animPlayAllChildrenInTime("joint4",2.083,3000);
       window.scene.animPlayAllChildrenInTime("SPINE",2.083,3000,function () {
-
 
 
       });
