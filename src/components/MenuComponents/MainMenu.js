@@ -769,14 +769,14 @@ const MainMenu = (props) => {
    const onLeftClick = (isNextPrevious) => {
       //Update ZoomBar
 
-      console.log(position.nintyDegree,position.currentPos)
+      // console.log(position.nintyDegree,position.currentPos)
       console.log('onLeftClick')
       var slider = document.getElementById("sliderRange");
       if (slider != null) {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
       }
-      console.log("left")
+      // console.log("left")
       selectedButton = 'onLeftClick';
       if (!(mob || isipad)) {
          document.getElementById('previousView').setAttribute('aria-label','left view');
