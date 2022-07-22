@@ -176,13 +176,14 @@ const MainMenu = (props) => {
       if (window.scene.animIsPlaying('joint3')) window.scene.getAnim("joint3").stop();
       if (window.scene.animIsPlaying('joint4')) window.scene.getAnim("joint4").stop();
       if (window.scene.animIsPlaying('SPINE')) window.scene.getAnim("SPINE").stop();
+      if (window.scene.animIsPlaying('Main_Group')) window.scene.getAnim("Main_Group").stop();
 
       window.scene.animPlayAllChildrenInTime("Stylus",0,0);
       window.scene.animPlayAllChildrenInTime("Tablet",0,0);
       window.scene.animPlayAllChildrenInTime("joint3",0,0);
       window.scene.animPlayAllChildrenInTime("joint4",0,0);
       window.scene.animPlayAllChildrenInTime("SPINE",0,0);
-
+      window.scene.animPlayAllChildrenInTime("Main_Group",0,0);
 
       window.scene.clearRefine();
 
@@ -209,6 +210,7 @@ const MainMenu = (props) => {
       window.scene.animPlayAllChildrenInTime("joint3",0,0);
       window.scene.animPlayAllChildrenInTime("joint4",0,0);
       window.scene.animPlayAllChildrenInTime("SPINE",0,0);
+      window.scene.animPlayAllChildrenInTime("Main_Group",0,0);
       window.scene.clearRefine();
    }
 
@@ -536,6 +538,8 @@ const MainMenu = (props) => {
    const onFrontClick = (isNextPrevious) => {
       console.log(position.nintyDegree,position.currentPos)
       console.log('onFrontClick')
+      reversAnimAll();
+      reversAll();
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
 
@@ -610,8 +614,11 @@ const MainMenu = (props) => {
    const onBackClick = (isNextPrevious) => {
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
-
-
+      // window.scene.groupApplyState("Pen_OFF");
+      // window.scene.groupApplyState("Keyboard_OFF");
+      // window.scene.groupApplyState("Tab_Reflection_ON");
+      reversAnimAll();
+      reversAll();
       if (slider != null) {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
@@ -638,7 +645,7 @@ const MainMenu = (props) => {
       } else {
          window.scene.groupApplyState("screenfill_360");
       }
-
+      
       if (window.storeData.currentState == "sky") {
 
          window.scene.groupApplyState("Millenio_5G_OFF");
@@ -696,6 +703,8 @@ const MainMenu = (props) => {
    }
    const onRightClick = (isNextPrevious) => {
       //Update ZoomBar
+      reversAnimAll();
+      reversAll();
       console.log(position.nintyDegree,position.currentPos)
       console.log('onRightClick')
       selectedButton = 'onRightClick';
@@ -768,7 +777,8 @@ const MainMenu = (props) => {
 
    const onLeftClick = (isNextPrevious) => {
       //Update ZoomBar
-
+      reversAnimAll();
+      reversAll();
       // console.log(position.nintyDegree,position.currentPos)
       console.log('onLeftClick')
       var slider = document.getElementById("sliderRange");
@@ -838,6 +848,8 @@ const MainMenu = (props) => {
 
    const onBottomClick = (isNextPrevious) => {
       //Update ZoomBar
+      reversAnimAll();
+      reversAll();
       console.log(position.nintyDegree,position.currentPos)
       console.log('onBottomClick')
       if (slider != null) {
@@ -908,6 +920,8 @@ const MainMenu = (props) => {
 
    const onTopClick = (isNextPrevious) => {
       //Update ZoomBar
+      reversAnimAll();
+      reversAll();
       console.log(position.top,position.currentPos);
       console.log('onTopClick')
       var slider = document.getElementById("sliderRange");
@@ -915,7 +929,7 @@ const MainMenu = (props) => {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
       }
-
+      reversAnimAll();
       selectedButton = 'onTopClick';
       if (!(mob || isipad)) {
          document.getElementById('previousView').setAttribute('aria-label','Top view');
@@ -995,7 +1009,7 @@ const MainMenu = (props) => {
 
    const xpsFolioClick = () => {
       reversAnimAll();
-
+      reversAll();
       window.scene.groupApplyState("Pen_OFF");
       window.scene.groupApplyState("Keyboard_OFF");
       // window.scene.groupApplyState("Tab_Reflection_ON");
@@ -1095,27 +1109,23 @@ const MainMenu = (props) => {
       window.scene.animPlayAllChildrenInTime("Tablet",4.1659,3000);
       window.scene.animPlayAllChildrenInTime("joint3",4.1659,3000);
       window.scene.animPlayAllChildrenInTime("joint4",4.1659,3000);
-      window.scene.animPlayAllChildrenInTime("SPINE",4.1659,3000);
-
-      if (window.storeData.currentState == "sky") {
-
-         window.scene.groupApplyState("Folio_Sky");
-         setTimeout(function () {
+      window.scene.animPlayAllChildrenInTime("SPINE",4.1659,3000,function(){
+         if (window.storeData.currentState == "sky") {
+            window.scene.groupApplyState("Folio_Sky");
             window.scene.groupApplyState("Folio_Sky_shadow");
-         },3100);
-         setOpenClose("./img/Folio_W.png");
-         console.log("sky se folio ");
-      }
-      else if (window.storeData.currentState == "slate") {
-         window.scene.groupApplyState("Folio_Slate");
-         setTimeout(function () {
-            window.scene.groupApplyState("Folio_Slate_shadow");
-         },3100);
-               
-         setOpenClose("./img/Folio_B.png");
-         console.log("slate se folio ");
+            setOpenClose("./img/Folio_W.png");
+            console.log("sky se folio ");
+         }
+         else if (window.storeData.currentState == "slate") {
+            window.scene.groupApplyState("Folio_Slate");
+            window.scene.groupApplyState("Folio_Slate_shadow");                  
+            setOpenClose("./img/Folio_B.png");
+            console.log("slate se folio ");
+   
+         }
+      });
 
-      }
+     
 
       // window.scene.animPlayAllChildrenInTime("Main_Group",4.1659,3000,function () {
 
@@ -1138,6 +1148,7 @@ const MainMenu = (props) => {
    const xpsStylusClick = () => {
       // reversAll();
       reversAnimAll();
+      reversAll();
       //Update ZoomBar
       window.scene.groupApplyState("Pen_OFF");
       window.scene.groupApplyState("Keyboard_OFF");
@@ -1178,25 +1189,7 @@ const MainMenu = (props) => {
 
       resetBacklitCloseImg();
 
-      if (window.storeData.currentState == "sky") {
-
-         window.scene.groupApplyState("Stylus_Sky");
-         setTimeout(function () {
-            window.scene.groupApplyState("Stylus_Sky_Shadow");
-         },3100);
-         setOpenClose("./img/Folio_W.png");
-         console.log("sky se styulus ");
-      }
-      else if (window.storeData.currentState == "slate") {
-
-         window.scene.groupApplyState("Stylus_Slate");
-         setTimeout(function () {
-            window.scene.groupApplyState("Stylus_Slate_Shadow ");
-         },3100);
-         setOpenClose("./img/Folio_B.png");
-         console.log("slate se stylus ");
-
-      }
+      
 
 
       GotoPosInTimeNamedValue(window.config.folio,function () {
@@ -1263,7 +1256,25 @@ const MainMenu = (props) => {
       window.scene.animPlayAllChildrenInTime("joint3",2.083,3000);
       window.scene.animPlayAllChildrenInTime("joint4",2.083,3000);
       window.scene.animPlayAllChildrenInTime("SPINE",2.083,3000,function () {
+        if (window.storeData.currentState == "sky") {
 
+            window.scene.groupApplyState("Stylus_Sky");
+            // setTimeout(function () {
+               window.scene.groupApplyState("Stylus_Sky_Shadow");
+            // },3100);
+            setOpenClose("./img/Folio_W.png");
+            console.log("sky se styulus ");
+         }
+         else if (window.storeData.currentState == "slate") {
+   
+            window.scene.groupApplyState("Stylus_Slate");
+            // setTimeout(function () {
+               window.scene.groupApplyState("Stylus_Slate_Shadow ");
+            // },3100);
+            setOpenClose("./img/Folio_B.png");
+            console.log("slate se stylus ");
+   
+         }
 
       });
 
