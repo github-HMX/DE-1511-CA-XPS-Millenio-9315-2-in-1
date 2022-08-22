@@ -382,7 +382,7 @@
 
    <script type="text/javascript" src='normalizeWheel.js'></script>
    <script type="text/javascript" src='libvector3.js'></script>
-   <script type="text/javascript" src='SSE.js'></script>
+   <script type="text/javascript" src='./model_gl/SSE.js'></script>
    <script type="text/javascript" src='InfinityRT_Navigation.js'></script>
    <script type="text/javascript" src="https://content.hmxmedia.com/DIST/webglutils.js"></script>
    <script type="text/javascript" src="rt-Analytics.js"></script>
@@ -416,9 +416,9 @@
  
        var mob = (navigator.userAgent.indexOf("iPhone") != -1) || ((navigator.userAgent.indexOf("Android") != -1) || (navigator.userAgent.indexOf("Mobile") != -1)) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent.indexOf('iPad') != -1) || (navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Safari/605.1.15"); */
 
-      var isipad = (/CriOS/i.test(navigator.userAgent) && /ipad/i.test(navigator.userAgent)) || (navigator.userAgent.indexOf('iPad') != -1) || (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+       var isipad = (/CriOS/i.test(navigator.userAgent) && /ipad/i.test(navigator.userAgent)) || (navigator.userAgent.indexOf('iPad') != -1) || (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
 
-      var mob = (navigator.userAgent.indexOf("iPhone") != -1) || ((navigator.userAgent.indexOf("Android") != -1)) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Safari/605.1.15");
+       var mob = (navigator.userAgent.indexOf("iPhone") != -1) || ((navigator.userAgent.indexOf("Android") != -1)) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Safari/605.1.15");
 
       function InfinityRTStart() {
 
@@ -957,11 +957,10 @@
       function mouseWheel(ev) {
          for (i in ev.path) {
             if (ev.path[i].id == "leftPan" || ev.path[i].id == 'footerControls') return;
-            // console.log(ev.path[i].id)
+            // //console.log(ev.path[i].id)
 
          }
-         //console.log(ev.target.id);
-
+         // document.getElementById('calloutcanvas').style.display = "none";
          document.getElementById('calloutcanvas').style.display = "none";
          window.localStorage.removeItem('hotspot');
 
@@ -969,7 +968,7 @@
          var delta = ev.wheelDelta;
          // //var deltaScene = (delta*0.05)*(scene.sceneRadius*0.01);
          // var deltaScene = delta * 1.8;
-         // console.log(deltaScene);
+         // //console.log(deltaScene);
 
          // if (!updateEnabled || mdown || !animStoped) return;
          if (!ev) ev = window.event; /* IE7, IE8, Chrome, Safari */
@@ -985,7 +984,6 @@
          }
          setTimeout(function () { document.getElementById("sliderRange").value = s._nav.getZoomFactor(); },100);
       }
-
       function mouseOut(ev) {
          if (!mdown) return;
          if (ev.relatedTarget.nodeName != 'HTML') return;
@@ -1053,7 +1051,6 @@
          prevTouches[0].copy(touches[0]);
          prevTouches[1].copy(touches[1]);
       }
-
       var doubleTouch = false;
 
       function touchMove(event) {
@@ -1066,7 +1063,7 @@
             event.preventDefault();
          }
          event.stopPropagation();
-         document.getElementById('calloutcanvas').style.display = "none";
+         // document.getElementById('calloutcanvas').style.display = "none";
          window.localStorage.removeItem('hotspot');
 
          if (event.target.id != "root") {
@@ -1074,7 +1071,7 @@
             return;
          }
          for (i in event.path) {
-            // console.log(event.path[i])
+            // //console.log(event.path[i])
             if (event.path[i].id == "leftPan" || event.path[i].id == 'footerControls') {
                return;
             }
@@ -1129,7 +1126,6 @@
          prevTouches[0].copy(touches[0]);
          prevTouches[1].copy(touches[1]);
       }
-
       function touchEnd(event) {
          setTimeout(function () { doubleTouch = false; },1000);
       }
