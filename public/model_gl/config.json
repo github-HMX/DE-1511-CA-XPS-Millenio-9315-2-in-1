@@ -123,5 +123,5 @@
         }
     },
     "states": [ "Folio_Sky", "Folio_Sky_shadow", "Folio_Slate", "Folio_Slate_shadow", "Stylus_Sky", "Stylus_Sky_", "Stylus_Sky_1", "Stylus_Sky_Shadow", "Stylus_Sky_Shadow_", "Stylus_Slate", "Stylus_Slate_Shadow", "Keyboard_OFF", "Keyboard_OFF_old", "Keyboard_ON", "Keyboard_ON_old", "Millenio_5G_OFF", "Millenio_5G_ON", "Millenio_5G_ON_", "Millenio_WIFI_OFF", "Millenio_WIFI_ON", "Millenio_WIFI_ON_", "Pen_OFF", "Pen_ON", "UntitledGroup41", "Tab_Reflection_OFF", "Tab_Reflection_OFF_old", "Tab_Reflection_ON", "Tab_Reflection_ON_old" ],
-    "ver": "v2.0.543"
+    "ver": "v2.0.547"
 }
