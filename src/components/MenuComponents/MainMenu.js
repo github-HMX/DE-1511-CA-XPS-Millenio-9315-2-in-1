@@ -645,7 +645,7 @@ const MainMenu = (props) => {
       } else {
          window.scene.groupApplyState("screenfill_360");
       }
-      
+
       if (window.storeData.currentState == "sky") {
 
          window.scene.groupApplyState("Millenio_5G_OFF");
@@ -1109,7 +1109,7 @@ const MainMenu = (props) => {
       window.scene.animPlayAllChildrenInTime("Tablet",4.1659,3000);
       window.scene.animPlayAllChildrenInTime("joint3",4.1659,3000);
       window.scene.animPlayAllChildrenInTime("joint4",4.1659,3000);
-      window.scene.animPlayAllChildrenInTime("SPINE",4.1659,3000,function(){
+      window.scene.animPlayAllChildrenInTime("SPINE",4.1659,3000,function () {
          if (window.storeData.currentState == "sky") {
             window.scene.groupApplyState("Folio_Sky");
             window.scene.groupApplyState("Folio_Sky_shadow");
@@ -1118,14 +1118,14 @@ const MainMenu = (props) => {
          }
          else if (window.storeData.currentState == "slate") {
             window.scene.groupApplyState("Folio_Slate");
-            window.scene.groupApplyState("Folio_Slate_shadow");                  
+            window.scene.groupApplyState("Folio_Slate_shadow");
             setOpenClose("./img/Folio_B.png");
             console.log("slate se folio ");
-   
+
          }
       });
 
-     
+
 
       // window.scene.animPlayAllChildrenInTime("Main_Group",4.1659,3000,function () {
 
@@ -1189,7 +1189,7 @@ const MainMenu = (props) => {
 
       resetBacklitCloseImg();
 
-      
+
 
 
       GotoPosInTimeNamedValue(window.config.folio,function () {
@@ -1256,24 +1256,24 @@ const MainMenu = (props) => {
       window.scene.animPlayAllChildrenInTime("joint3",2.083,3000);
       window.scene.animPlayAllChildrenInTime("joint4",2.083,3000);
       window.scene.animPlayAllChildrenInTime("SPINE",2.083,3000,function () {
-        if (window.storeData.currentState == "sky") {
+         if (window.storeData.currentState == "sky") {
 
             window.scene.groupApplyState("Stylus_Sky");
             // setTimeout(function () {
-               window.scene.groupApplyState("Stylus_Sky_Shadow");
+            window.scene.groupApplyState("Stylus_Sky_Shadow");
             // },3100);
             setOpenClose("./img/Folio_W.png");
             console.log("sky se styulus ");
          }
          else if (window.storeData.currentState == "slate") {
-   
+
             window.scene.groupApplyState("Stylus_Slate");
             // setTimeout(function () {
-               window.scene.groupApplyState("Stylus_Slate_Shadow ");
+            window.scene.groupApplyState("Stylus_Slate_Shadow ");
             // },3100);
             setOpenClose("./img/Folio_B.png");
             console.log("slate se stylus ");
-   
+
          }
 
       });
@@ -1350,7 +1350,9 @@ const MainMenu = (props) => {
       // }
 
       if (window.localStorage.getItem('features') == "folio") {
-         window.scene.groupApplyState("Folio_Sky");
+         // window.scene.groupApplyState("Folio_Sky");
+         window.scene.groupApplyState("Folio_Sky_shadow");
+
          setOpenClose("./img/Folio_W.png");
          console.log("sky se folio ");
       }

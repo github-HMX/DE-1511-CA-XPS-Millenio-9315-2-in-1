@@ -1,57 +1,8 @@
-/* SKIN */
-
 /* .btnDD { */
   /* background-color: white; */
   /* color: black; */
   /* margin: 1px 1px 1px 1px; */
 /* } */
-.upload-btn-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
-
-.btnLoad {
-  border: 2px solid gray;
-  color: gray;
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #007bff66;
-    border-color: #007bff;
-}
-
-.btn-secondary {
-    color: #fff;
-    background-color: #6c757d99;
-    border-color: #6c757d;
-}
-
-.upload-btn-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-}
-
-.text-primary {
-    color: #dddddd!important;
-    background-color: #00000077;
-}
-
-.transparent-input {
-   background-color: #00000000;
-   border:none;
-   color: #dddddd;
-}
-
 .divRTSkinMain {
   position: absolute;
   left: 4px;
