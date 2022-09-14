@@ -851,7 +851,8 @@ const MainMenu = (props) => {
       reversAnimAll();
       reversAll();
       console.log(position.nintyDegree,position.currentPos)
-      console.log('onBottomClick')
+      console.log('onBottomClick');
+      var slider = document.getElementById("sliderRange");
       if (slider != null) {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
@@ -1267,7 +1268,7 @@ const MainMenu = (props) => {
          }
          else if (window.storeData.currentState == "slate") {
 
-            window.scene.groupApplyState("Stylus_Slate");
+            //window.scene.groupApplyState("Stylus_Slate");
             // setTimeout(function () {
             window.scene.groupApplyState("Stylus_Slate_Shadow ");
             // },3100);
