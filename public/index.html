@@ -500,9 +500,9 @@
                   _scenePollInterval = setInterval("isInfinityRTReady()",100);
                   addMouseListeners(canvas);
                   addMouseListeners(ui);
-                  uifooterControMob = document.getElementById("footerControMob");
-                  uifooterControlDesk = document.getElementById("footerControlDesk");
-                  uifooterControIpad = document.getElementById("footerControIpad");
+                  addMouseListeners(uifooterControMob);
+                  addMouseListeners(uifooterControlDesk);
+                  addMouseListeners(uifooterControIpad);
                   window.addEventListener('keypress',keyPress,false);
                }
             }
@@ -984,11 +984,11 @@
          }
          setTimeout(function () { document.getElementById("sliderRange").value = s._nav.getZoomFactor(); },100);
       }
-      function mouseOut(ev) {
-         if (!mdown) return;
-         if (ev.relatedTarget.nodeName != 'HTML') return;
-         mdown = false;
-      }
+      // function mouseOut(ev) {
+      //    if (!mdown) return;
+      //    if (ev.relatedTarget.nodeName != 'HTML') return;
+      //    mdown = false;
+      // }
 
       // function mouseWheel(ev) {
 

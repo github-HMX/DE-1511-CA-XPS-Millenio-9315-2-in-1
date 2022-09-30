@@ -1,5 +1,5 @@
 {
-    "displaylayers": [ "Folio", "Folio_Tabs", "GLASS_", "Keyboard_button", "Millenio_5G", "Millenio_WIFI", "Millennio13_WIFI_", "Open_UVs", "Pen_button", "Stylus_AO", "TAB_REF_box", "Tab_Reflection", "layer10", "layer11", "layer12", "layer13", "layer15", "layer16", "layer17", "layer2", "layer3", "layer4" ],
+    "displaylayers": [ "Folio", "Folio3", "Folio_Tabs", "GLASS_", "GLASS_1", "Keyboard_button", "Millenio_5G", "Millenio_5G1", "Millenio_WIFI", "Millennio13_WIFI_", "Millennio13_WIFI_1", "Millennio13_WIFI_2", "Millennio13_WIFI_3", "Millennio13_WIFI_TR_", "Open_UVs", "Open_UVs1", "Pen_button", "Stylus_AO", "Stylus_AO1", "TAB_REF_box", "TO_BO", "Tab_Reflection", "layer1", "layer10", "layer11", "layer12", "layer13", "layer14", "layer15", "layer16", "layer17", "layer2", "layer3", "layer4", "layer5", "layer6", "layer7", "layer8", "layer9" ],
     "positions": {
         "Render_Cam_Bottom": {
             "doffocusdist": 5.000000,
@@ -85,15 +85,22 @@
             "target": [ 0.0, 0.0, 0.0 ],
             "time": 1000
         },
+        "back": {
+            "doffocusdist": 5.000000,
+            "fovy": 0.000000,
+            "pos": [ 0.655248, 0.000000, 0.000000, 0.000000, 0.000000 ],
+            "target": [ 0.0, 0.0, 0.0 ],
+            "time": 1000
+        },
         "hmxBack": {
             "fovy": 28.841000,
-            "pos": [ -3.141593, 0.000000, 0.000000, 0.000000, 10506.669922 ],
+            "pos": [ -3.141593, 0.000000, 0.000000, 0.000000, 58.500000 ],
             "target": [ 0.0, 0.0, 0.0 ],
             "time": 0
         },
         "hmxFront": {
             "fovy": 28.841000,
-            "pos": [ 0.000000, 0.000000, 0.000000, 0.000000, 10506.669922 ],
+            "pos": [ 0.000000, 0.000000, 0.000000, 0.000000, 58.500000 ],
             "target": [ 0.0, 0.0, 0.0 ],
             "time": 0
         },
@@ -105,21 +112,28 @@
         },
         "hmxLeft": {
             "fovy": 28.841000,
-            "pos": [ -1.570796, 0.000000, 0.000000, 0.000000, 10506.669922 ],
+            "pos": [ -1.570796, 0.000000, 0.000000, 0.000000, 58.500000 ],
             "target": [ 0.0, 0.0, 0.0 ],
             "time": 0
         },
         "hmxRight": {
             "fovy": 28.841000,
-            "pos": [ -4.712389, 0.000000, 0.000000, 0.000000, 10506.669922 ],
+            "pos": [ -4.712389, 0.000000, 0.000000, 0.000000, 58.500000 ],
             "target": [ 0.0, 0.0, 0.0 ],
             "time": 0
         },
         "hmxTop": {
             "fovy": 28.841000,
-            "pos": [ 0.000000, 1.570796, 0.000000, 0.000000, 10506.669922 ],
+            "pos": [ 0.000000, 1.570796, 0.000000, 0.000000, 58.500000 ],
             "target": [ 0.0, 0.0, 0.0 ],
             "time": 0
+        },
+        "left": {
+            "doffocusdist": 5.000000,
+            "fovy": 0.000000,
+            "pos": [ 0.901887, 0.000000, 0.000000, 0.000000, 0.000000 ],
+            "target": [ 0.0, 0.0, 0.0 ],
+            "time": 1000
         }
     },
     "states": [ "Folio_Sky", "Folio_Sky_shadow", "Folio_Slate", "Folio_Slate_shadow", "Stylus_Sky", "Stylus_Sky_", "Stylus_Sky_1", "Stylus_Sky_Shadow", "Stylus_Sky_Shadow_", "Stylus_Sky_Shadow_old", "Stylus_Sky_old", "Stylus_Slate", "Stylus_Slate_Shadow", "Keyboard_OFF", "Keyboard_OFF_old", "Keyboard_ON", "Keyboard_ON_old", "Millenio_5G_OFF", "Millenio_5G_ON", "Millenio_5G_ON_", "Millenio_WIFI_OFF", "Millenio_WIFI_ON", "Millenio_WIFI_ON_", "Pen_OFF", "Pen_ON", "UntitledGroup41", "Tab_Reflection_OFF", "Tab_Reflection_OFF_old", "Tab_Reflection_ON", "Tab_Reflection_ON_old", "UntitledGroup52" ],

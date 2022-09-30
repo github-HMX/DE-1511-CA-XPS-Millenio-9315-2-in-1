@@ -76,7 +76,7 @@ var infinityrt_navigation = function (scene,w,h) {
 
    // this._navMode2Speed = 0.03;     // Navigation speed
 
-   this._panMax = [13,7];    //[left, bottom];
+   this._panMax = [13,10];    //[left, bottom];
    this._panMin = [-13,-5];  //[right, top];
 
    // slowinout easing
