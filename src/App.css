@@ -59,6 +59,7 @@
 .AccordiansHeader {
 	padding-left: 13px;
 	font-weight: 600;
+	line-height: 1 !important;
 }
 
 /* .MuiCollapse-container.MuiCollapse-entered {
@@ -270,7 +271,7 @@ span.MuiButton-label {
 	font-style: normal;
 	/* font-weight: bold; */
 	font-size: 14px;
-	line-height: 24px;
+	line-height: 17px;
 	text-transform: capitalize;
 	/* identical to box height, or 150% */
 
@@ -371,7 +372,7 @@ span.MuiButtonBase-root.MuiIconButton-root.PrivateSwitchBase-root-14.MuiSwitch-s
 	width: 62px;
 	height: 28px;
 	left: 5px;
-	top: -5px;
+	top: -2px;
 }
 
 .switch input {

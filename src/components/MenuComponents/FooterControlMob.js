@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FooterControlMob(props) {
 
+   useEffect(() => {
+
+   },[]);
    var prevCounter = 0;
    var nextClicked = false;
    var prevClicked = false;
@@ -56,15 +59,14 @@ export default function FooterControlMob(props) {
 
       if (e) { //console.log(e.target.value);
 
-         window.scene._nav.NavChangeDolly(undefined,e.target.value / 100);
+         window.scene._nav.NavChangeDolly(undefined,e.target.value);
 
       } else {
 
-         window.scene._nav.NavChangeDolly(undefined,newValue / 100);
+         window.scene._nav.NavChangeDolly(undefined,newValue);
          document.getElementById("sliderRange").value = newValue;
 
       }
-      document.getElementById('calloutcanvas').style.display = "none";
       window.localStorage.removeItem('hotspot');
 
 
@@ -80,11 +82,16 @@ export default function FooterControlMob(props) {
       position: 'relative',
       float: 'left',
       marginLeft: '4px',
-      width: '175px'
+      // left: '48%',
+      // bottom: '226px',
+
    }
 
    const topbtns = {
       position: 'relative',
+      // bottom: '149px',
+      // marginLeft: '13.5%',
+      // marginBottom: '21px',
       border: '1px solid CCCCCC',
       float: 'left',
    }
@@ -110,7 +117,7 @@ export default function FooterControlMob(props) {
       letterSpacing: '0.005em',
       backgroundColor: '#FFFFFF',
       height: '48px',
-      width: 'calc(100% / 3)',
+      width: '118px',
       margin: '5px',
       border: '2px solid #CCCCCC'
    }
@@ -154,13 +161,10 @@ export default function FooterControlMob(props) {
       //window.localStorage.setItem('close', false);
       // window.localStorage.setItem("position", "reset");
       // document.getElementById('whiteBtn').classList.add('active');
-      return () => {
-         return false
-      }
    },[]);
 
    //For Animation Switch 
-   //console.log('animationSwitch anim',animationSwitch)
+   console.log('animationSwitch anim',animationSwitch)
 
    // if(animationSwitch == 'on'){animTime = 1000}
    // else{animTime = 1}
@@ -224,17 +228,17 @@ export default function FooterControlMob(props) {
       // console.log(e.target.value);
       var s = window.scene;
       var deltaScene = 0;
-      //console.log('onUpdateZoombar',zoombarValue)
+      console.log('onUpdateZoombar',zoombarValue)
       deltaScene = zoombarValue;
       // var delta = (-e.detail * 10.0);
       setPrevDeltaScene(deltaScene);
       // prevDeltaScene = deltaScene;
       if (prevDeltaScene - deltaScene > 0) {
-         //console.log(deltaScene)
+         console.log(deltaScene)
          if (s._nav.NavChangeDolly(deltaScene))
             s.clearRefine();
       } else {
-         //console.log(-deltaScene)
+         console.log(-deltaScene)
          if (s._nav.NavChangeDolly(-deltaScene))
             s.clearRefine();
       }
@@ -246,21 +250,18 @@ export default function FooterControlMob(props) {
 
    const onZoomIn = (e) => {
       if (window.scene._nav.getZoomFactor() > 0)
-         handleZoomChange(null,-1 + (parseFloat(document.getElementById("sliderRange").value)))
+         handleZoomChange(null,-0.1 + (parseFloat(document.getElementById("sliderRange").value)))
    }
 
    const onZoomOut = (e) => {
-      if (window.scene._nav.getZoomFactor() < 100)
-         handleZoomChange(null,1 + (parseFloat(document.getElementById("sliderRange").value)))
+      if (window.scene._nav.getZoomFactor() < 1)
+         handleZoomChange(null,0.1 + (parseFloat(document.getElementById("sliderRange").value)))
    }
 
    let count = 1;
    const onLeft = () => {
       // alert("Rotate product left");
-      //window.scene._nav._navYAng += 0.5;
-      window.scene._nav.NavRotation([0,0],[6,0]);
-      document.getElementById('calloutcanvas').style.display = "none";
-      window.localStorage.removeItem('hotspot');
+      window.scene._nav._navYAng += 0.5;
       // console.log(count);
       // window.scene._nav._navYAng = count;
       window.scene.clearRefine();
@@ -269,12 +270,9 @@ export default function FooterControlMob(props) {
    }
    const onRight = () => {
       // alert("Rotate product right");
-      window.scene._nav.NavRotation([0,0],[-6,0]);
-      document.getElementById('calloutcanvas').style.display = "none";
-      window.localStorage.removeItem('hotspot');
       count -= 0.1;
       // console.log(count);
-      //window.scene._nav._navYAng -= 0.5;;
+      window.scene._nav._navYAng -= 0.5;;
       window.scene.clearRefine();
    }
    return (
@@ -290,21 +288,21 @@ export default function FooterControlMob(props) {
 
                      <Hidden only={['xs','lg','xl']}>
                         <div style={topbtns}>
-                           <Button className={classes.newBtns + " tabIndexStyle"} id="rLeft" style={topBtnstyle} onClick={onLeft} title="left" variant="outlined" size="small" color="primary">
+                           <Button className={classes.newBtns} id="rLeft" style={topBtnstyle} onClick={onLeft} title="left" variant="outlined" size="small" color="primary">
                               <img alt="diagonalarrowleft" src="./img/diagonalLeftArrow.svg" />
                            </Button>
-                           <Button className={classes.newBtns + " tabIndexStyle"} id="rRight" style={topBtnstyle} onClick={onRight} title="right" variant="outlined" size="small" color="primary">
+                           <Button className={classes.newBtns} id="rRight" style={topBtnstyle} onClick={onRight} title="right" variant="outlined" size="small" color="primary">
                               <img alt="arrowright" src="./img/diagonalRightArrow.svg" />
                            </Button>
                         </div>
 
                         <div id="zoomSliderContainer" style={zoombar} >
-                           <img style={{ height: '100%',maxWidth: '100%' }} alt="zoombar" src="./img/ZOOMBAR.svg" />
+                           <img style={{ height: '100%' }} alt="zoombar" src="./img/ZOOMBAR.svg" />
 
                            <div id="zoomIn" onClick={onZoomIn}></div>
-                           <div id="zoomSlider" className="tabIndexStyle" style={{ top: '8px' }}>
+                           <div id="zoomSlider" className="tabIndexStyle">
                               <div className="rangeslider">
-                                 <label>  <input type="range" min="0" max="100" step="1" className="myslider" onChange={handleZoomChange} id="sliderRange" />
+                                 <label>  <input type="range" min="0" max="1" step="0.01" className="myslider" onChange={handleZoomChange} id="sliderRange" />
                                  </label>
                               </div>
                            </div>
@@ -316,26 +314,26 @@ export default function FooterControlMob(props) {
                   <div className="mainDiv" style={clearBoth}>
                      <Hidden only={['xs','lg','xl']}>
                         <Button className="mobthreeButtonsIpad" id="previousView" variant="outlined" color="primary" onClick={props.onPreviousIpad}>
-                           <img style={{ height: '20px',width: '24px',paddingRight: '12px' }} alt="arrowleftMob" src="./img/leftArrow.svg" />Previous
+                           <img style={{ height: '20px',width: '24px',paddingRight: '12px' }} alt="arrowleftMob" src="./img/leftArrow.svg" />{window.finalLangues.previous}
                         </Button>
                         <Button className="mobthreeButtonsIpad" id="resetView" variant="outlined" color="primary" onClick={props.onResetIpad}>
-                           {window.finalLangues.resetView}
+                           {window.finalLangues.reset}
                         </Button>
                         <Button className="mobthreeButtonsIpad" id="nextView" variant="outlined" color="primary" onClick={props.onNextIpad}>
-                           Next  <img style={{ height: '20px',width: '24px',paddingLeft: '12px' }} alt="arrowrightMob" src="./img/rightArrow.svg" />
+                           {window.finalLangues.next}  <img style={{ height: '20px',width: '24px',paddingLeft: '12px' }} alt="arrowrightMob" src="./img/rightArrow.svg" />
                         </Button>
                      </Hidden>
 
 
                      <Hidden only={['sm','md','lg','xl']}>
                         <Button style={mobthreeButtons} id="previousView" variant="outlined" color="primary" onClick={props.onPreviousMob} className={classes.margin}>
-                           <img style={{ height: '20px',width: '24px',paddingRight: '12px' }} alt="arrowleftMob" src="./img/leftArrow.svg" />Previous
+                           <img style={{ height: '20px',width: '24px',paddingRight: '12px' }} alt="arrowleftMob" src="./img/leftArrow.svg" />{window.finalLangues.previous}
                         </Button>
                         <Button style={mobthreeButtons} id="resetView" variant="outlined" color="primary" onClick={props.onResetMob} className={classes.margin}>
-                           Reset
+                           {window.finalLangues.reset}
                         </Button>
                         <Button style={mobthreeButtons} id="nextView" variant="outlined" color="primary" onClick={props.onNextMob} className={classes.margin}>
-                           Next  <img style={{ height: '20px',width: '24px',paddingLeft: '12px' }} alt="arrowrightMob" src="./img/rightArrow.svg" />
+                           {window.finalLangues.next} <img style={{ height: '20px',width: '24px',paddingLeft: '12px' }} alt="arrowrightMob" src="./img/rightArrow.svg" />
                         </Button>
                      </Hidden>
                   </div>

@@ -52,11 +52,15 @@ const HowToUse = () => {
       howtoUseD = false;
 
    };
+   //   useEffect(() => {
+   //     document.getElementById('howToUSE').style.display = none;
 
+
+   // }, []);
    const howToUseName = {
       position: 'absolute',
       left: '109px',
-      top: '35px',
+      top: '25px',
       fontFamily: 'Roboto',
       fontStyle: 'normal',
       fontWeight: 'normal',
@@ -113,7 +117,7 @@ const HowToUse = () => {
    }
    const howToUseDiv = {
       width: '100%',
-      textAlign: 'center',
+      textAlign: 'right',
       lineHeight: '75px',
       fontSize: '30px'
    }
@@ -206,7 +210,7 @@ const HowToUse = () => {
 
 
          {/* <Hidden only={['lg','xl','xs']}> */}
-         <span variant="contained" tabIndex="1" className="tabIndexStyle HowToUseHeader" onKeyPress={handleClick} onClick={handleClick}><ErrorOutlineSharpIcon id="iconI" style={iconStyle} /> <span style={usestyle}>{window.finalLangues.howToUseMenu}</span></span>
+         <span variant="contained" tabIndex="1" className="tabIndexStyle" onKeyPress={handleClick} onClick={handleClick} className="HowToUseHeader"><ErrorOutlineSharpIcon id="iconI" style={iconStyle} /> <span style={usestyle}>{window.finalLangues.howToUseMenu}</span></span>
          {ReactDOM.createPortal(
             <div id="howToUSE" tabIndex="-1" style={UseImagesIpad} className="useImg">
                <span tabIndex="-1" style={howToUseName}>{window.finalLangues.howToUseMenu}:</span>

@@ -240,7 +240,7 @@ function App() {
                   only='xs'
                >
                   <span>
-                     Main Menu
+                  {getLangTranscript && window.finalLangues.mainmenu}
                   </span>
                </Button>
             </Hidden>

@@ -1699,12 +1699,12 @@ const MainMenu = (props) => {
       setAnimValue("On");
       document.getElementById("animSwitchValue").checked = true;
       document.getElementsByClassName('onOff')[0].style.left = "-17px";
-      document.getElementById("animSwitchValue1").setAttribute('aria-label','Animation On')
-      // document.getElementById('animSwitchValue1').setAttribute('aria-label','clickable checkbox checked On');
-
-      setAnimValue1("On");
-      document.getElementById("animSwitchValue1").checked = true;
-      document.getElementsByClassName('onOff1')[0].style.left = "-17px";
+      if (!(window.mob)) {
+         document.getElementById("animSwitchValue1").setAttribute('aria-label','Animation On')
+         setAnimValue1("On");
+         document.getElementById("animSwitchValue1").checked = true;
+         document.getElementsByClassName('onOff1')[0].style.left = "-17px";
+      }
 
    },[]);
 
@@ -1881,7 +1881,7 @@ const MainMenu = (props) => {
                endIcon={<img src="./img/cross.svg" alt="cross" style={{ marginLeft: '207px',height: '23px' }} />}
                onClick={props.toggleDrawerAction}
             >
-               Main Menu
+               {window.finalLangues.mainmenu}
             </Button>
             <Howtousenew />
 

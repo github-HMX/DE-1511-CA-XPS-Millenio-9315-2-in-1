@@ -34,7 +34,7 @@ const MenuProductView = (props) => {
                <MenuBtn aria-hidden="true" style={AccordianIcons} submenu="Front" subname={window.finalLangues.front} submenu={window.finalLangues.front} source={props.imgfront} />
             </AccordionDetails>
             <AccordionDetails tabIndex="1" aria-label="Back" id="backBtn" onKeyPress={props.onFrontBtnClick} onClick={props.onBackBtnClick}>
-               <MenuBtn aria-hidden="true" style={AccordianIcons} submenu="Back" subname={window.finalLangues.front} submenu="Back" source={props.imgback} />
+               <MenuBtn aria-hidden="true" style={AccordianIcons} submenu="Back" subname={window.finalLangues.back} submenu={window.finalLangues.back} source={props.imgback} />
             </AccordionDetails>
             <AccordionDetails tabIndex="1" aria-label="Left" id="rightBtn" onKeyPress={props.onRightBtnClick} onClick={props.onRightBtnClick}>
                <MenuBtn aria-hidden="true" style={AccordianIcons} submenu="Left" subname={window.finalLangues.left} submenu={window.finalLangues.left} source={props.imgright} />
@@ -47,7 +47,7 @@ const MenuProductView = (props) => {
                <MenuBtn aria-hidden="true" style={AccordianIcons} submenu="Top" subname={window.finalLangues.top} submenu={window.finalLangues.top} source={props.imgtop} />
             </AccordionDetails>
             <AccordionDetails tabIndex="1" aria-label="Bottom" id="bottomBtn" onKeyPress={props.onBottomBtnClick} onClick={props.onBottomBtnClick}>
-               <MenuBtn aria-hidden="true" style={AccordianIcons} sunMenu="Bottom" sunmenu="Bottom" subname="Bottom" submenu={window.finalLangues.bottom} source={props.imgbottom} />
+               <MenuBtn aria-hidden="true" style={AccordianIcons} sunMenu="Bottom" sunmenu="Bottom" subname={window.finalLangues.bottom} submenu={window.finalLangues.bottom} source={props.imgbottom} />
             </AccordionDetails>
 
          </Accordion>

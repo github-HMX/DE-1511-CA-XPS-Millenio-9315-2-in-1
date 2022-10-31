@@ -8,7 +8,7 @@
    <meta name='mobile-web-app-capable' content='yes'>
    <meta name='apple-mobile-web-app-capable' content='yes'>
 
-   <title>XPS 13 9315 2in1 SS</title>
+   <title id="title">XPS 13 9315 2in1 SS</title>
 
    <style type='text/css'>
       .closeIcon {
@@ -347,7 +347,7 @@
             font-style: normal;
             font-weight: normal;
             font-size: 24px;
-            line-height: 36px;
+            line-height: 31px;
             color: #FFFFFF;
             border: 0;
          }
@@ -635,14 +635,10 @@
          // window.localStorage.removeItem('Animation');
          window.localStorage.removeItem('hotspot');
          window.localStorage.removeItem('features');
-         GotoPosInTimeNamedValue(config.default);
-         window.localStorage.setItem('Animation','on');
+         GotoPosInTimeNamedValue(config.default);         
          window.localStorage.setItem("laptop","laptop360");
-         if (window.document.getElementById("animSwitchValue")) {
-            window.document.getElementById("animSwitchValue").checked = true;
-         }
-         if (window.document.getElementById("animSwitchValue1")) {
-            window.document.getElementById("animSwitchValue1").checked = true;
+         if (!(window.mob)) {
+            document.getElementById("animSwitchValue1").checked = true;
          }
 
          if (!(mob || isipad)) {
@@ -2025,32 +2021,13 @@
                   document.getElementById("zoom_text").innerHTML = finalLangues.zoom;
                   document.getElementById("zoom_text_mob").innerHTML = finalLangues.zoom;
 
+                  document.getElementById("title").innerHTML = finalLangues.title;
+
                   // document.getElementById("mobZoom").innerHTML = finalLangues.zoom;
 
-                  document.querySelector(".exploreBtnCls").innerHTML = finalLangues.exploreProductIn3D;
-                  document.querySelector(".exploreBtnClsMob").innerHTML = finalLangues.exploreProductIn3D;
+                  document.getElementById("exploreButtonDesk").innerHTML = finalLangues.exploreProductIn3D;
+                  document.getElementById("exploreButttonTextmob").innerHTML = finalLangues.exploreProductIn3D;
 
-
-                  port1 = finalLangues.port1;
-                  port2 = finalLangues.port2;
-                  port3 = finalLangues.port3;
-                  port4 = finalLangues.port4;
-                  port5 = finalLangues.port5;
-                  port6 = finalLangues.port6;
-                  port7 = finalLangues.port7;
-                  port8 = finalLangues.port8;
-                  port9 = finalLangues.port9;
-                  port10 = finalLangues.port10;
-                  port11 = finalLangues.port11;
-                  port12 = finalLangues.port12;
-                  port13 = finalLangues.port13;
-
-                  // if (finalLangues.lang.toLowerCase() == "ar-eg") {
-                  //     $("#color_container #clr_text, #pos_container #pos_text, #righttxt1 li:nth-child(1), #righttxt1 li:nth-child(2), #righttxt1 li:nth-child(3), #reset, #headingTop,#menu3,#hot39_text,#hot40_text,#hot41_text,#menu4,#hot3_text,#hot03_text,#hot9_text,#hot2_text,#hot02_text,#hot002_text,#hot32_text,#menu5,#hot7_text,#hot07_text,#hot1_text,#hot18_text,#hot19_text,#menu11,#hot20_text,#hot21_text,#menu12,#hot22_text,#hot2201_text,#hot2202_text,#hot029_text,#hot0029_text,#hot00029_text,#hot030_text,#hot0030_text,#hot031_text,#hot031_text,#menu15,#hot35_text").attr("dir", "rtl");
-                  // } else if (finalLangues.lang.toLowerCase() == "ko-kr" || finalLangues.lang.toLowerCase() == "ko" || finalLangues.lang.toLowerCase() == "pt" || finalLangues.lang.toLowerCase() == "pt-br") {
-                  //     $("#color_container").css("display", "none");
-                  //     $("#pos_container").css("padding-top", "0");
-                  // }
                   if (userLang.toLowerCase() === "es") {
                      // alert();
                      //   console.log("userLang is:" + userLang);
@@ -2112,19 +2089,22 @@
                <div id="loader" style="display: none; position:absolute; background: #ffffff; ">
                   <div id="loaderbar" style="position:absolute; width:0px; height:5px; overflow:hidden; background: #0076CE;"></div>
                </div>
-               <button tabindex="1" id="exploreButtton" class="exploreBtnCls" aria-label="clickable Explore Product in 3D" onclick="exploreFun()">Explore Product in 3D <img style="height: 20px; width: 24px; padding-left: 12px;" src="./img/arrowIcon.png" alt="aroowIndexs" /></button></button>
+               <button tabindex="1" id="exploreButtton" aria-label="clickable Explore Product in 3D" onclick="exploreFun()">
+                  <span id="exploreButtonDesk">Explore Product in 3D</span><img style="height: 20px; width: 24px; padding-left: 12px;" src="./img/arrowIcon.png" alt="aroowIndexs" />
+               </button>     
+            </button>
             </div>
          </div>
          <div class="mobile">
             <div id="loading">
                <div>
-                  <div id="mobMove" style="display: flex; justify-content: space-between; align-items: end;"><span style="padding-right:43px; margin-top:70px;" id="move_text_mob" style="position: relative;  top: -29px;"></span><img style="margin-top: 44px;  height: 76px; width: 146px;" src="./img/move.svg" alt="movesIndex" /></div>
-                  <div id="mobRotate" style="display: flex; justify-content: space-between; align-items: end;"><span style="padding-right:43px; margin-top:70px;" id="rotate_text_mob" style="position: relative;  top: -29px;"></span><img style="margin-top: 44px;  height: 76px; width: 146px;" src="./img/rotate.svg" alt="rotateIndex" /></div>
-                  <div id="mobZoom" style="display: flex; justify-content: space-between; align-items: end;"><span style="padding-right:43px; margin-top:70px;" id="zoom_text_mob" style="position: relative;  top: -29px;"></span><img style="margin-top: 44px; height: 76px; width: 146px;" src="./img/zoom.svg" alt="zoomIndex" /></div>
-                  <div id="loaders" style="display: block; position:absolute; background: #ffffff; height: 5px;left: 10px;">
-                     <div id="loaderbar" style="position:absolute; width:0px; height:5px; overflow:hidden; background: #0076CE;"></div>
+                  <div id="mobMove" style="display: flex; justify-content: space-between; align-items: end;"><span style="padding-right:43px;    margin-top: 70px;" id="move_text_mob" style="position: relative;  top: -29px;"></span><img style="margin-top: 44px;  height: 76px; width: 146px;" src="./img/move.svg" alt="movesIndex" /></div>
+                  <div id="mobRotate" style="display: flex; justify-content: space-between; align-items: end;"><span style="padding-right:43px;    margin-top: 70px;" id="rotate_text_mob" style="position: relative;  top: -29px;"></span><img style="margin-top: 44px;  height: 76px; width: 146px;" src="./img/rotate.svg" alt="rotateIndex" /></div>
+                  <div id="mobZoom" style="display: flex; justify-content: space-between; align-items: end;"><span style="padding-right:43px;    margin-top: 70px;" id="zoom_text_mob" style="position: relative;  top: -29px;"></span><img style="margin-top: 44px; height: 76px; width: 146px;" src="./img/zoom.svg" alt="zoomIndex" /></div>
+                  <div id="loaders" style="display: block; position:absolute; background: #ffffff; border: 1px; border-style: solid; border-color: #c1c1c1;height: 5px;left: 10px;">
+                     <div id="loaderbar" style="position:absolute; width:0px; height:5px; overflow:hidden; background: #8c8f92;"></div>
                   </div>
-                  <button id="exploreButtton" class="exploreBtnClsMob" onclick="exploreFunMob()" disabled>Explore Product in 3D <img style="height: 20px; width: 24px; padding-left: 12px;" src="./img/arrowIcon.png" alt="ArrowIndex" /></button>
+                  <button id="exploreButtton" class="exploreBtnClsMob" onclick="exploreFunMob()" disabled><span id="exploreButttonTextmob">Explore Product in 3D</span><img style="height: 20px; width: 24px; padding-left: 12px;" src="./img/arrowIcon.png" alt="ArrowIndex" /></button>
 
                </div>
             </div>

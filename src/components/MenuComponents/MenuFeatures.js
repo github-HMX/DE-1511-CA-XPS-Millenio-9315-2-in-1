@@ -52,12 +52,12 @@ const MenuFeatures =(props)=>{
         </AccordionSummary> 
         {/* <Tooltip title="Comming soon" placement="right" arrow>  */}
             <AccordionDetails tabIndex="1" id="xpsFolioClick" onKeyPress={props.openClosedClicked}  onClick={props.openClosedClicked}>
-            <MenuCircleBtnOpenClose changeOpenCloseImg={props.tobechange}  className="openclose" submenu="XPS Folio" />
+            <MenuCircleBtnOpenClose changeOpenCloseImg={props.tobechange}  className="openclose" submenu={window.finalLangues.stylus} />
             </AccordionDetails> 
           {/* </Tooltip>  */}
           {/* <Tooltip title="Comming soon" placement="right" arrow>  */}
             <AccordionDetails tabIndex="1"  id="backlitBtn" onKeyPress={props.onOffBackliteClicked} onClick={props.onOffBackliteClicked}>
-            <MenuCircleBtnBacklite changeBacklitImg={props.tobeChanged} submenu="XPS Stylus" />
+            <MenuCircleBtnBacklite changeBacklitImg={props.tobeChanged} submenu={window.finalLangues.folio} />
    
         {/* <Button className="Btnsubmenu"
          style={Btn}
