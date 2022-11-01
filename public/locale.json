@@ -175,49 +175,7 @@
 			"title": "XPS 13 9315 2in1 SS"
 		},
 
-		{
-			"lang": "FR",
-			"rotate": "Faire pivoter",
-			"zoom": "Zoom",
-			"move": "Déplacer",						
-
-			"colors": "Couleurs",
-			"feature": "Accessories",
-			
-			"exploreProductIn3D": "Explorer le produit en 3D",
-			"returnTo3dView": "Revenir à la vue 3D",
-			"howToUseMenu": "Utilisation",
-			"mainmenu": "Menu principal",
-
-			"previousView": "Vue précédente",
-			"nextView": "Vue suivante",
-			"resetView": "Réinitialiser la vue",
-
-            "previous": "Précédent",
-			"next": "Suivant",
-			"reset": "Réinitialiser",
-
-			"animations": "Réduire les transitions",
-			"onScreenControls": "Commandes à l’écran",
-
-			"productview": "Vue du produit",
-
-			"color1": "Sky",
-			"color2": "Slate",
-
-			"front": "Avant",
-			"back": "Retour",
-			"left": "Gauche",
-			"right": "Droite",
-			"bottom": "Bas",
-			"top": "Haut",
-			
-
-			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
-
-			"title": "XPS 13 9315 2in1 SS"			
-		},
+		
 		{
 			"lang": "FR-CA",
 			"rotate": "Faire pivoter",
@@ -260,6 +218,49 @@
 			"folio": "XPS Stylus",
 
 			"title": "XPS 13 9315 2in1 SS"
+		},
+		{
+			"lang": "FR",
+			"rotate": "Faire pivoter",
+			"zoom": "Zoom",
+			"move": "Déplacer",						
+
+			"colors": "Couleurs",
+			"feature": "Accessories",
+			
+			"exploreProductIn3D": "Explorer le produit en 3D",
+			"returnTo3dView": "Revenir à la vue 3D",
+			"howToUseMenu": "Utilisation",
+			"mainmenu": "Menu principal",
+
+			"previousView": "Vue précédente",
+			"nextView": "Vue suivante",
+			"resetView": "Réinitialiser la vue",
+
+            "previous": "Précédent",
+			"next": "Suivant",
+			"reset": "Réinitialiser",
+
+			"animations": "Réduire les transitions",
+			"onScreenControls": "Commandes à l’écran",
+
+			"productview": "Vue du produit",
+
+			"color1": "Sky",
+			"color2": "Slate",
+
+			"front": "Avant",
+			"back": "Retour",
+			"left": "Gauche",
+			"right": "Droite",
+			"bottom": "Bas",
+			"top": "Haut",
+			
+
+			"stylus": "XPS Folio",
+			"folio": "XPS Stylus",
+
+			"title": "XPS 13 9315 2in1 SS"			
 		},
 
 		{
@@ -582,7 +583,7 @@
 			"nextView": "Nästa vy",
 			"resetView": "Återställ vyn",
 
-            "previous": "Föregåe nde",
+            "previous": "Föregående",
 			"next": "Nästa",
 			"reset": "Återställ",
 
