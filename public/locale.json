@@ -4,11 +4,11 @@
 			"lang": "EN",
 			"rotate": "Rotate",
 			"zoom": "Zoom",
-			"move": "Move",				
+			"move": "Move",
 
 			"colors": "Colors",
 			"feature": "Accessories",
-			
+
 			"exploreProductIn3D": "Explore Product in 3D",
 			"returnTo3dView": "Return to 3D View",
 			"howToUseMenu": "How to use",
@@ -18,9 +18,9 @@
 			"nextView": "Next View",
 			"resetView": "Reset View",
 
-           	"previous": "Previous",
+			"previous": "Previous",
 			"next": "Next",
-			"reset": "Reset",			
+			"reset": "Reset",
 
 			"animations": "Reduce Transitions",
 			"onScreenControls": "On-Screen Controls",
@@ -36,7 +36,6 @@
 			"right": "Right",
 			"bottom": "Bottom",
 			"top": "Top",
-			
 
 			"stylus": "XPS Folio",
 			"folio": "XPS Stylus",
@@ -48,11 +47,11 @@
 			"lang": "DA",
 			"rotate": "Roter",
 			"zoom": "Zoom",
-			"move": "Flyt",					
+			"move": "Flyt",
 
 			"colors": "Farver",
-			"feature": "Accessories",
-			
+			"feature": "Tilbehør",
+
 			"exploreProductIn3D": "Se produktet i 3D",
 			"returnTo3dView": "Vend tilbage til 3D-visning",
 			"howToUseMenu": "Brugsvejledning",
@@ -62,7 +61,7 @@
 			"nextView": "Næste visning",
 			"resetView": "Nulstil visning",
 
-            "previous": "Forrige",
+			"previous": "Forrige",
 			"next": "Næste",
 			"reset": "Nulstil",
 
@@ -80,22 +79,21 @@
 			"right": "Højre",
 			"bottom": "Bund",
 			"top": "Top",
-			
 
 			"stylus": "XPS Folio",
 			"folio": "XPS Stylus",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2-i-1 SS"
 		},
 		{
 			"lang": "DE",
 			"rotate": "Drehen",
 			"zoom": "Zoomen",
-			"move": "Bewegen",						
+			"move": "Bewegen",
 
 			"colors": "Farben",
-			"feature": "Accessories",
-			
+			"feature": "Zubehör",
+
 			"exploreProductIn3D": "Produkt in 3D erkunden",
 			"returnTo3dView": "Zurück zur 3D-Ansicht",
 			"howToUseMenu": "Verwendung",
@@ -105,7 +103,7 @@
 			"nextView": "Nächste Ansicht",
 			"resetView": "Ansicht zurücksetzen",
 
-            "previous": "Zurück",
+			"previous": "Zurück",
 			"next": "Weiter",
 			"reset": "Zurücksetzen",
 
@@ -123,23 +121,22 @@
 			"right": "Rechts",
 			"bottom": "Unten",
 			"top": "Oben",
-			
 
 			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"folio": "XPS-Stift",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2-in-1 SS"
 		},
 
 		{
 			"lang": "ES",
 			"rotate": "Girar",
 			"zoom": "Zoom",
-			"move": "Movimiento",						
+			"move": "Movimiento",
 
 			"colors": "Colores",
-			"feature": "Accessories",
-			
+			"feature": "Accesorios",
+
 			"exploreProductIn3D": "Explorar producto en 3D",
 			"returnTo3dView": "Volver a la vista 3D",
 			"howToUseMenu": "Cómo utilizar",
@@ -149,7 +146,7 @@
 			"nextView": "Vista siguiente",
 			"resetView": "Restablecer vista",
 
-            "previous": "Anterior",
+			"previous": "Anterior",
 			"next": "Siguiente",
 			"reset": "Restablecer",
 
@@ -159,7 +156,7 @@
 			"productview": "Vista del producto",
 
 			"color1": "Sky",
-			"color2": "Slate",
+			"color2": "Pizarra",
 
 			"front": "Parte frontal",
 			"back": "Volver",
@@ -167,24 +164,22 @@
 			"right": "Derecha",
 			"bottom": "Parte inferior",
 			"top": "Parte superior",
-			
 
 			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"folio": "Lápiz XPS",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2 en 1 SS"
 		},
 
-		
 		{
 			"lang": "FR-CA",
 			"rotate": "Faire pivoter",
 			"zoom": "Zoom",
-			"move": "Déplacer",						
+			"move": "Déplacer",
 
 			"colors": "Couleurs",
-			"feature": "Accessories",
-			
+			"feature": "Accessoires",
+
 			"exploreProductIn3D": "Explorer le produit en 3D",
 			"returnTo3dView": "Retourner à l’affichage 3D",
 			"howToUseMenu": "Utilisation",
@@ -194,7 +189,7 @@
 			"nextView": "Affichage suivant",
 			"resetView": "Réinitialiser l’affichage",
 
-            "previous": "Précédent",
+			"previous": "Précédent",
 			"next": "Suivant",
 			"reset": "Réinitialiser",
 
@@ -203,8 +198,8 @@
 
 			"productview": "Affichage du produit",
 
-			"color1": "Sky",
-			"color2": "Slate",
+			"color1": "Ciel",
+			"color2": "Ardoise",
 
 			"front": "Avant",
 			"back": "Précédent",
@@ -212,22 +207,21 @@
 			"right": "Droite",
 			"bottom": "Bas",
 			"top": "Haut",
-			
 
-			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"stylus": "XPS Folio",
+			"folio": "Stylet XPS",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2-en-1 SS"
 		},
 		{
 			"lang": "FR",
 			"rotate": "Faire pivoter",
 			"zoom": "Zoom",
-			"move": "Déplacer",						
+			"move": "Déplacer",
 
 			"colors": "Couleurs",
-			"feature": "Accessories",
-			
+			"feature": "Accessoires",
+
 			"exploreProductIn3D": "Explorer le produit en 3D",
 			"returnTo3dView": "Revenir à la vue 3D",
 			"howToUseMenu": "Utilisation",
@@ -237,7 +231,7 @@
 			"nextView": "Vue suivante",
 			"resetView": "Réinitialiser la vue",
 
-            "previous": "Précédent",
+			"previous": "Précédent",
 			"next": "Suivant",
 			"reset": "Réinitialiser",
 
@@ -255,23 +249,22 @@
 			"right": "Droite",
 			"bottom": "Bas",
 			"top": "Haut",
-			
 
-			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"stylus": "XPS Folio",
+			"folio": "Stylet XPS",
 
-			"title": "XPS 13 9315 2in1 SS"			
+			"title": "XPS 13 9315 2-en-1 SS"
 		},
 
 		{
 			"lang": "IT",
 			"rotate": "Rotazione",
 			"zoom": "Zoom",
-			"move": "Spostamento",						
+			"move": "Spostamento",
 
 			"colors": "Colori",
-			"feature": "Accessories",
-			
+			"feature": "Accessori",
+
 			"exploreProductIn3D": "Scopri il prodotto in 3D",
 			"returnTo3dView": "Torna alla vista 3D",
 			"howToUseMenu": "Modalità di utilizzo",
@@ -281,7 +274,7 @@
 			"nextView": "Vista successiva",
 			"resetView": "Reimposta vista",
 
-            "previous": "Indietro",
+			"previous": "Indietro",
 			"next": "Avanti",
 			"reset": "Reimposta",
 
@@ -291,7 +284,7 @@
 			"productview": "Vista prodotto",
 
 			"color1": "Sky",
-			"color2": "Slate",
+			"color2": "Ardesia",
 
 			"front": "Parte anteriore",
 			"back": "Indietro",
@@ -299,22 +292,21 @@
 			"right": "Lato destro",
 			"bottom": "Parte inferiore",
 			"top": "Parte superiore",
-			
 
 			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"folio": "Stilo XPS",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2-in-1 SS"
 		},
 		{
 			"lang": "JA",
 			"rotate": "回転",
 			"zoom": "拡大・縮小",
-			"move": "移動",						
+			"move": "移動",
 
 			"colors": "カラー",
-			"feature": "Accessories",
-			
+			"feature": "周辺機器",
+
 			"exploreProductIn3D": "3Dで製品を詳しく見る",
 			"returnTo3dView": "3Dビューに戻る",
 			"howToUseMenu": "使用方法",
@@ -324,7 +316,7 @@
 			"nextView": "次の表示",
 			"resetView": "表示のリセット",
 
-            "previous": "前へ",
+			"previous": "前へ",
 			"next": "次へ",
 			"reset": "リセット",
 
@@ -334,7 +326,7 @@
 			"productview": "製品概要",
 
 			"color1": "Sky",
-			"color2": "Slate",
+			"color2": "スレート",
 
 			"front": "前面",
 			"back": "背面",
@@ -342,22 +334,21 @@
 			"right": "右",
 			"bottom": "下面",
 			"top": "上面",
-			
 
 			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"folio": "XPSタッチペン",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2-in-1 SS"
 		},
 		{
 			"lang": "KO",
 			"rotate": "회전",
 			"zoom": "확대/축소",
-			"move": "이동",						
+			"move": "이동",
 
 			"colors": "색상",
-			"feature": "Accessories",
-			
+			"feature": "액세서리",
+
 			"exploreProductIn3D": "3D로 제품 살펴보기",
 			"returnTo3dView": "3D 뷰로 돌아가기",
 			"howToUseMenu": "사용 방법",
@@ -367,7 +358,7 @@
 			"nextView": "다음 뷰",
 			"resetView": "뷰 재설정",
 
-            "previous": "이전",
+			"previous": "이전",
 			"next": "다음",
 			"reset": "재설정",
 
@@ -376,8 +367,8 @@
 
 			"productview": "제품 뷰",
 
-			"color1": "Sky",
-			"color2": "Slate",
+			"color1": "스카이",
+			"color2": "슬레이트",
 
 			"front": "전면",
 			"back": "뒤로",
@@ -385,22 +376,21 @@
 			"right": "Right",
 			"bottom": "하단",
 			"top": "상단",
-			
 
-			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"stylus": "XPS 폴리오",
+			"folio": "XPS 스타일러스",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2-in-1 SS"
 		},
 		{
 			"lang": "NL",
 			"rotate": "Draaien",
 			"zoom": "Zoom",
-			"move": "Verplaatsen",						
+			"move": "Verplaatsen",
 
 			"colors": "Kleuren",
-			"feature": "Accessories",
-			
+			"feature": "Accessoires",
+
 			"exploreProductIn3D": "Product bekijken in 3D",
 			"returnTo3dView": "Terug naar 3D-weergave",
 			"howToUseMenu": "Het gebruik",
@@ -410,7 +400,7 @@
 			"nextView": "Volgende weergave",
 			"resetView": "Weergave opnieuw instellen",
 
-            "previous": "Vorige",
+			"previous": "Vorige",
 			"next": "Volgende",
 			"reset": "Opnieuw instellen",
 
@@ -420,7 +410,7 @@
 			"productview": "Productweergave",
 
 			"color1": "Sky",
-			"color2": "Slate",
+			"color2": "Leigrijs",
 
 			"front": "Voorzijde",
 			"back": "Terug",
@@ -428,7 +418,6 @@
 			"right": "Rechterzijde",
 			"bottom": "onderaan",
 			"top": "Boven",
-			
 
 			"stylus": "XPS Folio",
 			"folio": "XPS Stylus",
@@ -439,11 +428,11 @@
 			"lang": "NO",
 			"rotate": "Roter",
 			"zoom": "Zoom",
-			"move": "Flytt",						
+			"move": "Flytt",
 
 			"colors": "Farger",
-			"feature": "Accessories",
-			
+			"feature": "Tilbehør",
+
 			"exploreProductIn3D": "Utforsk produktet i 3D",
 			"returnTo3dView": "Gå tilbake til 3D-visning",
 			"howToUseMenu": "Brukerveiledning",
@@ -453,7 +442,7 @@
 			"nextView": "Neste visning",
 			"resetView": "Tilbakestill visning",
 
-            "previous": "Forrige",
+			"previous": "Forrige",
 			"next": "Neste",
 			"reset": "Tilbakestill",
 
@@ -471,22 +460,21 @@
 			"right": "Høyre",
 			"bottom": "Nederst",
 			"top": "Topp",
-			
 
 			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"folio": "XPS-skjermpenn",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2-i-1 SS"
 		},
 		{
 			"lang": "PL",
 			"rotate": "Obrót",
 			"zoom": "Powiększenie",
-			"move": "Przesuń",						
+			"move": "Przesuń",
 
 			"colors": "Kolory",
-			"feature": "Accessories",
-			
+			"feature": "Akcesoria",
+
 			"exploreProductIn3D": "Obejrzyj produkt w 3D",
 			"returnTo3dView": "Powrót do widoku 3D",
 			"howToUseMenu": "Sposób użycia",
@@ -496,7 +484,7 @@
 			"nextView": "Następny widok",
 			"resetView": "Resetuj widok",
 
-            "previous": "Wstecz",
+			"previous": "Wstecz",
 			"next": "Dalej",
 			"reset": "Resetuj",
 
@@ -514,22 +502,21 @@
 			"right": "Prawa strona",
 			"bottom": "Dół",
 			"top": "Góra",
-			
 
 			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"folio": "Rysik XPS",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 „2 w 1” SS"
 		},
 		{
 			"lang": "PT-BR",
 			"rotate": "Girar",
 			"zoom": "Zoom",
-			"move": "Mover",						
+			"move": "Mover",
 
 			"colors": "Cores",
-			"feature": "Accessories",
-			
+			"feature": "Acessórios",
+
 			"exploreProductIn3D": "Explorar produto em 3D",
 			"returnTo3dView": "Voltar à exibição em 3D",
 			"howToUseMenu": "Como usar",
@@ -539,7 +526,7 @@
 			"nextView": "Próxima exibição",
 			"resetView": "Redefinir exibição",
 
-            "previous": "Anterior",
+			"previous": "Anterior",
 			"next": "Próxima",
 			"reset": "Redefinir",
 
@@ -548,8 +535,8 @@
 
 			"productview": "Exibição do produto",
 
-			"color1": "Sky",
-			"color2": "Slate",
+			"color1": "Azul celeste",
+			"color2": "Ardósia",
 
 			"front": "Parte frontal",
 			"back": "Voltar",
@@ -557,23 +544,22 @@
 			"right": "Direita",
 			"bottom": "Inferior",
 			"top": "Superior",
-			
 
 			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"folio": "Caneta XPS",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2 em 1 SS"
 		},
-	
+
 		{
 			"lang": "SV",
 			"rotate": "Rotera",
 			"zoom": "Zooma",
-			"move": "Flytta",						
+			"move": "Flytta",
 
 			"colors": "Färger",
-			"feature": "Accessories",
-			
+			"feature": "Tillbehör",
+
 			"exploreProductIn3D": "Utforska produkten i 3D",
 			"returnTo3dView": "Återgå till 3D-vyn",
 			"howToUseMenu": "Gör så här",
@@ -583,7 +569,7 @@
 			"nextView": "Nästa vy",
 			"resetView": "Återställ vyn",
 
-            "previous": "Föregående",
+			"previous": "Föregående",
 			"next": "Nästa",
 			"reset": "Återställ",
 
@@ -601,23 +587,22 @@
 			"right": "Höger",
 			"bottom": "Längst ned",
 			"top": "Till början",
-			
 
 			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"folio": "XPS-pekpenna",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 2-i-1 SS"
 		},
 
 		{
 			"lang": "ZH-CN",
 			"rotate": "旋转",
 			"zoom": "缩放",
-			"move": "移动",						
+			"move": "移动",
 
 			"colors": "颜色",
-			"feature": "Accessories",
-			
+			"feature": "配件",
+
 			"exploreProductIn3D": "探索产品 3D 模型",
 			"returnTo3dView": "返回 3D 视图",
 			"howToUseMenu": "使用方式",
@@ -627,7 +612,7 @@
 			"nextView": "下一视图",
 			"resetView": "重置视图",
 
-            "previous": "上一个",
+			"previous": "上一个",
 			"next": "下一个",
 			"reset": "重置",
 
@@ -636,8 +621,8 @@
 
 			"productview": "产品图片",
 
-			"color1": "Sky",
-			"color2": "Slate",
+			"color1": "天空蓝",
+			"color2": "石板灰",
 
 			"front": "正面",
 			"back": "返回",
@@ -645,22 +630,21 @@
 			"right": "右侧",
 			"bottom": "底部",
 			"top": "顶部",
-			
 
-			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"stylus": "XPS 对开保护套",
+			"folio": "XPS 手写笔",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 二合一笔记本 SS"
 		},
 		{
 			"lang": "ZH-TW",
 			"rotate": "旋轉",
 			"zoom": "縮放",
-			"move": "移動",						
+			"move": "移動",
 
 			"colors": "色彩",
-			"feature": "Accessories",
-			
+			"feature": "配件",
+
 			"exploreProductIn3D": "以 3D 檢視的方式探索產品",
 			"returnTo3dView": "返回 3D 檢視",
 			"howToUseMenu": "使用方式",
@@ -670,7 +654,7 @@
 			"nextView": "下一個檢視",
 			"resetView": "重設檢視",
 
-            "previous": "上一個",
+			"previous": "上一個",
 			"next": "下一個",
 			"reset": "重設",
 
@@ -679,8 +663,8 @@
 
 			"productview": "產品檢視",
 
-			"color1": "Sky",
-			"color2": "Slate",
+			"color1": "天空色",
+			"color2": "藍灰色",
 
 			"front": "前方",
 			"back": "返回",
@@ -688,12 +672,11 @@
 			"right": "右側",
 			"bottom": "底部",
 			"top": "頂端",
-			
 
 			"stylus": "XPS Folio",
-			"folio": "XPS Stylus",
+			"folio": "XPS 手寫筆",
 
-			"title": "XPS 13 9315 2in1 SS"
+			"title": "XPS 13 9315 二合一 SS"
 		}
 	]
 }
