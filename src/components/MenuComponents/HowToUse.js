@@ -123,7 +123,7 @@ const HowToUse = () => {
    }
    const useName1 = {
       position: 'absolute',
-      width: '90px',
+      width: '112px',
       height: '28px',
       left: '0',
       top: '30px',
@@ -135,11 +135,12 @@ const HowToUse = () => {
       display: 'flex',
       alignItems: 'center',
       textAlign: 'left',
-      color: '#000000'
+      color: '#000000',
+      wordBreak: 'break-all'
    }
    const useName2 = {
       position: 'absolute',
-      width: '90px',
+      width: '112px',
       height: '28px',
       left: '0',
       top: '138px',
@@ -151,11 +152,12 @@ const HowToUse = () => {
       display: 'flex',
       alignItems: 'center',
       textAlign: 'left',
-      color: '#000000'
+      color: '#000000',
+      wordBreak: 'break-all'
    }
    const useName3 = {
       position: 'absolute',
-      width: '90px',
+      width: '112px',
       height: '28px',
       left: '0',
       top: '240px',
@@ -167,7 +169,8 @@ const HowToUse = () => {
       display: 'flex',
       alignItems: 'center',
       textAlign: 'left',
-      color: '#000000'
+      color: '#000000',
+      wordBreak: 'break-all'
    }
    const imgUse = {
       marginTop: '22px',

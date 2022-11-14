@@ -65,7 +65,8 @@ const Howtousenew = () => {
       fontStyle: 'normal',
       fontWeight: '300',
       fontSize: '20px',
-      lineHeight: '36px'
+      lineHeight: '36px',
+      wordBreak: 'break-all'
    }
    const mobAllthreeDiv = {
       textAlign: 'left',
@@ -78,7 +79,8 @@ const Howtousenew = () => {
       width: '350px',
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'baseline'
+      alignItems: 'baseline',
+      wordBreak: 'break-all'
    }
 
    const mobAllthreeDivs = {
@@ -92,7 +94,8 @@ const Howtousenew = () => {
       width: '350px',
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'baseline'
+      alignItems: 'baseline',
+      wordBreak: 'break-all'
    }
    const exploreButtton = {
 
@@ -221,9 +224,9 @@ const Howtousenew = () => {
                      <span style={howToUseText}>{window.finalLangues.howToUseMenu}:</span>
 
                      <div style={mainDiv}>
-                        <div style={allThreeDiv}>{window.finalLangues.move}<br></br><img style={{ marginTop: '20px',height: '66px',width: '130px' }} alt="moveDesk" src="./img/move.svg" /></div>
-                        <div style={allThreeDiv}>{window.finalLangues.rotate}<br></br><img style={{ marginTop: '20px',height: '66px',width: '130px' }} alt="rotateDesk" src="./img/rotate.svg" /></div>
-                        <div style={allThreeDiv}>{window.finalLangues.zoom}<br></br><img style={{ marginTop: '20px',height: '66px',width: '130px' }} alt="zoomDesk" src="./img/zoom.svg" /></div>
+                        <div id="moveMb" style={allThreeDiv}>{window.finalLangues.move}<br></br><img style={{ marginTop: '20px',height: '66px',width: '130px' }} alt="moveMb" src="./img/move.svg" /></div>
+                        <div id="rotateDesk" style={allThreeDiv}>{window.finalLangues.rotate}<br></br><img style={{ marginTop: '20px',height: '66px',width: '130px' }} alt="rotateDesk" src="./img/rotate.svg" /></div>
+                        <div id="zoomMb" style={allThreeDiv}>{window.finalLangues.zoom}<br></br><img style={{ marginTop: '20px',height: '66px',width: '130px' }} alt="zoomDesk" src="./img/zoom.svg" /></div>
                      </div>
                      <button style={exploreButtton} onClick={exploreClick}>{window.finalLangues.returnTo3dView}  <img style={{ height: '24px',width: '24px',position: 'relative',top: '6px',left: '12px' }} alt="arrowDesk" src="./img/arrowIcon.png" /></button>
 
@@ -239,7 +242,7 @@ const Howtousenew = () => {
                         <span style={mobHowToUseText} id="mobHowToUseText">{window.finalLangues.howToUseMenu}:</span>
                         <div style={mobAllthreeDivs}><span style={{ position: 'relative',top: '-28px' }}>{window.finalLangues.move}</span><img style={{ marginLeft: '12px',height: '76px',width: '166px' }} alt="moves" src="./img/move.svg" /></div>
                         <div style={mobAllthreeDiv}><span style={{ position: 'relative',top: '-28px' }}>{window.finalLangues.rotate}</span><img style={{ marginLeft: '12px',height: '76px',width: '166px' }} alt="rotates" src="./img/rotate.svg" /></div>
-                        <div style={mobAllthreeDiv}><span style={{ position: 'relative',top: '-28px' }}>{window.finalLangues.zoom}</span><img style={{ marginLeft: '12px',height: '76px',width: '166px' }} alt="zommss" src="./img/zoom.svg" /></div>
+                        <div id="zoomMb" style={mobAllthreeDiv}><span style={{ position: 'relative',top: '-28px' }}>{window.finalLangues.zoom}</span><img style={{ marginLeft: '12px',height: '76px',width: '166px' }} alt="zommss" src="./img/zoom.svg" /></div>
                         <button style={mobExploreButtton} onClick={exploreClick}>{window.finalLangues.returnTo3dView}  <img style={{ height: '24px',width: '24px',position: 'relative',top: '6px',left: '12px' }} alt="arrow" src="./img/arrowIcon.png" /></button>
                      </div>
                      {/* <button style={mobExploreButtton} onClick={exploreClick}>Return to 3D View  <ArrowForwardIcon style={{color: '#FFFFFF'}}/></button> */}

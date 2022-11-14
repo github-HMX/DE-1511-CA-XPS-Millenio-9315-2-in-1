@@ -677,6 +677,216 @@
 			"folio": "XPS 手寫筆",
 
 			"title": "XPS 13 9315 二合一 SS"
+		},
+		{
+			"lang": "HU",
+			"rotate": "Forgatás",
+			"zoom": "Nagyítás/kicsinyítés",
+			"move": "Mozgatás",
+
+			"colors": "Színek",
+			"feature": "Tartozékok",
+
+			"exploreProductIn3D": "Fedezze fel a terméket 3D-ben",
+			"returnTo3dView": "Vissza a 3D-nézethez",
+			"howToUseMenu": "Használat",
+			"mainmenu": "Főmenü",
+
+			"previousView": "Előző nézet",
+			"nextView": "Következő nézet",
+			"resetView": "Nézet alaphelyzetbe állítása",
+
+			"previous": "Előző",
+			"next": "Következő",
+			"reset": "Alaphelyzet",
+
+			"animations": "Átmenet csökkentése",
+			"onScreenControls": "Képernyőn megjelenő vezérlők",
+
+			"productview": "A termék kinézete",
+
+			"color1": "Égkék",
+			"color2": "Palaszürke",
+
+			"front": "Elülső",
+			"back": "Hátsó nézet",
+			"left": "Bal oldal",
+			"right": "Jobb oldal",
+			"bottom": "Alul",
+			"top": "Tetejére",
+
+			"stylus": "XPS Folio billentyűzet",
+			"folio": "XPS Stylus érintőceruza",
+
+			"title": "XPS 13 9315 2in1 SS"
+		},
+		{
+			"lang": "RO",
+			"rotate": "Rotire",
+			"zoom": "Zoom",
+			"move": "Mutare",
+
+			"colors": "Culori",
+			"feature": "Accesorii",
+
+			"exploreProductIn3D": "Explorați produsul în 3D",
+			"returnTo3dView": "Revenire la vederea 3D",
+			"howToUseMenu": "Cum se utilizează",
+			"mainmenu": "Meniul principal",
+
+			"previousView": "Vedere anterioară",
+			"nextView": "Vedere următoare",
+			"resetView": "Resetare vedere",
+
+			"previous": "Înapoi",
+			"next": "Înainte",
+			"reset": "Resetare",
+
+			"animations": "Reducere a tranzițiilor",
+			"onScreenControls": "Controale pe ecran",
+
+			"productview": "Vedere produs",
+
+			"color1": "Sky",
+			"color2": "Slate",
+
+			"front": "În față",
+			"back": "Spate",
+			"left": "În stânga",
+			"right": "În dreapta",
+			"bottom": "Jos",
+			"top": "Sus",
+
+			"stylus": "XPS Folio",
+			"folio": "Stylus XPS",
+
+			"title": "XPS 13 9315 2 în 1 SS"
+		},
+		{
+			"lang": "RU",
+			"rotate": "Поворот",
+			"zoom": "Масштабирование",
+			"move": "Переместить",
+
+			"colors": "Цвета",
+			"feature": "Аксессуары",
+
+			"exploreProductIn3D": "3D-обзор продукта",
+			"returnTo3dView": "Вернуться к 3D-обзору",
+			"howToUseMenu": "Инструкции по использованию",
+			"mainmenu": "Главное меню",
+
+			"previousView": "Предыдущее изображение",
+			"nextView": "Следующее изображение",
+			"resetView": "Сбросить просмотр",
+
+			"previous": "Назад",
+			"next": "Далее",
+			"reset": "Сброс",
+
+			"animations": "Сокращение переходов",
+			"onScreenControls": "Экранные средства управления",
+
+			"productview": "Изображение продукта",
+
+			"color1": "Sky",
+			"color2": "Slate",
+
+			"front": "Спереди",
+			"back": "Сзади",
+			"left": "Слева",
+			"right": "Справа",
+			"bottom": "Снизу",
+			"top": "Сверху",
+
+			"stylus": "XPS Folio",
+			"folio": "Перо XPS",
+
+			"title": "XPS 13 9315 «два в одном» SS"
+		},
+		{
+			"lang": "TR",
+			"rotate": "Döndür ",
+			"zoom": "Yakınlaştır",
+			"move": "Taşı",
+
+			"colors": "Renkler",
+			"feature": "Aksesuarlar",
+
+			"exploreProductIn3D": "Ürünü 3B Olarak İncele",
+			"returnTo3dView": "3B Görünüme Geri Dön",
+			"howToUseMenu": "Nasıl kullanılır?",
+			"mainmenu": "Ana Menü",
+
+			"previousView": "Önceki Görünüm",
+			"nextView": "Sonraki Görünüm",
+			"resetView": "Görünümü Sıfırla",
+
+			"previous": "Önceki",
+			"next": "İleri",
+			"reset": "Sıfırla",
+
+			"animations": "Geçişleri Azaltın",
+			"onScreenControls": "Ekran Denetimleri",
+
+			"productview": "Ürün Görünümü",
+
+			"color1": "Sky",
+			"color2": "Slate",
+
+			"front": "Ön",
+			"back": "Geri",
+			"left": "Sol",
+			"right": "Sağ",
+			"bottom": "Alt",
+			"top": "Ana sayfa",
+
+			"stylus": "XPS Folio",
+			"folio": "XPS Stylus Kalem",
+
+			"title": "XPS 13 9315 2'si 1 Arada SS"
+		},
+		{
+			"lang": "ZH-HK",
+			"rotate": "旋轉",
+			"zoom": "縮放",
+			"move": "移動",
+
+			"colors": "色彩",
+			"feature": "配件",
+
+			"exploreProductIn3D": "以 3D 檢視的方式探索產品",
+			"returnTo3dView": "返回 3D 檢視",
+			"howToUseMenu": "使用方式",
+			"mainmenu": "主功能表",
+
+			"previousView": "上一個檢視",
+			"nextView": "下一個檢視",
+			"resetView": "重設檢視",
+
+			"previous": "上一步",
+			"next": "下一步",
+			"reset": "重設",
+
+			"animations": "減少動畫",
+			"onScreenControls": "螢幕上控制",
+
+			"productview": "產品檢視",
+
+			"color1": "天空色",
+			"color2": "藍灰色",
+
+			"front": "前方",
+			"back": "後方",
+			"left": "左側",
+			"right": "右側",
+			"bottom": "Bottom",
+			"top": "頂端",
+
+			"stylus": "XPS Folio",
+			"folio": "XPS 手寫筆",
+
+			"title": "XPS 13 9315 二合一 SS"
 		}
 	]
 }
